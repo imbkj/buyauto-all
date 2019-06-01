@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--meta-->
+	    #parse("/frame/meta.vm")
+	<!--meta-->
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/swiper.min.css">
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/index_style.css" />
+	<title>平行进口车</title>
+</head>
+<body>
+	<div class="car_box">
+		<!--头部悬浮-->
+		<div class="tt_hd" id="suspend_hd">
+	    	<div class="car_size tt_hd_con stick_tt_hd">
+	    		#if(!$!userSessionInfo)
+	    		<ul class="fl cl">
+	    			<li class="fl"><img class="s_lg" src="$request.getContextPath()/res/images/lg.png" alt="" width="90" height="32"/></li>
+	    			<li class="fl"><a href="$request.getContextPath()/">首页</a></li>
+	    			<li class="fl"><a href="$request.getContextPath()/h/l/orders/ordersList">我的订单</a></li>
+	    			<li class="fl"><a href="$request.getContextPath()/h/n/products/garageScr">麦卡车库</a></li>
+	    			<li class="fl"><a href="$request.getContextPath()/about">关于我们</a></li>
+	    		</ul>
+	    		<ul class="fr cl">
+	    			<li class="fl phone" style="display:none;">400-888-8888</li>
+	    			<li class="fl sign_in"><a href="$request.getContextPath()/h/n/user/register">注册</a></li>
+	    			<li class="fl log_in"><a href="$request.getContextPath()/h/n/user/login">登录</a></li>
+	    		</ul>
+	    		#else
+	    		<ul class="fl cl">
+	    			<li class="fl"><img class="s_lg" src="$request.getContextPath()/res/images/lg.png" alt="" width="90" height="32"/></li>
+	    			<li class="fl"><a href="$request.getContextPath()/">首页</a></li>
+	    			<li class="fl"><a href="$request.getContextPath()/h/n/products/garageScr">麦卡车库</a></li>
+	    			<li class="fl"><a href="$request.getContextPath()/h/l/orders/ordersList" target="_blank">我的订单</a></li>
+	    			<li class="fl"><a href="$request.getContextPath()/about">关于我们</a></li>
+	    		</ul>
+	    		<ul class="fr cl enter">
+	    			<li class="fl phone" style="display:none;">400-888-8888</li>
+	    			<li class="fl cl portrait">
+						<div class="fl"><img src="$request.getContextPath()/res/img/tx.png" alt="" width="28" height="28"/></div>
+					#if($!userSessionInfo.companyName)
+							<span class="cl fl firm">$!userSessionInfo.companyName</span><span class="fl">： </span>
+						#end
+						<span class="cl fl named">
+							#if($userSessionInfo.uName)
+								$!userSessionInfo.uName
+							#else
+								$!userSessionInfo.phone
+							#end
+						</span>
+					</li>
+	    			<li class="fl log_in"><a href="$request.getContextPath()/h/n/user/logout">退出</a></li>
+	    		</ul>
+	    		#end
+	    	</div>
+	    </div>
+		<!--头部悬浮-->
+		<!--头部轮播-->
+		<div class="car_tt" id="car_tt">
+			<div class="swiper-container swiper1">
+		        <div class="swiper-wrapper carousel">
+		            
+		        </div>
+		        <!-- Add Pagination -->
+		        <div class="swiper-pagination swiper-pagination1"></div>
+		    </div>
+		    <div class="tt_hd" id="tt_hd">
+		    	#if(!$!userSessionInfo)
+		    	<div class="cl tt_lg">
+		    		<div class="car_size">
+	    				<a href="$request.getContextPath()/h/n/user/login" class="lg">你好！请登录</a>
+	    				<a href="$request.getContextPath()/h/n/user/register">企业注册</a>
+	    				<span>&frasl;</span>
+	   					<a href="$request.getContextPath()/h/l/orders/ordersList">供应商中心</a>
+	   					<span>&frasl;</span>
+	   					<a href="$request.getContextPath()/h/l/user/leaderIndex">经销商后台</a>
+	   					<span>&frasl;</span>
+	   					<a href="$request.getContextPath()/aboutHelp">帮助中心</a>
+   					</div>
+	    		</div>
+		    	<div class="car_size tt_hd_con">
+		    		<ul class="fl cl">
+		    			<li class="fl"><img src="$request.getContextPath()/res/images/lg.png" alt=""  width="140" height="56"/></li>
+		    			<li class="fl"><a href="$request.getContextPath()/">首页</a></li>
+		    			
+		    			<li class="fl"><a href="$request.getContextPath()/h/n/products/garageScr">麦卡车库</a></li>
+		    			<li class="fl"><a href="$request.getContextPath()/about">关于我们</a></li>
+		    			<li class="fl"><a href="$request.getContextPath()/h/l/orders/ordersList">个人中心</a></li>
+		    		</ul>
+		    		<ul class="fr cl">
+		    			<li class="fl phone" style="display:none;">400-888-8888</li>
+		    			<li class="fl register"><a href="$request.getContextPath()/h/n/user/register">注册</a></li>
+		    			<li class="fl login"><a href="$request.getContextPath()/h/n/user/login">登录</a></li>
+		    		</ul>
+		    	</div>
+		    	#else
+	    		<div class="cl tt_lg">
+		    		<div class="car_size">
+		    			#if($userSessionInfo.hasAuth('9101'))
+	   					<a href="$request.getContextPath()/h/l/orders/ordersList" target="_blank">我的订单</a>
+	   					<span>&frasl;</span>
+	   					#end
+	   					
+	   					<a href="$request.getContextPath()/aboutHelp">帮助中心</a>
+	   					#if($userSessionInfo.hasAuth('6101'))
+	   					<span>&frasl;</span>
+	   					<a href="$request.getContextPath()/h/l/user/leaderIndex">经销商后台</a>
+	   					#end
+	   					#if($userSessionInfo.hasAuth('10001'))
+	   					<span>&frasl;</span>
+	   					<a href="$request.getContextPath()/h/l/supplier/toProductsList">供应商中心</a>
+	   					#end
+	   					
+   					</div>
+	    		</div>
+		    	<div class="car_size tt_hd_con">
+		    		<ul class="fl cl">
+		    			<li class="fl"><img src="$request.getContextPath()/res/images/lg.png" alt=""  width="140" height="56"/></li>
+		    			<li class="fl"><a href="$request.getContextPath()/">首页</a></li>
+		    			
+		    			<li class="fl"><a href="$request.getContextPath()/h/n/products/garageScr">麦卡车库</a></li>
+		    			<li class="fl"><a href="$request.getContextPath()/about">关于我们</a></li>
+		    			
+		    			#if($userSessionInfo.hasAuth('9101'))
+		    			<li class="fl"><a href="$request.getContextPath()/h/l/orders/ordersList">个人中心 </a></li>
+		    			#end
+		    			#if($userSessionInfo.hasAuth('10001'))
+		    			<li class="fl"><a href="$request.getContextPath()/h/l/supplier/toProductsList" >个人中心</a></li>
+			    		#end	
+			    		
+		    			#if($userSessionInfo.hasAuth('6302') && !$userSessionInfo.hasAuth('9101') && !$userSessionInfo.hasAuth('10001') )
+		    			<li class="fl"><a href="$request.getContextPath()/h/l/orders/myOrder" >我的订单</a></li>
+		    			#end
+		    			
+		    		</ul>
+		    		<ul class="fr cl enter">
+		    			<li class="fl phone" style="display:none;">400-888-8888</li>
+		    			<li class="fl cl portrait">
+							<div class="fl"><img src="$request.getContextPath()/res/img/tx.png" alt="" width="28" height="28"/></div>
+						#if($!userSessionInfo.companyName)
+							<span class="cl fl firm">$!userSessionInfo.companyName</span><span class="fl">： </span>
+						#end
+						<span class="cl fl named">
+							#if($userSessionInfo.uName)
+								$!userSessionInfo.uName
+							#else
+								$!userSessionInfo.phone
+							#end
+						</span>
+						</li>
+		    			<li class="fl log_in"><a href="$request.getContextPath()/h/n/user/logout">退出</a></li>
+		    		</ul>
+		    	</div>
+		    	#end
+		    </div>
+	    </div>
+	    <!--头部轮播-->
+	    <!--热门推荐开始-->
+	    <div class="car_size cl car_cat">
+	    	<div class="cl nice_tt">
+	    		<div class="fl">热门推荐<span>全球好车，爆款抢购！</span></div>
+	    	</div>
+			<div class="cl car_various">
+				<div id="part3" class="part">
+					<ul class="car_recommend">
+						
+					</ul>
+				</div>
+			</div>
+			<div class="slider4 car_size cl car_style car_styles">
+				
+			</div>
+		</div>
+	    <!--热门推荐结束-->
+	    <!--你想要这样的车？开始-->
+	    <div class="car_search">
+	    	<div class="car_size">
+		    	<h5>你想找这样的车？</h5>
+		    	<p>不论在哪里，我们总能找到一款适合您的车！</p>
+		    	<div class="search_list">
+		    		<ul class="cl">
+			    		<li class="fl sech_car1">
+			    			<a href="$request.getContextPath()/h/n/products/garageScr?sortOrder=0&brandId=-1&carType=3&priceRange=-1&openMode=-1&title=">皮卡</a>
+			    		</li>
+			    		<li class="fl sech_car2">
+			    			<a href="$request.getContextPath()/h/n/products/garageScr?sortOrder=0&brandId=-1&carType=0&priceRange=-1&openMode=-1&title=">轿车</a>
+			    		</li>
+			    		<li class="fl sech_car3">
+			    			<a href="$request.getContextPath()/h/n/products/garageScr?sortOrder=0&brandId=-1&carType=4&priceRange=-1&openMode=-1&title=">货车</a>
+			    		</li>
+			    	</ul>
+			    	<ul class="cl m_top">
+			    		<li class="fl sech_car4">
+			    			<a href="$request.getContextPath()/h/n/products/garageScr?sortOrder=0&brandId=-1&carType=5&priceRange=-1&openMode=-1&title=">跑车</a>
+			    		</li>
+			    		<li class="fl sech_car5">
+			    			<a href="$request.getContextPath()/h/n/products/garageScr?sortOrder=0&brandId=-1&carType=1&priceRange=-1&openMode=-1&title=">SUV</a>
+			    		</li>
+			    		<li class="fl sech_car6">
+			    			<a href="$request.getContextPath()/h/n/products/garageScr?sortOrder=0&brandId=-1&carType=2&priceRange=-1&openMode=-1&title=">MPV</a>
+			    		</li>
+			    	</ul>
+		    	</div>
+	    	</div>
+	    </div>
+	    <!--你想要这样的车？结束-->
+	    <!--精选好车开始-->
+	    <div class="car_size car_more">
+	    	<div class="cl nice_tt">
+	    		<div class="fl">精选好车<span>专注进口车型，给你最想要的！</span></div>
+	    		<div class="fr">
+	    		<!-- <a href="#">更多好车 &raquo;</a> -->
+	    		</div>
+	    	</div>
+	    	<div class="cl base base_bt">
+	    		<ul class="cl append_sift">
+	    			
+	    		</ul>
+	    	</div>
+	    	<div class="car_size car_mores"><a href="$request.getContextPath()/h/n/products/garageScr">更多精选好车</a></div>
+	    </div>
+	    <!--精选好车结束-->
+	    <!--新闻资讯开始-->
+	    <div class="car_ifmt">
+	    	<div class="car_size">
+	    		<ul class="cl memu">
+	    			<li class="fl active">新闻资讯</li>
+	    			<li class="fl">麦卡公告</li>
+	    		</ul>
+	    		<div class="new_ifmt new_ifmt_active">
+	    			<div class="swiper-container swiper3">
+				        <div class="swiper-wrapper car_news">
+				            
+				        </div>
+				        <!-- Add Pagination -->
+				        <div class="swiper-pagination swiper-pagination3"></div>
+				    </div>
+				    <div class="more_ifmt"><a href="$request.getContextPath()/h/n/news" target="_blank">更多资讯 &raquo;</a></div>
+	    		</div>
+	    		<div class="new_ifmt">
+	    			<div class="swiper-container swiper4">
+				        <div class="swiper-wrapper car_notice">
+				            
+				        </div>
+				        <!-- Add Pagination -->
+				        <div class="swiper-pagination swiper-pagination4"></div>
+				    </div>
+				    <div class="more_ifmt"><a href="$request.getContextPath()/h/n/news" target="_blank">更多公告 &raquo;</a></div>
+	    		</div>
+	    	</div>
+	    </div>
+	    <!--新闻资讯结束-->
+	    <!--底部-->
+	    #parse("/frame/base.vm")
+	    <!--底部-->
+	</div>
+</body>
+	<!-- Swiper JS -->
+	<script src="$request.getContextPath()/res/js/plug/jquery-1.9.1.min.js"></script>
+	<script src="$request.getContextPath()/res/appjs/index.js"></script>
+	<script src="$request.getContextPath()/res/js/plug/jquery.bxslider.js"></script>
+    <script src="$request.getContextPath()/res/js/plug/swiper.min.js"></script>
+    <script type="text/javascript">
+           var  g_requestContextPath= "$request.getContextPath()";
+    </script>
+    <script src="$request.getContextPath()/res/js/plug/sHover.js"></script>
+</html>

@@ -1,0 +1,146 @@
+﻿[{
+    "id": 1,
+    "text": "首页",
+    "iconCls": "fa fa-home",
+    "children": [{
+        "id": 1,
+        "text": "首页",
+        "url": "/h/l/i/index",
+        "iconCls": "fa-dashboard"
+    },{
+        "id": 2,
+        "text": "数据概览",
+        "url": "/h/l/i/dataReports",
+        "iconCls": "pic_71"
+    }]
+},
+{
+    "id": 2,
+    "text": "商品管理",
+    "iconCls": "fa fa-automobile",
+    "children": [{
+        "id": 1,
+        "text": "商品列表",
+        "url": "/h/l/mall/showInfo",
+        "iconCls": "pic_71"	
+    },{
+        "id":2,
+        "text": "草稿箱",
+        "url": "/h/l/mall/draft",
+        "iconCls": "pic_71"
+    },{
+        "id":3,
+        "text": "回收站",
+        "url": "/h/l/mall/recycle",
+        "iconCls": "pic_71"
+    }]
+},
+{
+    "id": 3,
+    "text": "配置管理",
+    "iconCls": "fa  fa-database",
+    "children": [{
+        "id": 1,
+        "text": "提车点配置",
+        "url": "/h/l/configure/address",
+        "iconCls": "pic_71"
+    },{
+        "id": 2,
+        "text": "品牌配置",
+        "url": "/h/l/configure/carBrand",
+        "iconCls": "pic_71"
+    },{
+        "id": 3,
+        "text": "抽佣规则配置",
+        "url": "/h/l/configure/commission",
+        "iconCls": "pic_71"
+    },{
+        "id": 4,
+        "text": "用户升降级配置",
+        "url": "/h/l/configure/upgradeOrDowngrade",
+        "iconCls": "pic_71"
+    }]
+},{
+   "id": 3,
+    "text": "CMS管理",
+    "iconCls": "fa  fa-image",
+    "children": [{
+        "id": 1,
+        "text": "banner管理",
+        "url": "/h/l/cms/tobanner",
+        "iconCls": "pic_71"
+    },{
+        "id":2,
+        "text": "新闻管理",
+        "url": "/h/l/cms/toCmsNews",
+        "iconCls": "pic_71"
+    }]
+},{
+   "id": 5,
+    "text": "订单管理",
+    "iconCls": "fa  fa-sitemap",
+    "children": [{
+        "id": 1,
+        "text": "订单列表",
+        "url": "/h/l/orders/toOrders",
+        "iconCls": "pic_71"
+    }]
+},{
+   "id": 6,
+    "text": "审核管理",
+    "iconCls": "fa fa-deviantart",
+    "children": [{
+        "id": 1,
+        "text": "审核列表",
+        "url": "/h/l/audit/auditList",
+        "iconCls": "pic_71"
+    },{
+        "id": 2,
+        "text": "经销商管理",
+        "url": "/h/l/audit/commpanyAudit",
+        "iconCls": "pic_71"
+    },{
+        "id": 3,
+        "text": "供应商管理",
+        "url": "/h/l/audit/supplierAudit",
+        "iconCls": "pic_71"
+    },{
+        "id": 4,
+        "text": "供应商金融审核",
+        "url": "/h/l/audit/supplierFinanceAudit",
+        "iconCls": "pic_71"
+    },{
+        "id": 5,
+        "text": "个人金融审核",
+        "url": "/h/l/audit/personalFinanceAudit",
+        "iconCls": "pic_71"
+    },{
+        "id": 6,
+        "text": "个人用户管理",
+        "url": "/h/l/audit/personalAudit",
+        "iconCls": "pic_71"
+    }]
+},{
+    "id": 7,
+    "text": "系统功能",
+    "iconCls": "fa fa-cogs",
+    "children": [{
+        "id": 1,
+        "text": "用户管理",
+        "url": "/h/l/oper/toOperation",
+        "iconCls": "pic_71"
+    },{
+        "id":2,
+        "text": "角色管理",
+        "url": "/h/l/oper/toRole",
+        "iconCls": "pic_71"
+    },{
+        "id":3,
+        "text": "个人销售上下线统计",
+        "url": "/h/l/oper/toCountSales",
+        "iconCls": "pic_71"
+    }]
+}
+
+
+]

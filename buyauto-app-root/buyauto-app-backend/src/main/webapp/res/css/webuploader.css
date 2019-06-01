@@ -1,0 +1,37 @@
+.webuploader-container {
+	position: relative;
+}
+.webuploader-element-invisible {
+	position: absolute !important;
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px,1px,1px,1px);
+}
+.webuploader-pick {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+	padding: 10px 15px;
+	width:160px;
+	height:186px;
+	color: #fff;
+	text-align: center;
+	border-radius: 3px;
+	overflow: hidden;
+	background:url(../images/website/uploading.png) no-repeat;
+	background-size:160px 186px;
+}
+.webuploader-pick-disable {
+	opacity: 0.6;
+	pointer-events:none;
+}
+.parentFileBox{
+	position:absolute;
+	left:0;
+	top:0;
+	width:160px !important;
+	height:186px !important;
+
+}
+.parentFileBox .fileBoxUl .fileBox_WU_FILE_0 .viewThumb img{
+	max-width:100%;
+}

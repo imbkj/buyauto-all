@@ -1,0 +1,78 @@
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" type="image/ico" href="$request.getContextPath()/res/images/favicon.ico"/>
+    <!-- jQuery -->
+    <script src="$request.getContextPath()/res/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <link href="$request.getContextPath()/res/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="$request.getContextPath()/res/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Font Awesome -->
+    <link href="$request.getContextPath()/res/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- bootstrap-progressbar -->
+    <link href="$request.getContextPath()/res/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    
+     <!-- PNotify -->
+    <link href="$request.getContextPath()/res/vendors/pnotify/dist/pnotify.css" rel="stylesheet">
+    <link href="$request.getContextPath()/res/vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
+    <link href="$request.getContextPath()/res/vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
+    
+    <!-- iCheck -->
+    <link href="$request.getContextPath()/res/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <!-- Datatables -->
+    <link href="$request.getContextPath()/res/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="$request.getContextPath()/res/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="$request.getContextPath()/res/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="$request.getContextPath()/res/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="$request.getContextPath()/res/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+     
+     <!-- 日期控件 -->
+     <link href="$request.getContextPath()/res/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    
+    
+    <!-- form 类页面所需要的 begin-->
+    <!-- bootstrap-wysiwyg -->
+    <link href="$request.getContextPath()/res/vendors/google-code-prettify/bin/prettify.min.css" rel="stylesheet">
+    <!-- Select2 -->
+    <link href="$request.getContextPath()/res/vendors/select2/dist/css/select2.min.css" rel="stylesheet">
+    <!-- Switchery -->
+    <link href="$request.getContextPath()/res/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
+    <!-- starrr -->
+    <link href="$request.getContextPath()/res/vendors/starrr/dist/starrr.css" rel="stylesheet">
+    
+    <!-- dropzone -->
+    <link href="$request.getContextPath()/res/vendors/dropzone/dist/min/dropzone.min.css" rel="stylesheet">
+    
+    <!--bootstrap-files-->
+    <link href="$request.getContextPath()/res/vendors/bootstrap-fileinput/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
+    
+     <link rel="stylesheet" href="$request.getContextPath()/res/js/confirm/jquery-confirm.min.css">
+    <!--  form 类页面所需要的 end -->
+    
+    <!-- Custom Theme Style -->
+    <link href="$request.getContextPath()/res/css/custom.css" rel="stylesheet">
+    
+    <script type="text/javascript">
+    	var g_requestContextPath = "$request.getContextPath()";
+    	var g_imageShowPath = "";
+
+   		$(function(){
+   	   		//获取图片
+   			$.ajax({
+   	   			url:g_requestContextPath + "/getImagePath",
+   	   			type:'get',
+   	   			async:false,
+   	   			success:function(data){
+   	   				g_imageShowPath = data;
+   	   			},
+   	   			error:function(data){
+   	   				console.log(data);
+   	   			}
+   	   		});
+   		})
+   			
+   	
+    </script>
+    

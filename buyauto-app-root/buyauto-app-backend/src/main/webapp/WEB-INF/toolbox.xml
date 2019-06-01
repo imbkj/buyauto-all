@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================= @(#) toolbox.xml 
+	Copyright (c) 2005, HOBOKEN Project, All Rights Reserved. ============================================================= -->
+<tools>
+
+	<toolbox scope="application">
+		<tool class="com.buyauto.util.core.tool.web.VCToolbar" />
+	</toolbox>
+</tools>

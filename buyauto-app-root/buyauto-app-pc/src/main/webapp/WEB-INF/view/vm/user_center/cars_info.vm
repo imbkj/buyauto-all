@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--meta-->
+	    #parse("/frame/meta.vm")
+	<!--meta-->
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/style.css" />
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/car_info.css">
+	<title>麦卡进口车-车辆详情预览</title>
+</head>
+<body>
+     #parse("/frame/header.vm")
+	    <div class="wrap">
+	     <div class="bread_link">
+	     	  <a href="$request.getContextPath()/">首页</a><em>></em>
+	     	  <a href="$request.getContextPath()/h/n/products/garageScr">车库 </a><em>></em>
+	     	  <a href="javascript:void(0);">$sysConfigBrand.scValue</a> <em>></em>
+	     	  <a href="javascript:void(0);">$tProductsPojo.title</a>
+	     </div>
+	     <div class="newcar_detail">
+	     	  <dl>
+	     	  	 <dt>
+	     	  	 	 <div class="ban" id="demo1">
+						<div class="ban2" id="ban_pic1">
+							<ul>
+								#foreach( $detailsImage  in $tProductsPojo.tProductsImage)
+									<li><a href="javascript:;"><img src="$uploadPath$detailsImage.filePath" width="550" height="386" alt=""/></a></li>
+								#end
+							</ul>
+						</div>
+						<div class="min_pic">
+							<div class="prev_btn1" id="prev_btn1">
+								<div class="btn_lt">
+								</div>
+							</div>
+							<div class="num clearfix" id="ban_num1">
+								<ul>
+									#foreach( $detailsAbbrImage  in $tProductsPojo.tProductsImage)
+									<li><a href="javascript:;"><img src="$uploadPath$detailsAbbrImage.filePath" alt=""/></a></li>
+									#end 											
+								</ul>
+							</div>
+							 <div class="next_btn1" id="next_btn1">
+							 	<div class="btn_rt"></div>
+							 </div>
+						</div>
+					</div>
+
+		     	  	 </dt>
+					     <dd>
+		     	  	 	   <div class="detail_tright">
+		     	  	 		 <div class="cars_tit"><h6>$tProductsPojo.title</h6></div>
+		     	  	 		 <div class="cars_detail_math">
+		     	  	 		 	  <p>
+		     	  	 		 	  	<span>麦卡价:<em> $VCToolbar.formattingMoneyCN("$tProductsPojo.carPrice",false)</em></span>
+		     	  	 		 	  	#if($tProductsPojo.chinaPrice)
+		     	  	 		 	    <span>国内指导价：<i>$VCToolbar.formattingMoneyCN("$tProductsPojo.chinaPrice",false)</i></span>
+		     	  	 		 	    #end
+		     	  	 		 	  </p>
+		     	  	 		 	  <div class="forcount">
+		     	  	 		 	      <span class="dist dist1"><h5>$tProductsPojo.country</h5></span>
+		     	  	 		 	      #if($tProductsPojo.position == 0)
+                                       	<span class="dist dist2"><h5>现货</h5></span>
+                                      #elseif($tProductsPojo.position == 1)
+                                		<span class="dist dist2"><h5>预定</h5></span>
+                                      #else
+                                    	<span class="dist dist2"><h5>在途</h5></span>
+                                      #end
+		     	  	 		 	      
+		     	  	 		 	  </div>
+		     	  	 		 </div>
+		     	  	 		 <ul>
+		     	  	 		 	<li><h6>参数配置</h6></li>
+		     	  	 		 	<li>
+		     	  	 		 		<span>型号</span>
+	                                <p>$tProductsPojo.carModel</p>
+		     	  	 		 	</li> 
+		     	  	 		 	<li>
+		     	  	 		 		<span>颜色</span>
+		     	  	 		 		<p><span>车身</span><span>$tProductsPojo.outColor</span><span>内饰</span><span>$tProductsPojo.inColor</span></p>
+		     	  	 		 	</li>
+		     	  	 		 	<li>
+		     	  	 		 		<span>发动机</span>
+	                                <p><span>$tProductsPojo.engine</p>
+		     	  	 		 	</li>
+		     	  	 		 	<li>
+		     	  	 		 		<span>变速箱</span>
+		     	  	 		 		<p><span>$tProductsPojo.gearbox</span></p>
+		     	  	 		 	</li>
+		     	  	 		 </ul>
+		     	  	 		 <div class="tel_me">
+		     	  	 		 	 <!--<p>服务热线：400-8888-8890</p>-->
+		     	  	 		 	 #if($carNoCount>0)
+		     	  	 		 	 <!--<a href="$request.getContextPath()/h/l/products/detail/$tProductsPojo.productsId">立刻订购</a>-->
+		     	  	 		 	 <a href="javascript:void(0);" style="cursor:not-allowed">立刻订购</a>
+		     	  	 		 	 #else
+		     	  	 		 	 <a class="low_stocks" href="javascript:void(0);">已脱销</a>
+		     	  	 		 	 #end
+		     	  	 		 </div>
+	     	  	 	</div>
+	     	  	 </dd>
+	     	  </dl>
+	     </div>
+
+	     <div class="carsnav">
+	     	<div class="nav-height cl" id="navHeight">
+				<nav class="cl nav-wrap" id="nav-wrap">
+				    <div class="nav-mobile">Click</div>
+				    <ul class="cl fl clearfix">
+					    <li class="cl">
+						    <a class="fl active" href="#section1">车型亮点</a>
+						    <a class="fl" href="#section2">平台优势</a>
+						    <a class="fl" href="#section3">购车流程</a>
+					    </li>
+				    </ul>
+			 	</nav>
+			 	<div class="cl nav_order">
+			 		#if($carNoCount>0)
+		 		 	<!--<a class="fr" href="$request.getContextPath()/h/l/products/detail/$tProductsPojo.productsId">立即订购</a>-->
+		 		 	<a class="fr" href="javascript:void(0);" style="cursor:not-allowed">立即订购</a>
+		 		 	#else
+		 		 	<a class="fr low_stocks" href="javascript:void(0);">已脱销</a>
+		 		 	#end
+			    	<div class="fr">麦卡价：<span>$VCToolbar.formattingMoneyCN("$tProductsPojo.carPrice",false)</div>
+			    </div>
+			</div>
+	     	 <div class="car_list1" id="section1">
+	     	 	 <h6>车型亮点</h6>
+	     	 	 <span class="print_consult">图片仅供参考，请以实际车型为准</span>
+	     	 	$tProductsPojo.content
+	     	 </div>
+	     	 <div class="car_list2" id="section2">
+	     	 	 <h6>平台优势</h6>
+	     	 	 <div class="adv_box">
+					<ul>
+						<li>
+							<img src="$request.getContextPath()/res/images/about_us03.png" alt="">
+							<h3>海外采购</h3>
+							<p>车辆均为海外直采，车源信息全面，价格透明。</p>
+						</li>
+						<li style="margin-left:20px;">
+							<img src="$request.getContextPath()/res/images/about_us04.png" alt="">
+							<h3>车型丰富</h3>
+							<p>提供全球超过二十多个品牌，上百款车型供用户进行挑选。</p>
+						</li>
+						<li style="margin-top:20px;">
+							<img src="$request.getContextPath()/res/images/about_us05.png" alt="">
+							<h3>专属配送</h3>
+							<p>与国内知名供应链公司强强合作，拥有大型的现代化仓库，可提供详细的实时配送运输信息。</p>
+						</li>
+						<li style="margin-left:20px;margin-top:20px;">
+							<img src="$request.getContextPath()/res/images/about_us06.png" alt="">
+							<h3>手续齐全</h3>
+							<p>附带正规合法手续文件，包括货物进口证明书、车辆一致证明书、进口机动车随车检验单、车辆基本信息表、车辆正规发票等。</p>
+						</li>
+					</ul>
+				</div>
+	     	 </div>
+	     	 <div class="car_list3" id="section3">
+	     	 	 <h6>购车流程</h6>  
+	     	 	 <div class="buy_flows">
+	     	 	 	 <i class="icon1_line"></i>
+	     	 	 	 <i class="icon2_line"></i>
+	     	 	 	 <i class="icon3_ltarrow"></i>
+	     	 	 	 <i class="icon4_rtarrow"></i>
+	     	 	 	 <ul>
+	     	 	 	 	<li>
+	     	 	 	 		<img src="$request.getContextPath()/res/images/carinfo/piccars.png" alt="">
+	     	 	 	 		<h5>选择车型</h5>
+	     	 	 	 		<p>确认您想购买的车型，选择配置，提交订单并支付定金后，平台确认订单后，下单即成功。</p>
+	     	 	 	 	</li>
+	     	 	 	 	<li>
+	     	 	 	 		<img src="$request.getContextPath()/res/images/carinfo/kacars.jpg" alt="">
+	     	 	 	 		<h5>物流运输</h5>
+	     	 	 	 		<p>我们会根据您提交的交车地点及期望交付时间，将车运输到指定地点，等待交车。</p>
+	     	 	 	 	</li>
+	     	 	 	 	<li>
+	     	 	 	 		<img src="$request.getContextPath()/res/images/carinfo/car.png" alt="">
+	     	 	 	 		<h5>支付尾款，提车</h5>
+	     	 	 	 		<p>现场确认车辆可以交付后，支付车辆剩余尾款，开具发票，并交付货物进口证明，随车检验单，车辆一致性证书。</p>
+	     	 	 	 	</li>
+	     	 	 	 </ul>
+	     	 	 </div>
+	     	 </div>
+	     </div>
+    </div>
+    <!-- <div class="endbtn">
+        <ul>
+          	<li><a href="$request.getContextPath()/h/l/supplier/recycleBin">保存到草稿箱</a></li>
+          	<li><button  onclick="lookinfo($tProductsPojo.productsId)" >提交</button></li>
+        </ul>  
+    </div>-->
+	
+	</div>
+	
+	<!-- 提示 -->
+		<div class="boom"></div>
+		<div class="Errors">
+			<h4>提示</h4>
+			<span> </span>
+			<div class="delBtn">确认</div>
+		</div>
+	<!-- end -->
+	
+	
+	<!--footer start-->
+	 #parse("/frame/base.vm")
+	 <!--end-->
+	 
+    <script src="$request.getContextPath()/res/js/plug/jquery-1.9.2.min.js"></script>
+    <script  type="text/javascript" src="$request.getContextPath()/res/js/plug/pic_tab.js"></script>
+    <script  type="text/javascript" src="$request.getContextPath()/res/js/plug/CateNav.js"></script>
+    <script type="text/javascript" src="$request.getContextPath()/res/appjs/car_info.js"></script>
+</body>
+</html>

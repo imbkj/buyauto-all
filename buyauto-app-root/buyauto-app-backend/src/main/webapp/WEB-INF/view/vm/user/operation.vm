@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>麦卡进口车-用户管理</title>
+    #parse("/frame/public.vm")
+    <link rel="stylesheet" href="$request.getContextPath()/res/vendors/jqwidgets/jqwidgets/styles/jqx.base.css" type="text/css" />
+	 <style> 
+        .box{
+		border:1px solid  #C0C0C0;
+		width:182px;height:19px;
+		clip:rect(0px,181px,18px,0px);
+		overflow:hidden;
+		} 
+        .box2{
+		border:1px solid #F4F4F4;
+		width:180px;
+		height:17px;
+		clip:rect(0px,179px,16px,0px);
+		overflow:hidden;
+		margin-top: 30px;
+		margin-left: 20px;
+		} 
+        select{
+		position:relative;
+		left:-2px;
+		top:-2px;
+		font-size:12px;
+		width:183px;
+		line-height:14px;
+		border:0px;
+		color:#909993;
+		}
+    </style> 
+</head>
+
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+
+        <!-- 导航菜单部分 -->
+        #parse("/frame/public_nav_panel.vm")
+
+        <!-- top navigation -->
+        #parse("frame/public_top_nav_panel.vm")
+        <!-- /top navigation -->
+
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="clearfix"></div>
+
+            <div class="page-title">
+                <div class="title_left">
+                    <h3>用户管理</h3>
+                </div>
+            </div>
+            <div class="">
+                <!-- 主体内容部分 -->
+
+
+                <div class="row">
+                    <div class="col-md-12 col-xs-12">
+                    <div class="x_panel" >
+                        <div class="x_title">
+                            #if($session.getAttribute('UserSessionInfoBackend').hasAuth('3101'))
+                            <button type="button" id="btn_create_user" class="btn btn-warning" ><i class="fa fa-plus"></i>&nbsp;新 增</button>
+                            #end
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+
+
+
+                            <table class="table table-hover table-striped  table-bordered   dt-responsive nowrap" id="user_admeasure_role" style="width: 100%;">
+                                <thead>
+                                <tr>
+                                    <th>用户名</th>
+                                    <th>创建日期</th>
+									<th>角色名称</th>
+                                    <th>状态</th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>  </div>
+                </div>
+            </div>
+
+
+            <!-- 新增用户 start-->
+
+            <div class="modal fade uas-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-md">
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                            </button>
+                            <h4 class="modal-title" id="myUASModalLabel">用户编辑</h4>
+                        </div>
+                        <div class="modal-body">
+
+                            <form  id="form_user_role" action="#" class="form-horizontal form-label-left" method="POST" novalidate>
+                                <div class="row">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name"><span class="required">*</span>用户名</label>
+                                        <div class="col-md-5 col-sm-6 col-xs-12">
+                                            <input type="text"  id="userName" name="userName"  required="required"  class="form-control" />
+                                            <input type="hidden" id="user_role_id" name="id"   value=""/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name"><span class="required"></span>密 码</label>
+                                        <div class="col-md-5 col-sm-6 col-xs-12">
+                                            <input type="password" id="userPwd" name="userPwd"  placeholder="请输入密码" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name"><span class="required"></span>姓名</label>
+                                        <div class="col-md-5 col-sm-6 col-xs-12">
+                                            <input type="text" id="realName" name="realName"  value="" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name"><span class="required"></span>职位</label>
+                                        <div class="col-md-5 col-sm-6 col-xs-12">
+                                            <input type="text" id="position" name="position"  value="" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name"><span class="required"></span>是否启用</label>
+                                        <div id="gender" class="col-md-5 col-sm-6 col-xs-12 btn-group" data-toggle="buttons">
+                                            <label id="isTrue1" class="btn btn-default active" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                                <input type="radio" checked  name="isTrue" value="1"> 是
+                                            </label>
+                                            <label id="isTrue2" class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                                <input type="radio" name="isTrue" value="2"> 否
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name"><span class="required"></span>创建日期</label>
+                                        <div class="col-md-5 col-sm-6 col-xs-12">
+                                            <input id="createTime" name="createTime" readonly  value="" class="form-control col-md-3 col-xs-12" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="button" id="btn_user_role_submit" class="btn btn-primary">提交</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- 新增用户 end-->
+
+            <!-- 设置权限 start-->
+
+            <div class="modal fade uas-modal-role" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-md">
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                            </button>
+                            <h4 class="modal-title" id="myUASModalLabel">用户管理</h4>
+                        </div>
+                        <div class="modal-body">
+
+                            <form  id="form_role" action="#" class="form-horizontal form-label-left" method="POST" novalidate>
+                                <input type="hidden" id="userId"/>
+                                <div class="row">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">设置角色</label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12" id="ckb_user_role_list">
+
+                                            <div id='jqxTree' style='visibility: hidden; float: left; margin-left: 20px;'>
+												<div class=box>
+													<div class=box2>
+                                                        <select id="roleMoudel" hidefocus >
+        													
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="button" id="btn_role_submit" class="btn btn-primary">提交</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- 设置权限 end-->
+
+            <!-- /主体内容部分 -->
+        </div>
+    </div>
+    <!-- /page content -->
+
+    <!-- footer content -->
+    #parse("/frame/footer.vm")
+    <!-- /footer content -->
+</div>
+</div>
+
+#parse("/frame/footer_resouce.vm")
+
+<!-- Flot -->
+
+<script type="text/javascript">
+    var modify = $session.getAttribute('UserSessionInfoBackend').hasAuth('3101');
+    var enable = $session.getAttribute('UserSessionInfoBackend').hasAuth('3101');
+    var setRole = $session.getAttribute('UserSessionInfoBackend').hasAuth('3101');
+    //var modify = true ;
+    //var enable = true ;
+    //var setRole = true ;
+
+</script>
+<script type="text/javascript" src="$request.getContextPath()/res/appjs/user_admeasure_role.js"></script>
+
+<script type="text/javascript" src="$request.getContextPath()/res/vendors/jqwidgets/jqwidgets/jqxcore.js"></script>
+<script type="text/javascript" src="$request.getContextPath()/res/vendors/jqwidgets/jqwidgets/jqxbuttons.js"></script>
+<script type="text/javascript" src="$request.getContextPath()/res/vendors/jqwidgets/jqwidgets/jqxscrollbar.js"></script>
+<script type="text/javascript" src="$request.getContextPath()/res/vendors/jqwidgets/jqwidgets/jqxpanel.js"></script>
+<script type="text/javascript" src="$request.getContextPath()/res/vendors/jqwidgets/jqwidgets/jqxtree.js"></script>
+<script type="text/javascript" src="$request.getContextPath()/res/vendors/jqwidgets/jqwidgets/jqxcheckbox.js"></script>
+
+</body>
+</html>

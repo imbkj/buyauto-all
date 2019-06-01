@@ -1,0 +1,27 @@
+ <div class="order_lt">
+	<ul>
+		<li class="order_user">
+			<span>$!userSessionInfo.companyName</span>
+		</li>
+		<li class="icon icon1">
+			<a href="$request.getContextPath()/h/l/user/leaderIndex">	
+				<span>系统首页</span>
+			</a>
+		</li>
+		<li class="icon icon2">
+			<a href="$request.getContextPath()/h/l/user/employee">
+				<span>子账号管理</span>
+			</a>
+		</li>
+		<li class="icon icon3">
+			<a href="$request.getContextPath()/h/l/orders/myAccount">
+				<span>账房</span>
+			</a>
+		</li>
+		<li class="icon icon4">
+			<a href="$request.getContextPath()/h/l/orders/myOrdersMgr">
+				<span>订单管理</span>
+			</a>
+		</li>
+	</ul>
+</div>

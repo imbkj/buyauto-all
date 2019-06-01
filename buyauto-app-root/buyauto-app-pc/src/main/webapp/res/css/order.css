@@ -1,0 +1,19 @@
+.car_indent .car_indent_deta .indent_deta li:first-child{
+	width: 380px;
+}
+
+.car_indent .car_indent_deta .indent_deta li{
+	width: 140px;
+}
+
+.car_indent .car_indent_deta .indent_deta li a{
+	color: #ff9900;
+}
+
+.car_indent .car_indent_deta li div.mat{
+	width: 170px;
+}
+
+.car_indent .indent_mn #indent_mn{
+	width: 1000px;
+}

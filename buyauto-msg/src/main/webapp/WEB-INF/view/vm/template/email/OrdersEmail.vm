@@ -1,0 +1,9 @@
+<div style="width:600px;margin:10px auto;position: relative;">
+	<div style="width:100%;height:165px;background:#ff9900;text-align:center;"><img src="http://static.51buyauto.com/data/msg-logo.png" style="margin:35px 0;" /></div>
+	<div class="g-bd" style="margin-top:10%;">
+		<p style="font-size:20px;font-weight: normal;">异常通知：</p>
+		<p>
+			<span style="margin-left:5%;"></span>编号为$expr.templateParam.orderId的订单出现异常状况，该订单当前的状态为$expr.templateParam.orderStatus，请及时联系元初工作人员处理。
+  		</p>
+	</div>
+</div>

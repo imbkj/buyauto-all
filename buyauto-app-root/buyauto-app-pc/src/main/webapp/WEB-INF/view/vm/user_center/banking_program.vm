@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--meta-->
+	    #parse("/frame/meta.vm")
+	<!--meta-->
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/banking_program.css" />
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/user_center_lt.css" />
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/style.css"> 
+	<title>个人中心-金融方案</title>
+</head>
+<body>
+	<!--header-->
+	#parse("/frame/user_header.vm")
+
+    	<div class="wrap">
+		<div class="topmenu">
+			<span>首页</span><em>></em><span>个人中心</span>
+		</div>
+		<div class="center">
+		
+      <!--nav left-->
+	   #parse("/frame/user_nav_lt.vm")
+
+		<div class="rt_count">
+			<div class="rt_menu">
+				 <ul>
+				 	<li class="currt">库存融资</li>
+				 	<li>配资</li>
+				 </ul>
+			</div>
+
+			<div class="banking_info">
+				<form action="" id="bank_form">
+					 <ul>
+					 	<li>
+					 		<label class="lt">金额</label>
+					 	    <div class="rt"><input id="money" name="money" type="text"></div>
+					 	</li>
+					 	<li>
+					 		<label class="lt">港口</label>
+					 		<div class="rt">
+					 			<span class="radio_box">
+						                <input type="radio" id="radio_1" name="userType"  value="1"  checked="checked">
+						                <label for="radio_1"><em></em>张家港</label>
+						                
+						            </span>
+									<span class="radio_box">
+						                <input type="radio" id="radio_2" name="userType" value="1.5" >
+						                <label for="radio_2"><em></em>其它</label>
+						                
+						            </span>
+					 		</div>
+					 	</li>
+					 	<li>
+							<label class="lt">周期</label>
+							<div class="rt">
+					 		<select name="" id="qx">
+					 			 <option value="6">6个月</option>
+					 			 <option value="12">12个月</option>
+								 <option value="24">24个月</option>
+					 		</select>
+							</div>
+					 		<!--<label class="lt">期限</label>
+					 		<div class="rt">
+					 			<em>1年期</em>
+					 		</div> -->
+					 	</li>
+					 </ul>
+					 <div class="moneys">
+					 	<p><span>保证金</span><em id="bzj_bank">0.00元</em></p>
+					 	<p><span>手续费</span><em id="sxf_bank">0.00元</em></p>   
+					 	<p><span>每月应还</span><em id="myyh_bank">0.00元</em></p> 
+					 </div>
+					 <div class="submit">
+					 	  <input id="bank_submit" type="submit" value="提交申请">
+					 </div>
+				</form>
+			</div>
+
+			<div class="captital" style="display:none">
+				<form action="#" id="captital_form">
+					<ul>
+					 	<li>
+					 		<label class="lt">金额</label>
+					 	    <div class="rt"><input id="amount" name="amount" type="text"></div>
+					 	</li>
+					 	<li>
+					 		<label class="lt">周期</label>
+					 		<select name="" id="zq">
+					 			 <option value="1">1个月</option>
+					 			 <option value="2">2个月</option>
+								 <option value="6">6个月</option>
+								 <option value="12">12个月</option>
+								 <option value="24">24个月</option>
+								 <option value="36">36个月</option>
+					 		</select>
+					 	</li>
+					 	<li>
+					 		<label class="lt">还款方式</label>
+					 		<div class="rt">
+					 			<select name="" id="lx">
+					 				<option value="0">等额本息</option>
+					 				<option value="1">按月付息，到期还款</option>
+					 			</select>
+					 		</div>
+					 	</li>
+					 </ul>
+					 <div class="moneys">
+					 	<p><span>保证金</span><em id="bzj_captital">0.00元</em></p>
+					 	<p><span>手续费</span><em id="sxf_captital">0.00元</em></p>   
+					 	<p><span>每月应还</span><em id="myyh_captital">0.00元</em></p> 
+					 </div>
+					 <div class="submit">
+					 	  <input id="captital_submit" type="submit" value="提交申请">
+					 </div>
+				</form> 
+			</div>
+		</div>
+	</div>
+	  <div class="boom"></div>
+		<div class="Errors">
+			<h4>提示</h4>
+			<span> </span>
+			<div class="delBtn">确认</div>
+		</div>
+       
+		<div class="errors">
+			<h4>提示</h4>
+			<span> </span>
+			<div class="delbtn"><button id="sure1">确认</buttton><button id="sure2">确认</buttton><button id="cancel">取消</button></div>
+		</div>
+  </div>
+
+		
+	<!--footer-->
+	#parse("/frame/base.vm")
+	
+	<script type="text/javascript" src="$request.getContextPath()/res/js/common/common.js"></script>
+	<script type="text/javascript" src="$request.getContextPath()/res/js/plug/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="$request.getContextPath()/res/js/plug/jquery.validate.form.js"></script>
+	<script type="text/javascript" src="$request.getContextPath()/res/appjs/banking_program.js"></script>
+</html>

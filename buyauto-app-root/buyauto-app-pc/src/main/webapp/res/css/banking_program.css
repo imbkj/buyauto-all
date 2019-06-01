@@ -1,0 +1,258 @@
+.center{
+	display:inline-block;
+}
+
+.wrap{
+	width:1100px;
+	margin:0 auto;
+}
+
+.rt_count{
+	width:840px;
+	margin-left:20px;
+	float: right;
+	padding-bottom:260px;
+}
+.rt_menu{
+	 height:40px;
+	 line-height: 40px;
+	 border-bottom: 2px solid #f39800;
+	 font-size: 16px;
+	 color:#121212;
+}
+
+.rt_menu ul{
+	width:100%;
+	display: inline-block;
+}
+
+.rt_menu ul li{
+	float: left;
+	width:220px;
+	height:40px;
+	line-height: 40px;
+	border:1px solid #f39800;
+	text-align: center;
+	cursor: pointer;
+}
+.rt_menu ul li.currt{
+	background: #f39800;
+	color:#fff;
+}
+.banking_info,.captital{
+	margin:50px 0 0 20px;
+	display: inline-block;
+}
+.banking_info ul .captital ul{
+	width:100%;
+	display: inline-block;
+}
+
+.banking_info ul li,.captital ul li{
+	width:100%;
+	 margin-top:12px;
+	 display: inline-block;
+}
+
+.banking_info ul li .lt,.captital ul li .lt{
+	 width:140px;
+	 height:40px;
+	 line-height: 40px;
+	 text-align: center;
+	 font-size: 14px;
+	 color:#111;
+	 float: left;
+}
+
+.banking_info ul li .rt{
+	 float: left;
+	 height:40px;
+	 line-height: 40px;
+}
+
+.banking_info ul li .rt input,.captital ul li .rt input,.captital ul li select,.banking_info ul li .rt select{
+	width:350px;
+	height:40px;
+	line-height: 40px;
+	border:1px solid #e6e6e6; 
+}
+
+.banking_info ul li .rt span{
+	height:40px;
+	line-height: 40px;
+}
+.moneys{
+	width:480px;
+	padding:8px 0 18px 22px;
+	display: inline-block;
+	background: #f2f2f2;
+	margin-top:35px;
+}
+.moneys p{
+	font-size: 14px;
+	color:#111;
+	padding-top:10px;
+}
+
+.moneys p span{
+    width:58px;
+    display: block;
+    padding-right:40px;
+    float: left;
+}
+
+.submit{
+	margin:52px 0 0 22px;
+}
+
+.submit input{
+	 width:140px;
+	 height:30px;
+	 line-height: 30px;
+	 text-align: center;
+	 font-size:14px;
+	 color:#fff;
+	 background: #ff9900;
+	 border:none;
+	 cursor:pointer;
+}
+/*单选框 */
+.radio_box {
+       display: inline-block;
+       position: relative;
+   }
+   
+   .radio_box  input[type = "radio"]{
+        width:67px;
+        display: none;
+   }
+
+   
+   .radio_box label{
+      margin-right:30px;
+      padding-left:34px;
+      font-weight:normal;
+      cursor:pointer;
+   }
+   .radio_box label em{
+       width: 15px;
+       height: 15px;
+       position: absolute;
+       top: 10px;
+       left: 2px;
+       border: 2px solid #ff9900;
+       border-radius: 50%;
+       background: #fff;
+       cursor: pointer;
+   }
+
+   .radio_box input:checked+ label em:after {
+       content: '';
+       width: 9px;
+       height: 9px;
+       position: absolute;
+       top: 3px;
+       left: 3px;
+       background: #ff9900;
+       border-radius: 50%;
+   }
+.Errors,.errors{
+	width: 600px;
+	height: 380px;
+	z-index: 10;
+	background: #ffffff;
+	position:fixed;
+	top: 50%;
+	left: 50%;
+	margin-top: -190px;
+	margin-left: -300px;
+	text-align: center;
+	display:none;
+}
+
+.Errors h4,.errors h4{
+	color: #111111;
+	font-size: 24px;
+	font-weight: bold;
+	width: 100%;
+	text-align: center;
+	margin-top: 40px;
+}
+
+.boom{
+	background: #000;
+	opacity: 0.3;
+	position:fixed;
+	z-index: 9;
+	top: 0;
+	left: 0;
+	display:none;
+}
+
+.Errors span,.errors span{
+	display: block;
+	color: #111111;
+	font-size: 18px;
+	font-weight: bold;
+	width: 100%;
+	text-align: center;
+	margin-top: 90px;
+	height: 20px;
+	line-height: 20px;
+}
+
+.delBtn,.delbtn{
+	width: 360px;
+	height: 50px;
+	margin-top: 110px;
+	margin-left: 120px;
+	text-align: center;
+	line-height: 50px;
+	background: #ff9900;
+	color: #fff;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.per_nav ul li:last-child a {
+    color: #ff9900;
+    border-left: 2px solid #ff9900;
+}
+ 
+ span.error, .mobile-error {
+    background: rgba(0, 0, 0, 0) url(../images/error.jpg) no-repeat scroll left center;
+    color: #91191e;
+    height: 50px;
+    line-height: 36px;
+    margin-left: 10px;
+    padding-left: 20px;
+    white-space: nowrap;
+}
+
+span.valid {
+    background: rgba(0, 0, 0, 0) url(../images/sucess.jpg) no-repeat scroll left center;
+    color: #91191e;
+    margin-left: 10px;
+    padding-left: 20px;
+    line-height: 36px;
+    height: 50px;
+}
+
+.delbtn{
+	background:none;
+	
+}
+.delbtn button{
+	 width:90px;
+	 height:34px;
+	 line-height:34px;
+	 text-align:center;
+	 font-size:14px;
+	 color:#fff;
+	  background:#ff9900;
+	 margin-right:20px;
+	 cursor:pointer;
+	 border:none;
+}
+
+

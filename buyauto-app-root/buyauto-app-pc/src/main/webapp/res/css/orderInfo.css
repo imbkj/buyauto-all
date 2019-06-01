@@ -1,0 +1,237 @@
+.title {
+    width: 1100px;
+    height: 54px;
+    margin: 0 auto;
+    line-height: 54px;
+    font-size: 14px;
+}
+
+.title a {
+    color: #404040;
+
+}
+
+.content_box{
+	width: 1100px;
+	margin: 0 auto;
+}
+
+ 
+.per_content{
+	float: right;
+	width: 860px;
+}
+
+.order_title{
+	width: 850px;
+	padding-left: 10px;
+	height: 54px;
+	line-height: 54px;
+	border-bottom: 2px solid #ff9900;
+}
+
+.order_title span{
+	color: #121212;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.order_time{
+	width: 850px;
+	padding-left: 10px;
+	height: 50px;
+	line-height: 50px;
+}
+
+.order_time ul li{
+	float: left;
+	color: #111111;
+	font-size: 14px;
+}
+
+.order_time ul li:nth-child(2){
+	margin-left: 50px;
+}
+
+.order_time ul li:nth-child(3){
+	margin-left: 30px;
+}
+
+.logistics{
+	width: 823px;
+	min-height: 230px;
+	border: 1px solid #e6e6e6;
+	padding: 25px 0 25px 35px;
+}
+
+.real_time{
+	margin-top: 15px;
+}
+
+.real_time ul li{
+	line-height: 24px;
+	color: #808080;
+	font-size: 14px;
+}
+
+.car_papers{
+	width: 823px;
+	border: 1px solid #e6e6e6;
+	margin-top: 20px;
+	padding: 25px 0 25px 35px;
+}
+
+.car_papers ul{
+	margin-top: 10px;
+}
+
+.car_mes{
+	width: 823px;
+	border: 1px solid #e6e6e6;
+	padding: 25px 0 25px 35px;
+	margin-top: 20px;
+}
+
+.car_mes ul{
+	margin-top: 10px;
+}
+
+.car_mes ul li{
+	margin-top: 10px;
+	overflow: hidden;
+	clear: both;
+}
+
+.car_mes .fl{
+	float: left;
+	width: 105px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	color: #666666;
+}
+
+.car_mes .fr{
+	float: left;
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	color: #111111;
+}
+
+.person{
+	float: left;
+	width: 105px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	color: #666666;
+}
+
+.name{
+	float: left;
+	width: 105px;
+	height: 60px;
+	line-height: 30px;
+	font-size: 14px;
+	color: #111111;
+}
+
+.car_owner{
+	width: 823px;
+	min-height: 300px;
+	border: 1px solid #e6e6e6;
+	padding: 25px 0 25px 35px;
+	margin-top: 20px;
+	overflow: hidden;
+	clear: both;
+}
+
+.avatar{
+	float: left;
+}
+
+.car_name{
+	float: left;
+	width: 610px;
+	height: 30px;
+	line-height: 30px;
+	border-bottom: 1px solid #e6e6e6;
+}
+
+.car_content{
+	float: left;
+	margin-left: 20px;
+}
+
+.p_config{
+	margin-top: 50px;
+}
+
+.p_config ul{
+	margin-top: 10px;
+	 
+	width: 600px;
+	background: #f2f2f2;
+	padding: 10px 0 10px 10px;
+	line-height: 25px;
+}
+
+.p_config ul li span.fl{
+	float: left;
+	width: 100px;
+}
+
+.m_config,.c_config{
+	margin-top: 15px;
+}
+
+.m_config ul,.c_config ul{
+	margin-top: 10px;
+	width: 600px;
+	background: #f2f2f2;
+	padding: 10px 0 10px 10px;
+	line-height: 25px;
+	overflow: hidden;
+	clear: both;
+}
+
+.m_config ul li,.c_config ul li{
+	float: left;
+	margin-left: 15px;
+}
+
+.price{
+	margin-top: 30px;
+}
+
+.price ul li span.fl{
+	float: left;
+	width: 480px;
+	text-align: right;
+	color: #111111;
+}
+
+.price ul li span.fh{
+	font-size: 16px;
+}
+
+.price ul li span.fr{
+	float: left;
+	width: 130px;
+	text-align: center;
+	color: #ff9900;
+}
+
+.price ul li span.fc{
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.per_nav ul li:nth-child(3) a {
+    color: #ff9900;
+    border-left: 2px solid #ff9900;
+}
+	
+	
+	

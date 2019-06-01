@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>麦卡进口车-数据概览</title>
+    #parse("/frame/public.vm")
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/dataReports.css" />
+</head>
+
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+
+        <!-- 导航菜单部分 -->
+        #parse("/frame/public_nav_panel.vm")
+
+        <!-- top navigation -->
+        #parse("frame/public_top_nav_panel.vm")
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <div class="clearfix"></div>
+          <div class="row">
+                  <div class="col-md-12 col-sm-12 col-xs-12">
+	                   <div >
+                   			<ul class="reportsUl col-md-12 col-sm-12 col-xs-12">
+	                   			<li class="col-md-3 col-sm-4 col-xs-12">
+	                   				<div  class="rptDivfirst">
+	                   					<span>今日订单数</span>
+	                   					<div class="reportsImg">
+		                   					<img src="$request.getContextPath()/res/images/index-orders.png" alt="">
+	                   					</div>
+										<span>
+											$!reports.ordersToday
+										</span>
+	                   				</div>
+									<div class="clearfix"></div>
+	                   			</li>
+	                   			<li class="col-md-3 col-sm-4 col-xs-12">
+	                   				<div  class="rptDivfirst">
+	                   					<span>今日总成交金额</span>
+	                   					<div id="reportsImgTotalMoney">
+		                   					<img src="$request.getContextPath()/res/images/index-money.png" alt="">
+	                   					</div>
+	                   					#set($todayDeposit = $!reports.totalDepositToday)
+			                   			#set($todayTailMoney = $!reports.totalTailMoneyToday)
+			                   			#set($totalMoney = $todayDeposit + $todayTailMoney)
+										<span id="totalMoneySpan" class="control-label col-md-1 col-sm-4 col-xs-12">
+											#if(!$todayDeposit && !$todayTailMoney)
+												暂无
+											#elseif($!todayDeposit && !$todayTailMoney)
+												$VCToolbar.formattingMoneyCN("$todayDeposit",false)
+											#elseif(!$todayDeposit && $!todayTailMoney)
+												$VCToolbar.formattingMoneyCN("$todayTailMoney",false)
+											#else
+												$VCToolbar.formattingMoneyCN("$totalMoney",false)
+											#end
+										</span>
+			                   			<div class="clearfix"></div>
+			                   			<div id="littleFont">定金:
+			                   				#if(!$todayDeposit || $todayDeposit == "")
+			                   					暂无
+			                   				#else
+			                   					$VCToolbar.formattingMoneyCN("$todayDeposit",false)
+			                   				#end
+			                   			&nbsp;&nbsp;&nbsp;尾款:
+			                   				#if(!$todayTailMoney || $todayTailMoney == "")
+			                   					暂无
+			                   				#else
+			                   					$VCToolbar.formattingMoneyCN("$todayTailMoney",false)
+			                   				#end
+			                   			</div>
+	                   				</div>
+	                   				<div class="clearfix"></div>
+	                   			</li>
+	                   			<li class="col-md-3 col-sm-4 col-xs-12">
+	                   				<div  class="rptDivfirst">
+	                   					<span>待付款(定金按笔统计)</span>
+	                   					<div class="reportsImg">
+		                   					<img src="$request.getContextPath()/res/images/index-payfor.png" alt="">
+	                   					</div>
+										<span>
+											$!reports.ordersReadyPaied
+										</span>
+	                   				</div>
+	                   				<div class="clearfix"></div>
+	                   			</li>
+	                   			<li class="col-md-3 col-sm-4 col-xs-12">
+	                   				<div  class="rptDivfirst">
+	                   					<span>出售中商品</span>
+	                   					<div class="reportsImg">
+		                   					<img src="$request.getContextPath()/res/images/index-salecars.png" alt="">
+	                   					</div>
+										<span>
+											$!reports.productsInsale
+										</span>
+	                   				</div>
+	                   				<div class="clearfix"></div>
+	                   			</li>
+	                   			<li class="col-md-3 col-sm-4 col-xs-12">
+	                   				<div  class="rptDivfirst">
+	                   					<span>待交车</span>
+	                   					<div class="reportsImg">
+		                   					<img src="$request.getContextPath()/res/images/index-car.png" alt="">
+	                   					</div>
+										<span>
+											$!reports.readyTakeCar
+										</span>
+	                   				</div>
+	                   				<div class="clearfix"></div>
+	                   			</li>
+	                   			
+	                   		</ul>
+                   		<div class="clearfix"></div>
+	                    </div>
+                   </div>
+              </div>
+          </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        #parse("/frame/footer.vm")
+        <!-- /footer content -->
+    </div>
+
+
+#parse("/frame/footer_resouce.vm")
+
+</body>
+</html>

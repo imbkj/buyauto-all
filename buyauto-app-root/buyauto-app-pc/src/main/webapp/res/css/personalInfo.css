@@ -1,0 +1,209 @@
+ 
+
+.title {
+    width: 1100px;
+    height: 54px;
+    margin: 0 auto;
+    line-height: 54px;
+    font-size: 14px;
+}
+
+.title a {
+    color: #404040;
+
+}
+
+.content_box{
+	width: 1100px;
+	margin: 0 auto;
+	overflow:hidden;
+	clear:both;
+}
+
+.persol{
+	float: left;
+	color: #121212;
+	font-size: 18px;
+}
+
+.per_title{
+	border: 1px solid #ffeebf;
+	border-radius: 3px;
+	float: right;
+	width: 80px;
+	height: 20px;
+	text-align: center;
+	line-height: 20px;
+	color: #ffeebf;
+	font-size: 14px;
+}
+
+.message_title{
+	width: 850px;
+	padding-left: 10px;
+	height: 28px;
+	line-height: 19px;
+	border-bottom: 2px solid #ff9900;
+}
+
+.message_title span{
+	color: #121212;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.message_input{
+	width: 850px;
+	padding-left: 10px;
+	height: 28px;
+	line-height: 28px;
+	color: #808080;
+	font-size: 16px;
+	background: #f2f2f2;
+}
+
+.message_info{
+	padding-top: 35px;
+	width: 860px;
+}
+
+.message_info ul li{
+	width: 860px;
+	min-height: 33px;
+	margin-bottom: 10px;
+	overflow: hidden;
+	clear:both;
+}
+
+.message_info .lt{
+	float:left;
+	width: 150px;
+	height: 35px;
+	line-height: 35px;
+	text-align:right;
+}
+
+.message_info ul li .lr{
+	float: left;
+	width: 448px;
+	height:33px;
+	border: 1px solid #e6e6e6;
+	padding: 0 15px;
+	margin-left: 20px;
+}
+
+ 
+
+.file-input{
+	width:468px;
+	float: left;
+	margin-left: 20px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+input[type="number"]{
+    -moz-appearance: textfield;
+}
+
+.per_content{
+	float: right;
+	width: 860px;
+}
+
+.btn_levelUp{
+	width: 140px;
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
+	color: #fff;
+	background: #ff9900;
+	border: none;
+	margin: 30px 0 20px 170px;
+	cursor: pointer;
+}
+
+.Errors{
+	width: 600px;
+	height: 380px;
+	z-index: 10;
+	background: #ffffff;
+	position:fixed;
+	top: 50%;
+	left: 50%;
+	margin-top: -190px;
+	margin-left: -300px;
+	line-height: 200px;
+	text-align: center;
+	display:none;
+}
+
+.Errors h4{
+	color: #111111;
+	font-size: 24px;
+	font-weight: bold;
+	width: 100%;
+	text-align: center;
+	margin-top: 40px;
+}
+
+.boom{
+	background: #000;
+	opacity: 0.3;
+	position:fixed;
+	z-index: 9;
+	top: 0;
+	left: 0;
+	display:none;
+}
+
+.Errors span{
+	display: block;
+	color: #111111;
+	font-size: 18px;
+	font-weight: bold;
+	width: 100%;
+	text-align: center;
+	margin-top: 90px;
+	height: 20px;
+	line-height: 20px;
+}
+
+.delBtn{
+	width: 360px;
+	height: 50px;
+	margin-top: 110px;
+	margin-left: 120px;
+	text-align: center;
+	line-height: 50px;
+	background: #ff9900;
+	color: #fff;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.per_nav ul li:last-child a {
+    color: #ff9900;
+    border-left: 2px solid #ff9900;
+}
+ 
+ span.error, .mobile-error {
+    background: rgba(0, 0, 0, 0) url(../images/error.jpg) no-repeat scroll left center;
+    color: #91191e;
+    height: 50px;
+    line-height: 36px;
+    margin-left: 10px;
+    padding-left: 20px;
+    white-space: nowrap;
+}
+
+span.valid {
+    background: rgba(0, 0, 0, 0) url(../images/sucess.jpg) no-repeat scroll left center;
+    color: #91191e;
+    margin-left: 10px;
+    padding-left: 20px;
+    line-height: 36px;
+    height: 50px;
+}

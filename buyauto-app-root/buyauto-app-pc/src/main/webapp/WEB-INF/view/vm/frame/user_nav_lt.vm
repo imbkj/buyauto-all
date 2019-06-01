@@ -1,0 +1,31 @@
+<div class="lt_nav">
+		<div class="tit">
+			<p><i></i>上海麦卡汽车服务4s店</p>
+		</div>
+		<div class="usernav">
+			 <i></i><p>我的个人中心</p>
+		</div>
+		<ul id="menu">
+			<li><a href="$request.getContextPath()/h/l/supplier/bankingProgram">金融方案</a></li>
+			<li><a href="$request.getContextPath()/h/l/supplier/myOrder" >我的订单</a></li>
+			<li><a href="$request.getContextPath()/h/l/supplier/toProductsList" >产品列表</a></li>
+			<li><a href="$request.getContextPath()/h/l/supplier/recycleBin">草稿箱</a></li>
+			<li><a href="$request.getContextPath()/h/l/supplier/draft">回收站</a></li>
+			<!--<li><a href=""><i></i>消息中心</a></li>-->
+		</ul>
+	</div>
+    
+	<script type="text/javascript">	  
+		  $(document).ready(function() {
+		      var urlstr = location.href;  
+			  var urlstatus=false;  
+			  $("#menu li a").each(function () {  
+			    if ((urlstr + '/').indexOf($(this).attr('href')) > -1&&$(this).attr('href')!='') {  
+			      $(this).addClass('currt'); urlstatus = true;  
+			    } else {  
+			      $(this).removeClass('currt');  
+			    }  
+			  });  
+			  if (!urlstatus) {$("#menu li a").eq(0).addClass('currt'); } 
+			});
+	</script>

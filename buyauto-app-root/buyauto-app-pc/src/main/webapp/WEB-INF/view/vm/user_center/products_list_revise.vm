@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--meta-->
+	    #parse("/frame/meta.vm")
+	<!--meta-->
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/products_list_add.css" />
+    <link rel="stylesheet" href="$request.getContextPath()/res/js/fileinput/css/bootstrap.css" />
+    <link rel="stylesheet" href="$request.getContextPath()/res/js/fileinput/css/fileinput.css" />
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/user_center_lt.css" />
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/style.css"> 
+    <style type="text/css">
+        .view p img{width:100%;}
+    </style>
+	<title>个人中心-商品列表-修改</title>
+</head>
+<body>
+	<!--header-->
+	#parse("/frame/user_header.vm")
+
+    	<div class="wrap">
+		<div class="topmenu">
+			<span>首页</span><em>></em>
+			<span>个人中心</span>
+		</div>
+		<div class="center">
+        <!--left menu -->
+	        <div class="lt_nav">
+		<div class="tit">
+			<p><i></i>上海麦卡汽车服务4s店</p>
+			</div>
+			<div class="usernav">
+				 <i></i><p>我的个人中心</p>
+			</div>
+			<ul id="menu">
+				<li><a href="$request.getContextPath()/h/l/supplier/bankingProgram">金融方案</a></li>
+				<li><a href="$request.getContextPath()/h/l/supplier/myOrder" >我的订单</a></li>
+				<li><a href="$request.getContextPath()/h/l/supplier/toProductsList" class="currt">产品列表</a></li>
+				<li><a href="$request.getContextPath()/h/l/supplier/recycleBin">草稿箱</a></li>
+				<li><a href="$request.getContextPath()/h/l/supplier/draft">回收站</a></li>
+				<!--<li><a href=""><i></i>消息中心</a></li>-->
+			</ul>
+		  </div>
+        <!-- end -->
+        <!-- right conter -->
+		<div class="rt_count">
+			 <div class="count_tit">
+			 	 <p>修改</p>
+			 </div>
+			 <div class="newly_list">
+			 	<form  method="get" id="newly_form" action="">
+				 	<ul class="form_list">
+				 		<li>
+				 			<label class="lt"><img src="$request.getContextPath()/res/images/star.png"/>为必填信息</label>
+				 		</li>
+				 		<li>
+				 			<label class="lt"><img src="$request.getContextPath()/res/images/star.png" class="star" />产品名称：</label>
+				 			<div class="rt">
+				 				<input type="hidden"  id="id" value="${id}" />
+				 				<input type="text" placeholder="产品名称" id="productnames" name="productnames">
+				 			</div>
+				 		</li>
+				 		<li>
+				 			<label class="lt"><img src="$request.getContextPath()/res/images/star.png"/>车辆品牌：</label>
+				 			<div class="rt sty">
+					 			<select id="brandid" name="brandid">
+					 				<option value="" selected="selected">-请选择-</option>
+					 				<!--<option value="b">宝马</option>
+					 				<option value="c">宝马</option>-->
+					 			</select>
+				 			</div>
+				 		</li>
+				 		<li>
+				 			<label class="lt"><img src="$request.getContextPath()/res/images/star.png"/>车辆类型：</label>
+	                        <div class="rt ">
+		                        <div class="sty" id="carType">
+		                        	<span class="cars genre" data-status="0">轿车</span>
+		                        	<span class="cars" data-status="1">SUV</span>
+		                        	<span class="cars" data-status="2">MPV</span>
+		                        	<span class="cars" data-status="3">皮卡</span>
+		                        	<span class="cars" data-status="4">卡车</span>
+		                        	<span class="cars" data-status="5">跑车</span>
+		                        </div>
+	                        </div>
+				 		</li>
+				 		<li>
+				 			<label class="lt"><img src="$request.getContextPath()/res/images/star.png" />价格区间：</label>
+	                        <div class="rt">
+	                        	<div class="sty" id="priceRange">
+		                        	<span class="range" data-status="0">50万以下</span>
+		                        	<span data-status="1">100万以下</span>
+		                        	<span data-status="2">150万以下</span>
+		                        	<span data-status="3">150万以上</span>
+	                           </div>
+	                        </div>
+				 		</li>
+				 		<li>
+				 			<label class="lt"><img src="$request.getContextPath()/res/images/star.png"/>车辆状态：</label>
+	                        <div class="rt" id="carposition">
+	                        	<div class="sty">
+	                        	<span class="nows" data-status="0">港口现车</span>
+	                        	<span data-status="1">预定车</span>
+	                        	<span data-status="2">在途车</span>
+	                          </div>
+	                        </div>
+				 		</li>
+				 		<li>
+				 			<label class="lt">原产地：</label>
+				 			<div class="rt">
+				 				<input type="text" id="country">
+				 			</div>
+				 		</li>
+				 		<li>
+				 			<label class="lt">定金比例(%)：</label>
+				 			<div class="rt">
+				 				<input type="text" id="deposit" name="deposit" onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');">
+				 			</div>
+				 		</li>
+				 		<li>
+				 			<label class="lt">型号：</label>
+				 			<div class="rt">
+				 				<input type="text" id="carModel">
+				 			</div>
+				 		</li>
+				 		<li>
+				 			<label class="lt">车身内部颜色：</label>
+				 			<div class="rt">
+				 				<input type="text" id="inColor">
+				 			</div>
+				 		</li>
+				 		<li>
+				 			<label class="lt">车身外观颜色：</label>
+				 			<div class="rt">
+				 				<input type="text" id="outColor">
+				 			</div>
+				 		</li>
+				 		<li>
+				 			<label class="lt">发动机：</label>
+				 			<div class="rt">
+				 				<input type="text" id="engine">
+				 			</div>
+				 		</li>
+				 		<li>
+				 			<label class="lt">变速箱：</label>
+				 			<div class="rt">
+				 				<input type="text" id="gearbox">
+				 			</div>
+				 		</li>
+				 		<li>
+				 			<label class="lt"><img src="$request.getContextPath()/res/images/star.png"/>出厂时间：</label>
+				 			<div class="rt date">
+				 				<input type="text" class="sang_Calender" placeholder="请选择时间范围" id="startTimeFrame" name="startTimeFrame" onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');" />
+				 				<i></i>
+				 			</div>
+				 		</li>
+				 	</ul>
+				 	<div class="deploy">
+				 	   <h6>装配选择</h6>
+					 	<ul class="form_list">
+					 		<li>
+					 			<label class="lt">基础配置：</label>
+					 			<div class="rt">
+					 				<input type="text" id="basicConfigure">
+					 			</div>
+					 		</li>
+					 		<li>
+					 			<label class="lt">必选配置：</label>
+					 			<div class="rt">
+					 				<input type="text" id="mustConfigure">
+					 			</div>
+					 		</li>
+					 		<li>
+					 			<label class="lt">可选配置：</label>
+					 			<div class="rt rtmth">
+						 				<div class="ipt_txt" >
+						 					<input type="hidden"  name="conf_id" />
+							 				<input type="text" placeholder="名称" name="conf_name" id="name"/>
+							 				<input type="text" placeholder="价格" name="conf_price" onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');"  id="conf_price"/>
+							 				<div class="del" id="delect"><img src="$request.getContextPath()/res/img/del.jpg" id="carprice"/></div>
+						 				</div>
+					 			</div>
+
+					 		</li>
+					 	</ul>
+                        <div class="adds">
+                        	<p><em>+</em>新增</p>
+                        </div>
+				 	</div>
+				 	<div class="price">
+				 		<h6>价格与库存</h6>
+				 		 <ul class="form_list">
+				 		 	<li>
+				 		 		<label class="lt"><img src="$request.getContextPath()/res/images/star.png" />商品价格：</label>
+					 			<div class="rt">
+					 				<input type="text" name="price" id="price" onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');">
+					 			</div>
+				 		 	</li>
+				 		 	<li>
+				 		 		<label class="lt"><img src="$request.getContextPath()/res/images/star.png" />必选总价(元)：</label>
+					 			<div class="rt">
+					 				<input type="text" name="minprice" id="minprice" onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');">
+					 			</div>
+				 		 	</li>
+				 		 	<li>
+				 		 		<label class="lt"><img src="$request.getContextPath()/res/images/star.png"/>国内指导价(元)：</label>
+					 			<div class="rt">
+					 				<input type="text" id="guideprice" name="guideprice" onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');">
+					 			</div>
+				 		 	</li>
+				 		 	<li>
+				 		 		<label class="lt"><img src="$request.getContextPath()/res/images/star.png"/>库存：</label>
+					 			<div class="rt">
+					 				<input type="text" id="stock" name="stock" onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');">
+					 			</div>
+				 		 	</li>
+				 		 	
+				 		 </ul>
+				 	</div>
+				 	<div class="pics">
+				 		<h6>商品图文</h6>
+				 		<ul class="form_list">
+				 			<li>
+				 		 		<label class="lt"><img src="$request.getContextPath()/res/images/star.png"/>封面图片(一张)：</label>
+					 			<div class="rt">
+					 				<div style="width:496px; margin:0 auto;">
+									<input type="file"  id='imageInput'  multiple="true"  />
+								</div>
+					 			</div>
+				 		 	</li>
+				 		 	<li>
+				 		 		<div class="rt txt">
+				 		 			<em>*建议上传图片尺寸250*180</em>
+				 		 		</div>
+				 		 	</li>
+				 		 	<li>
+				 		 		<label class="lt"><img src="$request.getContextPath()/res/images/star.png" />缩略图(一张)：</label>
+					 			<div class="rt">
+					 				<div style="width:496px; margin:0 auto;">
+									<input type="file"  id='imgInput'  multiple="true"  />
+					 			</div>
+				 		 	</li>
+				 		 	
+				 		 	<li>
+				 		 		<label class="lt"><img src="$request.getContextPath()/res/images/star.png"/>推荐图(一张)：</label>
+					 			<div class="rt">
+					 				<div style="width:496px; margin:0 auto;">
+									<input type="file"  id='imgtInput'  multiple="true"  />
+					 			</div>
+				 		 	</li>
+				 		 	<li>
+				 		 		<label class="lt"><img src="$request.getContextPath()/res/images/star.png"/>详情展示图(多张)：</label>
+					 			<div class="rt">
+					 				<div style="width:496px; margin:0 auto;">
+									<input type="file"  id='imginfoInput'  multiple="true"  />
+					 			</div>
+				 		 	</li>
+				 		 	<li>
+				 		 		<div class="rt txt">
+				 		 			<em>*建议上传图片尺寸550*386</em>
+				 		 		</div>
+				 		 	</li>
+				 		 	<li>
+				 		 		<label class="lt"><img src="$request.getContextPath()/res/images/star.png"/>产品正文：</label>
+					 			<div class="area_rt">
+					 				<!--<textarea cols="68" rows="10" id="content" name="content"></textarea>-->
+					 				<!--style给定宽度可以影响编辑器的最终宽度-->
+										<script type="text/plain" id="comContent" name="comContent" style=" width:507px;height:200px;z-index:0;"></script>
+					 			</div>
+				 		 	</li>
+				 		</ul>
+				 	</div>
+				 	<!--<div class="prove">
+				 		<h6>商品证明</h6>
+				 		<ul>
+					 		<li>
+				 		 		<label>车辆三证：</label>
+					 			<div class="rt">
+					 			    <div style="width:496px; margin:0 auto;">
+					 				<input type="file"  id='threeimgInput'  multiple="true"  />
+					 			</div>
+				 		 	</li>
+			 		 	</ul>
+				 	</div>-->
+				 	<div class="buttons">
+				 		<ul>
+				 		 <li><a href="javascript:void(0)" id="submit_revise" >预览</a></li>
+				 		 <li><a href="javascript:void(0)" id="submit_daftbox">保存到草稿箱</a></li>
+				 		 <li><input type="submit" value="提交" id="submit_form" /></li>
+				 		</ul>
+				 	</div>
+				 </form>
+			 </div>
+		</div>
+		<!-- end -->
+	</div>
+  </div>
+  
+      <!-- 提示 -->
+		<div class="boom"></div>
+		<div class="Errors">
+			<h4>提示</h4>
+			<span> </span>
+			<div class="delBtn">确认</div>
+		</div>
+		<!-- end -->
+	
+	<!--footer-->
+	#parse("/frame/base.vm")
+	
+  <script type="text/javascript" src="$request.getContextPath()/res/js/ueditor/ueditor.config.js"></script>
+  <script type="text/javascript" src="$request.getContextPath()/res/js/ueditor/ueditor.all.js"></script>
+  <script type="text/javascript" src="$request.getContextPath()/res/js/plug/jquery.validate.min.js"></script>
+  <script type="text/javascript" src="$request.getContextPath()/res/js/plug/jquery.validate.form.js"></script>
+  <script type="text/javascript" src="$request.getContextPath()/res/js/fileinput/fileinput.js"></script>
+  <script type="text/javascript" src="$request.getContextPath()/res/js/fileinput/fileinput_locale_zh.js"></script>
+  <script type="text/javascript" src="$request.getContextPath()/res/js/common/common.js"></script>
+  <script type="text/javascript" src="$request.getContextPath()/res/js/common/jquery.fileinputUpload.common.js"></script>
+  <script type="text/javascript" src="$request.getContextPath()/res/js/plug/datetime.js"></script>
+  <script type="text/javascript"  src="$request.getContextPath()/res/appjs/products_list_revise.js"></script>	
+</html>

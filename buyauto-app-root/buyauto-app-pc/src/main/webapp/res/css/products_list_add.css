@@ -1,0 +1,307 @@
+.center{
+	display:inline-block;
+}
+.wrap{
+	width:1100px;
+	margin:0 auto;
+}
+
+.usernav{
+	 height:50px;
+	 line-height: 50px;
+	 background: #f39800;
+	 position: relative;
+}
+
+.usernav p{
+	font-size: 14px;
+	text-align: center;
+	font-weight: bold;
+	color:#fff;
+}
+
+.rt_count{
+	width:860px;
+	margin-left:20px;
+	padding-bottom:76px;
+	float: right;
+}
+.count_tit{
+	width:100%;
+	height:40px;
+    border-bottom: 2px solid #f39800;
+}
+.count_tit p{
+   font-size: 18px;
+   color:#121212;
+}
+
+.newly_list{
+	width:100%;
+	margin-top:32px;
+	display: inline-block;
+}
+
+.newly_list ul.form_list{
+	width:820px;
+	display: inline-block;
+}
+
+.newly_list ul li{
+	display:inline-block;
+	margin-top: 10px;
+	font-size:14px;
+	color:#404040;
+}
+.newly_list ul.form_list li label.lt{
+	float: left;
+	hegiht:32px;
+	line-height:32px;
+	width:158px;
+	text-align: right;
+	margin-right: 10px; 
+	display: inline-block;
+}
+
+.newly_list ul li label em{
+	  color: #ff9900;
+    display: block;
+    float: left;
+    font-size: 20px;
+    line-height: 38px;
+    margin-left: 13px;
+}
+
+.newly_list ul li label img{
+	height: 9px;
+    margin-right: 6px;
+    width: 9px;
+}
+
+.newly_list ul li .rt,
+.newly_list ul li .area_rt{
+	float: left;
+}
+
+.newly_list ul.form_list .rt input,
+.newly_list ul.form_list .rt select{
+	float: left;
+	width:488px;
+	height:32px;
+	line-height: 32px;
+	border:1px solid #e6e6e6;
+	padding-left: 10px;
+	margin-right: 6px;
+}
+.newly_list ul.form_list .rt select{
+	width:500px;
+}
+
+.newly_list ul.form_list li .rtmth input{
+	width:183px;
+	height:32px;
+	line-height: 32px;
+	padding-left: 10px;
+	margin:0 15px 10px 0;
+}
+
+.sang_Calender{
+	cursor:pointer;
+}
+
+.newly_list ul.form_list  .date input{
+	width:465px;
+   padding-left: 32px;
+}
+
+.newly_list ul li .rt .sty span{
+	height:32px;
+	line-height: 32px;
+	text-align: center;
+	width:78.5px;
+	display: inline-block;
+	border:1px solid #e6e6e6;
+	cursor: pointer;
+}
+
+.newly_list ul li .rt .sty span:hover{
+	background: #ff9900;
+	color:#fff;
+}
+
+.newly_list h6{
+	font-size: 18px;
+	color:#404040;
+	padding:24px 0 24px 61px;
+}
+
+.newly_list ul li .rt .sty span.genre,.newly_list ul li .rt .sty span.range,.newly_list ul li .rt .sty span.nows{
+	background: #ff9900;
+	color:#fff;
+	border:none;
+}
+
+.newly_list .adds{
+	width: 80px;
+	height:34px;
+	line-height: 34px;
+	text-align: center;
+	cursor: pointer;
+	background: #ff9900;
+	margin-left:168px;
+}
+.newly_list .adds p,.newly_list .adds p em{
+	letter-spacing: 2px;
+	color:#fff;
+	font-size: 14px;
+}
+.buttons ul{
+    width:100%;
+    margin:50px 0 0 166px;
+    display: inline-block;
+}
+.buttons ul li{
+	 float: left;
+	 
+}
+
+.buttons ul li a,.buttons ul li input{
+	width:163px;
+	 height: 34px;
+	 line-height: 34px;
+	 text-align: center;
+	 font-size: 14px;
+	 color:#fff;
+	 margin-right: 12px;
+	 background: #ff9900;
+	 display: inline-block;
+	 }
+
+.buttons ul li input{
+	border:none;
+	cursor: pointer;
+}
+.txt em{
+	padding-left:176px;
+	color:#808080; 
+}
+.newly_list .del{
+	float: right;
+	width:81px;
+	height:35px;
+	cursor: pointer;
+	background:url('../img/del.jpg') no-repeat;
+}
+.newly_list span.error, .newly_list span.mobile-error ,.onError{
+    background:url("../images/error.jpg") no-repeat scroll left center;
+    color: #91191e;
+    height: 32px;
+    line-height: 32px;
+    padding-left: 20px;
+    white-space: nowrap;
+}
+.newly_list .rt span.valid ,.onSuccess{
+    background:  url("../images/sucess.jpg") no-repeat scroll left center;
+    color: #91191e;
+    height: 32px;
+    line-height: 32px;
+    padding-left: 20px;
+}
+
+.date{
+	position: relative;
+}
+.date i{
+	width:14px;
+	height: 15px;
+	 background: url('../img/date.jpg') left center;
+	 position: absolute;
+	 top:10px;
+	 left:10px;
+	 display: inline-block;
+}
+
+.rt textarea{
+	 width:505px;
+	 height:240px;
+	 border:1px solid #e6e6e6;
+	 resize:none;
+	 margin-right:6px;
+}
+
+
+/*dialog start */
+.Errors{
+	width: 600px;
+	height: 380px;
+	z-index: 10;
+	background: #ffffff;
+	position:fixed;
+	top: 50%;
+	left: 50%;
+	margin-top: -190px;
+	margin-left: -300px;
+	line-height: 200px;
+	text-align: center;
+	display:none;
+}
+
+.Errors h4{
+	color: #111111;
+	font-size: 24px;
+	font-weight: bold;
+	width: 100%;
+	text-align: center;
+	margin-top: 40px;
+}
+
+.boom{
+	background: #000;
+	opacity: 0.3;
+	position:fixed;
+	z-index: 9;
+	top: 0;
+	left: 0;
+	display:none;
+}
+
+.Errors span{
+	display: block;
+	color: #111111;
+	font-size: 18px;
+	font-weight: bold;
+	width: 100%;
+	text-align: center;
+	margin-top: 90px;
+	height: 20px;
+	line-height: 20px;
+}
+
+.delBtn{
+	width: 360px;
+	height: 50px;
+	margin-top: 110px;
+	margin-left: 120px;
+	text-align: center;
+	line-height: 50px;
+	background: #ff9900;
+	color: #fff;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

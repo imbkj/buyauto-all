@@ -1,0 +1,101 @@
+ 
+    <!-- FastClick -->
+    <script src="$request.getContextPath()/res/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="$request.getContextPath()/res/vendors/nprogress/nprogress.js"></script>
+    <!-- Chart.js -->
+    <script src="$request.getContextPath()/res/vendors/Chart.js/dist/Chart.min.js"></script>
+    <!-- jQuery Sparklines -->
+    <script src="$request.getContextPath()/res/vendors/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+    <!-- morris.js -->
+   #* <script src="$request.getContextPath()/res/vendors/raphael/raphael.min.js"></script>
+    <script src="$request.getContextPath()/res/vendors/morris.js/morris.min.js"></script>
+    <!-- gauge.js -->
+    <script src="$request.getContextPath()/res/vendors/bernii/gauge.js/dist/gauge.min.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="$request.getContextPath()/res/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- Skycons -->
+    <script src="$request.getContextPath()/res/vendors/skycons/skycons.js"></script>
+    <!-- Flot -->
+    <script src="$request.getContextPath()/res/vendors/Flot/jquery.flot.js"></script>
+    <script src="$request.getContextPath()/res/vendors/Flot/jquery.flot.pie.js"></script>
+    <script src="$request.getContextPath()/res/vendors/Flot/jquery.flot.time.js"></script>
+    <script src="$request.getContextPath()/res/vendors/Flot/jquery.flot.stack.js"></script>
+    <script src="$request.getContextPath()/res/vendors/Flot/jquery.flot.resize.js"></script>
+    <!-- Flot plugins -->
+    <script src="$request.getContextPath()/res/js/theme/flot/jquery.flot.orderBars.js"></script>
+    <script src="$request.getContextPath()/res/js/theme/flot/date.js"></script>
+    <script src="$request.getContextPath()/res/js/theme/flot/jquery.flot.spline.js"></script>
+    <script src="$request.getContextPath()/res/js/theme/flot/curvedLines.js"></script>*#
+    
+    
+    <!-- bootstrap-daterangepicker -->
+    <script src="$request.getContextPath()/res/js/theme/moment/moment.min.js"></script>
+    <script src="$request.getContextPath()/res/js/theme/datepicker/daterangepicker.js"></script>
+    ##<script src="$request.getContextPath()/res/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+    
+    <!-- ECharts -->
+    <script src="$request.getContextPath()/res/vendors/echarts/dist/echarts.min.js"></script>
+    <script src="$request.getContextPath()/res/vendors/echarts/map/js/world.js"></script>
+    
+       <!-- validator -->
+    <script src="$request.getContextPath()/res/vendors/validator/multifield.js"></script>
+    <script src="$request.getContextPath()/res/vendors/validator/validator.min.js"></script>
+    <script src="$request.getContextPath()/res/vendors/validator/multifield.js"></script>
+
+	    <!-- 加载导航数据 -->
+	<script src="$request.getContextPath()/res/js/common/nav_data.js"></script>
+	
+	
+	    <!-- PNotify -->
+    <script src="$request.getContextPath()/res/vendors/pnotify/dist/pnotify.js"></script>
+    <script src="$request.getContextPath()/res/vendors/pnotify/dist/pnotify.buttons.js"></script>
+    <script src="$request.getContextPath()/res/vendors/pnotify/dist/pnotify.nonblock.js"></script>
+    
+   
+
+    <!-- Custom Theme Scripts -->
+    <script src="$request.getContextPath()/res/js/theme/custom.js"></script>
+    
+    <!-- 引入公共方法的脚本 -->
+    <script src="$request.getContextPath()/res/js/common/common.js"></script>
+    
+    <!-- iCheck -->
+    <script src="$request.getContextPath()/res/vendors/iCheck/icheck.min.js"></script>
+    <!-- Switchery -->
+    <script src="$request.getContextPath()/res/vendors/switchery/dist/switchery.min.js"></script>
+    
+    <!--bootstrap-files-->
+   <!-- <script src="$request.getContextPath()/res/vendors/bootstrap-fileinput/js/fileinput.min.js"></script>
+    <script src="$request.getContextPath()/res/vendors/bootstrap-fileinput/js/fileinput_locale_zh.js"></script> -->
+    <!-- 上传文件 -->
+    <script type="text/javascript" charset="utf-8" src="$request.getContextPath()/res/js/fileupload/ajaxfileupload.js"></script>
+    <script type="text/javascript" charset="utf-8" src="$request.getContextPath()/res/js/fileupload/uploadMethod.js"></script>
+    
+    <!-- Datatables -->
+    <script src="$request.getContextPath()/res/vendors/datatables.net/js/jquery.dataTables.js"></script>
+    <script src="$request.getContextPath()/res/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="$request.getContextPath()/res/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="$request.getContextPath()/res/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="$request.getContextPath()/res/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="$request.getContextPath()/res/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="$request.getContextPath()/res/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="$request.getContextPath()/res/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="$request.getContextPath()/res/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="$request.getContextPath()/res/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="$request.getContextPath()/res/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+
+    <script src="$request.getContextPath()/res/vendors/jszip/dist/jszip.min.js"></script>
+    ##<script src="$request.getContextPath()/res/vendors/pdfmake/build/pdfmake.min.js"></script>
+    ##<script src="$request.getContextPath()/res/vendors/pdfmake/build/vfs_fonts.js"></script>
+  
+   
+   <!-- ueditor -->
+     <!-- 配置文件 -->
+    <script type="text/javascript" src="$request.getContextPath()/res/js/ueditor/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="$request.getContextPath()/res/js/ueditor/ueditor.all.js"></script>
+    
+    
+	<script src="$request.getContextPath()/res/js/confirm/jquery-confirm.min.js"></script>
+    

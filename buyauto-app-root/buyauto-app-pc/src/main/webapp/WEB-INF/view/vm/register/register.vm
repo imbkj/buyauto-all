@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--meta-->
+	    #parse("/frame/meta.vm")
+	<!--meta-->
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/register.css" />
+    <link rel="stylesheet" href="$request.getContextPath()/res/js/fileinput/css/fileinput.css" />
+    <link rel="stylesheet" href="$request.getContextPath()/res/js/fileinput/css/bootstrap.css" />
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/style.css">
+	<title>麦卡进口车 - 经销商注册</title>
+</head>
+<body>	
+	<!--header-->
+	#parse("/frame/header.vm")
+	<div class="main">
+		<div class="topnav">
+			<ul>
+				<li class="btline"><a href="$request.getContextPath()/h/n/user/register">企业注册（供应商/经销商）</a></li>
+				<li><a href="$request.getContextPath()/h/n/user/registerPersonal">个人注册</a></li>
+			</ul>
+		</div>
+        <!-- 企业注册 -->
+        <div class="conpany_reg">
+			<form id="register_form"  method="post" >
+				<div class="register_info">
+					<div class="title">
+						<img src="$request.getContextPath()/res/images/star.png" class="star" />
+						<span>以下信息均为必填项</span>
+					</div>
+					<div class="account_info">
+						<div class="account_info_title">
+							<span>账户信息</span>
+						</div>
+					</div>
+					<div class="account_list">
+						<ul>
+							<li>
+								<span class="lt">
+									经销商名称
+								</span>
+								<input type="text" name="name" id="name" placeholder="最少4个中文文字、数字或字母" minlength="4" maxlength="20" />
+								<!-- <span class="rt">
+									例：麦卡汽贸、ABCD
+								</span> -->
+							</li>
+							<li style="height:20px;margin-top:10px;margin-left:370px;">
+								<span>例：麦卡汽贸、ABCD</span>
+							</li>
+							<li>
+								<span class="lt">
+									密码
+								</span>
+								<input onpaste="return false" type="password" name="password" id="password" placeholder="请输入6—10位密码" minlength="6" maxlength="10" />
+							</li>
+							<li>
+								<span class="lt">
+									确认密码
+								</span>
+								<input onpaste="return false" type="password" name="repassword" id="repassword" placeholder="再次输入密码" minlength="6" maxlength="10" />
+							</li>
+						</ul>
+					</div>
+					<div class="dealer_info">
+						<div class="dealer_info_title">
+							<span>企业信息</span>
+						</div>
+					</div>
+					<div class="dealer_list">
+						<ul>
+							<li>
+								<span class="lt">
+									公司名称
+								</span>
+								<input type="text" name="companyName" placeholder="请输入公司名称" maxlength="20" />
+							</li>
+							<li>
+								<span class="lt">
+									贸易身份
+								</span>
+								<div class="radio_rt">
+									<span class="radio_box">
+						                <input type="radio" id="radio_1" name="userType"  value="0"  checked="checked">
+						                <label for="radio_1"><em></em>经销商</label>
+						                
+						            </span>
+									<span class="radio_box">
+						                <input type="radio" id="radio_2" name="userType" value="1" >
+						                <label for="radio_2"><em></em>供应商</label>
+						                
+						            </span>
+					            </div>
+							</li>
+							<li>
+								<span class="lt">
+									办公场所
+								</span>
+								<input type="text" name="address" placeholder="请输入办公场所" maxlength="30" />
+							</li>
+							<li>
+								<span class="lt">
+									主要联系人姓名
+								</span>
+								<input type="text" name="add_name" placeholder="请输入您的主要联系人姓名" maxlength="10" />
+							</li>
+							<li>
+								<span class="lt">
+									手机号码
+								</span>
+								<input type="number" id="mobile" name="mobile" placeholder="请输入手机号码" oninput="if(value.length>11)value=value.slice(0,11)" />
+								
+							</li>
+							<li>
+								<span class="lt"></span>
+								<input type="number" placeholder="请输入图片上数字" oninput="if(value.length>6)value=value.slice(0,6)"  name="math" class="dealer_lt" id="math" />
+								<img src="$request.getContextPath()/h/n/user/codeRegister" class="dealer_rt" onclick="reImg();" id="imgPic" />
+							</li>
+							<li>
+								<span class="lt">
+									验证码
+								</span>
+								<input type="number" placeholder="6位数字验证码" name="code" class="dealer_lt" oninput="if(value.length>6)value=value.slice(0,6)"  />
+								<!-- 点击按钮之后添加getCode类名 
+								<input type="submit" class="dealer_rt" value="获取验证码" style="cursor: pointer;" />-->
+								<div class="dealer_rt" id="getCode" style="cursor: pointer;">获取验证码</div>
+							</li>
+							<li>
+								<span class="lt">
+									邮箱
+								</span>
+								<input type="email" name="email" placeholder="请输入邮箱地址" maxlength="32" />
+							</li>
+						</ul>
+					</div>
+					<div class="card_info">
+						<div class="card_title">
+							<span>上传证照</span>
+						</div>
+					</div>
+					<div class="card_list">
+						<ul>
+							<li style="position: relative;">
+								<div>
+									<span class="lt">
+										证照扫描件
+									</span>
+									<span class="rt" style="height:100px;">工商营业执照、组织机构代码证、税务登记证或三证合一营业执照<br />及框架协议扫描件，单个文件大小请在5M以内</span>	
+								</div>
+								<div style="clear:both;">
+								</div>
+								<div style="width:800px; margin:0 auto;">
+									<input type="file"  id='imageInput'  multiple="true"  />
+								</div>
+						
+							</li>
+							<li id="Tip" style="border-bottom: 1px solid #e6e6e6; ">
+								<span class="lt" style="width: 500px"></span>
+								<div class="box" data-id='0'>
+									<div class="tip">
+										<img class="tip_img">	 
+									</div>
+									<div class="bom">
+										<div class="delete"></div>
+									</div>
+								</div>
+								
+								<div class="box" data-id='0'>
+									<div class="tip">
+										<img class="tip_img" >	 
+									</div>
+									<div class="bom">
+										<div class="delete"></div>
+									</div>
+								</div>
+								
+								<div class="box" data-id='0'>
+									<div class="tip">
+										<img class="tip_img">	 
+									</div>
+									<div class="bom">
+										<div class="delete"></div>
+									</div>
+								</div>
+								
+							</li>
+							<li>
+								<span class="lt"></span>
+								<input type="submit" id="register_submit" value="注册" class="submit" />
+							</li>
+							<li>
+								<span class="lt"></span>
+								<input type="checkbox" class="checkbox" checked="true" style="float: left;margin-left: 55px;">
+								<span  class="xieyi">我已阅读并同意</span>
+								<a href="javascript:void(0);" id="check">《平行进口车网站注册协议》</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</form>
+		</div>
+		<!-- end -->
+ 
+		 <!-- 提示 -->
+		<div class="boom"></div>
+		<div class="Errors">
+			<h4>提示</h4>
+			<span> </span>
+			<div class="delBtn">确认</div>
+		</div>
+		<!-- end -->
+		
+		<!-- 注册协议 -->
+		<div class="protocol">
+			<div class="order-deleat">
+    			<img src="$request.getContextPath()/res/images/icon-deleat.png" />
+    		</div>
+    		<h1>平台注册及服务协议</h1>
+    		<div id="logistics" class="logistics">
+    			<h2>重要须知</h2>
+    			<p style="margin-top: 20px;">本协议是您与上海泛外投资咨询有限公司之间就麦卡进口车平台（下称“本平台”）（<a href="$request.getContextPath()/">www.51buyauto.com</a>）网站注册及服务相关事宜所订立的契约，适用于您在本平台注册及使用本平台服务的全部行为。</p>
+    			<p>在注册成为本平台用户前，请您务必认真、仔细阅读并充分理解本协议全部内容，特别是其中所涉及的对本平台的责任免除及对您的权利限制的条款。您在本平台提供的网络页面上点击以合理的理解表明您希望与本公司签订本协议的按钮（例如，按钮上书写“我已阅读并同意”或类似文字，且页面上同时列明了本协议的内容），即表示您在充分阅读并理解本协议的内容基础上确认接受并签署本协议，同时表示您与本平台已达成协议并同意接受本协议的全部约定内容，包括与本协议有关的各项规则及本网站所包含的已经发布的或者将来发布的各类声明、规则、说明等（若服务协议中没有约定的以本网站发布的各类声明、规则、说明等中对应内容为准）。 </p>
+    			<p>本服务协议内容包括以下条款及已经发布的或将来可能发布的各类规则。所有规则为协议不可分割的一部分，与协议正文具有同等法律效力。本协议是由您与本网站共同签订的，适用于您在本网站的全部活动。在您注册成为用户时，您已经阅读、理解并接受本协议的全部条款及各类规则，并承诺遵守中国现行的法律、法规、规章及其他政府规定，如有违反而导致任何法律后果的发生，您将以自己的名义独立承担所有相应的法律责任。 </p>
+    			<p>本网站有权根据需要不时地制定、修改本协议或各类规则，如本协议及规则有任何变更，一切变更以本网站最新公布条例为准。您应不时地注意本协议及附属规则的变更，若您不同意相关变更，本网站有权不经任何告知终止、中止本协议或者限制您进入本网站的全部或者部分板块且不承担任何法律责任。但该中止、终止或限制行为并不能豁免您在本网站已经进行的交易下所应承担的义务。 </p>
+    			<p>如您不同意或者不接受本协议的全部或者部分内容，请您不要注册成为本平台用户及使用本平台服务。 </p>
+    			<p class="p1">一、 本平台的账户及服务 </p>
+    			<p>（一）本平台是指通过<a href="$request.getContextPath()/">www.51buyauto.com</a>注册后由本平台相关公司为用户提供相关服务平台，本平台采用实名制注册，用户应如实填写和提交账号注册和认证资料，并对资料的真实性、合法性、准确性和有效性承担责任。 </p>
+    			<p>（二）用户注册成功后，本平台将给予每个用户一个用户账号及相应的密码（“本账户”），该用户账号和密码由用户负责保管；用户应当对以其用户账号进行的所有活动和事件负法律责任。 </p>
+    			<p>（三） 除非另有其它明示规定，本平台所展示的新产品、新功能、新服务，均受到本协议之规范。 </p>
+    			<p>（四） 本平台仅作为网络环境下用户或者关联网站发布信息的场所，鉴于网络服务的特殊性，用户同意本平台有权不经事先通知，随时变更、中断或终止部分或全部的网络服务。 </p>
+    			<p>（五）本平台需要定期或不定期地进行检修或者维护，如因此类情况而造成网络服务在合理时间内的中断，本平台无需为此承担任何责任。本平台保留不经事先通知为维修保养、升级或其它目的暂停本服务任何部分的权利。 </p>
+    			<p>（六）本平台有权于任何时间暂时或永久修改或终止服务（或其任何部分），而无论其通知与否，本平台对用户和任何第三人均无需承担任何责任。</p>
+    			<p>（七）用户确认知悉，本平台的账户仅供本平台及相关交易网站提供居间服务及交易环境，基于交易行为发生的相关的资金管理及划付服务均由具有法定资质的第三方机构提供，本平台对用户以完成交易为目的的资金管理及划付的指令及最终的结果、时效性不承担任何责任。针对冒用他人账户的行为，本平台保留对实际使用人追究责任的权利。</p>
+    			<p>（八）本平台只接受具有完全民事行为能力的自然人或依据中华人民共和国法律依法设立并存续的法人成为网站用户，如用户不符合资格，请勿继续操作注册。本平台保留因用户注册信息不实而随时中止或终止用户资格的权利，由此所产生的损失由用户自行承担，本平台将不承担任何责任。 </p>
+    			<p>（九）用户在注册本平台及使用相关网站服务时应当根据本平台的要求提供自己的个人或法人资料，并在使用过程中依据本平台和相关网站的要求更新上述个人或法人资料并保证此等资料完整、有效。如因注册信息不真实或更新不及时而引起的问题，本平台及相关网站不负任何责任。如发现用户以虚假信息注册而骗取本账号使用权，或注册信息存在违法和不良信息的，本平台有权单方采取限期改正、暂停使用、注销登记等措施，且上述措施的采用不以通知为必要条件。 </p>
+    			<p>（十）用户成功注册为本平台用户后，应当妥善保管自己的用户名和密码，不得将账号、密码进行转让、出售、出借、出租、赠与或授权给第三方使用，若用户授权他人使用其账户应对被授权人在该账户下发生的所有行为负全部责任。因密码被遗忘、被第三方破解，使用的计算机被入侵等原因造成的交易风险均亦由用户自行承担。用户在此确认以其用户名和密码登录本平台及相关交易网站情形下，经由用户的本账户发出的一切指令均视为用户本人的行为和真实意思表示，该等指令不可撤销，由此产生的一切责任和后果由用户本人承担。 </p>
+    			<p>（十一）用户不得利用本平台从事任何违法违规活动，用户在此承诺合法使用本平台提供的服务，遵守中国现行法律、法规、规章、规范性文件的规定以及本平台及相关交易网站的规则、协议等规范。若用户违反上述规定，所产生的一切法律责任和后果由用户自行承担。用户承担法律责任的形式包括但不限于：对受到侵害者进行赔偿，以及如本平台首先承担了因用户行为导致的行政处罚或侵权损害赔偿责任后，用户应向本平台进行赔偿。如因此给本平台造成损失的，由用户赔偿本平台的损失。 </p>
+    			<p>（十二）如用户在本平台的某些行为或言论不合法、违反有关协议约定、侵犯本平台及相关交易网站的利益等，本平台有权基于独立判断直接删除用户在本平台上作出的上述行为或言论，有权中止、终止、限制用户使用本平台服务，而无需通知用户，亦无需承担任何责任。 </p>
+    			<p class="p1">二、 平台服务及规范  </p>
+    			<p>（一）您有权在本平台享受商品及/或服务的购买与评价、交易争议处理等服务。</p>
+    			<p>（二）当您在本平台购买商品及/或服务时，请您务必仔细确认所购商品的品名、价格、数量、型号等重要事项，并在下单时核实您的联系地址、电话、交易人等信息。您的购买行为应当基于真实的消费需求，不得存在对商品及/或服务实施恶意购买、恶意维权等扰乱平台正常交易秩序的行为。基于维护本平台交易秩序及交易安全的需要，发现上述情形时可主动执行关闭相关交易订单等操作。</p>
+    			<p>（三）您有权在本平台提供的评价系统中对与您达成交易的商品及/或服务进行评价。您的所有评价行为应遵守本平台规则的相关规定，评价内容应当客观真实，不应包含任何污言秽语、色情低俗、广告信息及法律法规与本协议列明的其他禁止性信息；您不应以不正当方式帮助他人提升信用或利用评价权利对其他用户实施威胁、敲诈勒索。本平台可按照平台规则的相关规定对您实施上述行为所产生的评价信息进行删除或屏蔽。</p>
+    			<p>（四）本平台向您提供的服务付出了大量的成本，除明示的收费业务外，本平台向您提供的服务目前是免费的。如未来本平台向您收取合理费用，会采取合理途径并以足够合理的期限提前通知您，确保您有充分选择的权利。</p>
+    			<p class="p1">三、不保证条款  </p>
+    			<p>（一）本平台提供的信息和服务中不含有任何明示、暗示的，对任何用户、任何交易的真实性、准确性、可靠性、有效性、完整性等的任何保证和承诺，用户需根据自身风险承受能力，衡量本平台披露的内容的真实性、可靠性、有效性、完整性，用户因其选择使用本平台提供的服务、参与的交易等而产生的直接或间接损失均由用户自己承担，包括但不限于资金损失、利润损失、营业中断等。 </p>
+    			<p>（二）基于互联网的特殊性，无法保证本平台的服务不会中断，对于包括但不限于设备、系统存在缺陷，计算机发生故障、遭到病毒、黑客攻击或者发生地震、海啸等不可抗力而造成服务中断或因此给用户造成的损失，由用户自己承担。 </p>
+    			<p class="p1">四、隐私保护</p>
+    			<p>（一）本平台有义务就用户提供的及自行合法收集的用户信息采用合理的、必要的手段及措施进行保护，以更充分的了解用户需求、协助用户完成交易。 </p>
+    			<p>（二）本平台有权利就用户提供的及自行合法收集的用户信息进行合法的使用（包括以不伤害用户隐私权为前提的商业上的使用），且在如下情况下，本平台可能会披露您的信息：
+1．事先获得用户的授权；
+2.根据法律、法规、法律程序的要求或政府主管部门的强制性要求；
+3.为维护本平台的合法权益，例如查找、预防、处理欺诈或安全方面的问题；
+4.为维护本平台其他用户的合法权益，即在用户违反本平台及相关交易网站的规则及交易协议约定情形下，本平台有权将用户的信息进行黑名单披露并共享给与本平台及相关交易网站有合作关系的第三方；
+5.符合相关服务条款或使用协议的规定。
+    			</p>
+    			<p>（三）本平台采用行业标准惯例以保护用户的个人或法人信息和资料，鉴于技术限制，不能确保用户的全部通讯及其他个人或法人资料不会通过不明的途径泄露出去。 </p>
+    			<p>（四）针对本条款约定情形下的信息使用及披露有可能给用户造成的损失，本平台及相关交易网站不承担任何责任。 </p>
+    			<p class="p1">五、使用规则</p>
+    			<p>（一）用户在使用本平台及相关交易网站服务时，必须遵守中华人民共和国相关法律法规的规定，用户应同意将不会利用本服务进行任何违法或不正当的活动，包括但不限于下列行为: 
+1．上载、展示、张贴、传播或以其它方式传送含有下列内容之一的信息： 
+（1） 反对宪法所确定的基本原则的； 
+（2） 危害国家安全，泄露国家秘密，颠覆国家政权，破坏国家统一的； 
+（3） 损害国家荣誉和利益的； 
+（4） 煽动民族仇恨、民族歧视、破坏民族团结的； 
+（5） 破坏国家宗教政策，宣扬邪教和封建迷信的； 
+（6） 散布谣言，扰乱社会秩序，破坏社会稳定的； 
+（7） 散布淫秽、色情、赌博、暴力、凶杀、恐怖或者教唆犯罪的； 
+（8） 侮辱或者诽谤他人，侵害他人合法权利的； 
+（9） 含有虚假、有害、胁迫、侵害他人隐私、骚扰、侵害、中伤、粗俗、猥亵、或其它道德上令人反感的内容； 
+（10） 含有中国法律、法规、规章、条例以及任何具有法律效力之规范所限制或禁止的其它内容的。 
+2.不得为任何非法目的而使用本平台服务系统。 </p>
+    			<p>（二）用户违反本协议或相关的服务条款的规定，导致或产生的任何第三方向本平台及其相关交易网站主张的任何索赔、要求或损失（包括合理的律师费），将由用户向本平台与相关交易网站进行赔偿，以使之免受损害。对此，本平台有权视用户行为的性质，采取包括但不限于删除用户发布信息内容、暂停使用许可、终止服务、限制使用本账号、追究法律责任等措施。对恶意注册本账号或利用本账号进行违法活动，骚扰、欺骗其他用户，以及其他违反法律规定及违反本协议的行为，本平台有权回收其本账号。同时，本平台公司会视司法部门的要求，协助调查。 </p>
+    			<p>（三）用户不得对本协议及本服务的任何部分或基于本协议或本服务之使用或获得的信息，进行出售、转售或用于任何其它商业目的。 </p>
+    			<p>（四）用户同意：本平台为更加有效、及时的向用户提供服务将通过站内信、APP推送、手机短信、电子邮件等形式向用户发布本平台相关信息，包括但不限于项目信息、购买行为确认信息、账户资金变动信息等。 </p>
+    			<p class="p1">六、违约和责任</p>
+    			<p>（一）发生如下情形之一的，视为您违约：
+1.使用本平台服务时违反有关法律法规规定的；
+2.违反本协议或本协议补充协议约定的。
+    			</p>
+    			<p>（二）如您在本平台上发布的信息构成违约的，本平台可根据相应规则立即对相应信息进行删除、屏蔽处理。</p>
+    			<p>（三）如您的行为使本平台及/或其关联公司遭受损失（包括自身的直接经济损失、商誉损失及对外支付的赔偿金、和解款、律师费、诉讼费等间接经济损失），您应赔偿本平台及/或其关联公司的上述全部损失。</p>
+    			<p>（四）如您的行为使本平台及/或其关联公司遭受第三人主张权利，本平台及/或其关联公司可在对第三人承担金钱给付等义务后就全部损失向您追偿。</p>
+    			<p class="p1">七、知识产权</p>
+    			<p>（一）本平台内容受中国知识产权法律法规及各国际版权公约的保护。用户承诺不以任何形式复制、模仿、传播、出版、公布、展示本平台内容，包括但不限于电子的、机械的、复印的、录音录像的方式和形式等。 </p>
+    			<p>（二）用户未经授权不得将本平台包含的资料等任何内容发布到任何其他网站或者服务器。任何未经授权对本平台内容的使用均属于违法行为。 </p>
+    			<p>（三）用户保证，其发布在本平台上的任何信息和内容都没有侵犯任何第三方的知识产权，也不存在可能导致侵犯第三方知识产权的情形。若任何第三方因用户发布的信息和内容提出权属异议或引起任何纠纷，用户自行承担责任，与本平台无关。 </p>
+    			<p>（四）用户同意，其发布上传到本平台上可公开获取区域的任何内容，用户同意本平台有权将内容用于其他合法用途，包括但不限于部分或者全部地复制、修改、改编、翻译、组装、分拆、推广、分发、广播、表演、演绎、出版。 </p>
+    			<p class="p1">八、 法律适用和争议解决</p>
+    			<p>本协议的签订、效力、履行、终止、解释和争端解决适用中国法律法规。如双方就本协议内容或其执行发生任何争议，双方应尽量友好协商解决；协商不成时，任何一方均可向本平台所在地的人民法院提起诉讼。 </p>
+    			<p class="p1">九、其他</p>
+    			<p>（一）本协议自用户签署并成功注册为本平台用户之日起生效，除非本平台终止本协议或者用户丧失本平台用户资格，否则本协议始终有效。出于运行和交易安全的需要，本平台可以暂时停止提供或者限制本服务部分功能，或提供新的功能，在任何功能减少、增加或者变化时，只要用户仍然使用本平台服务，表示用户仍然同意本协议或者变更后的协议。 </p>
+    			<p>（二）本协议终止并不免除用户根据本协议或其他有关协议、规则已经发生的行为或达成的交易项下所应承担的义务和责任。 </p>
+    			<p>（三）本平台未行使或执行本服务协议任何权利或规定，不构成对前述权利之放弃。 </p>
+    			<p>（四）如本协议中的任何条款无论因何种原因完全或部分无效或不具有执行力，本协议的其余条款仍应有效并且有约束力。 </p>
+    			<p>（五）本平台对本协议享有最终的解释权。</p>
+    		</div>
+    		<div class="btn01">
+    			同意并继续
+    		</div>
+		</div>
+		<!-- end -->
+       </div>
+
+    <!--footer-->
+	#parse("/frame/base.vm")
+	
+	<script type="text/javascript" src="$request.getContextPath()/res/js/fileinput/fileinput.js"></script>
+	<script type="text/javascript" src="$request.getContextPath()/res/js/fileinput/fileinput_locale_zh.js"></script>
+	<script type="text/javascript" src="$request.getContextPath()/res/js/common/common.js"></script>
+	<script type="text/javascript" src="$request.getContextPath()/res/js/common/jquery.fileinputUpload.common.js"></script>
+	<script type="text/javascript" src="$request.getContextPath()/res/js/plug/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="$request.getContextPath()/res/js/plug/jquery.validate.form.js"></script>
+	<script type="text/javascript" src="$request.getContextPath()/res/appjs/register.js"></script>
+	<script src="$request.getContextPath()/res/js/plug/nicescroll.js"></script>
+</html>

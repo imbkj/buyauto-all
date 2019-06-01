@@ -1,0 +1,124 @@
+   <!DOCTYPE html>
+<html>
+<head>
+    <title>麦卡进口车 - 我的等级</title>
+    <!--meta-->
+	    #parse("/frame/meta.vm")
+	<!--meta-->
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/grade.css" />
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/style.css">
+</head>
+<body>
+    <div class="main">
+        <!--header-->
+        #parse("/frame/header.vm")
+		<div class="title">
+		<a href="$request.getContextPath()/h/l/user/leaderIndex">&nbsp;首页</a>&nbsp;><a href="#">&nbsp;个人中心</a>
+	</div>
+	<div class="content_box">
+		#parse("/frame/per_nav.vm")
+		<div class="per_content">
+			 <div class="grade_title">
+			 	<span>我的等级</span>
+			 </div>
+			 <div class="grade_content">
+			 	<img src="$request.getContextPath()/res/images/grade_avatar.png" alt="" >
+			 	<span class="personal">#if($!userSessionInfo.realLevel == 0)个人客户#end
+							    #if($!userSessionInfo.realLevel == 1)个人销售#end
+								#if($!userSessionInfo.realLevel == 2)个人经销商#end</span>
+			 	<span class="personal_info">本月已销售 $salesVolume 台。</span>
+				#if($!userSessionInfo.realLevel == 2)<span class="personal_back">回退至个人销售</span>#end
+			 	
+			 </div>
+			 <div class="grade_info">
+				<ul>
+					<li class="fl">
+						<span>温馨细则提示：</span>
+					</li>
+					<li class="fr">
+						<ul>
+							<li>
+								<span>等级</span>
+							</li>
+							<li>
+								<span>升级条件</span>
+							</li>
+							<li>
+								<span>降级条件</span>
+							</li>
+							<li>
+								<span>权益</span>
+							</li>
+						</ul>
+					</li>
+					<li class="fc">
+						<ul>
+							<li>
+								<span>个人经销商</span>
+							</li>
+							<li>
+								<span>完成$upgradeCondition.saleSales台车辆销售基础上且每月销售>=$upgradeCondition.saleMonthSales台</span>
+							</li>
+							<li>
+								<span>连续$upgradeCondition.disDowMonth个月未完成月销售$upgradeCondition.disDowMonthSales台</span>
+							</li>
+							<li>
+								<span>最优的商品价格，不享受用户推荐受益</span>
+							</li>
+						</ul>
+					</li>
+					<li class="fr" style="height: 60px;">
+						<ul>
+							<li style="line-height: 60px">
+								<span>个人销售</span>
+							</li>
+							<li style="line-height: 60px">
+								<span>完成$upgradeCondition.personalSales台车辆销售基础上且每月销售>=$upgradeCondition.personalMonthSales台</span>
+							</li>
+							<li style="line-height: 60px">
+								<span>连续$upgradeCondition.saleDowMonth个月未完成月销售$upgradeCondition.saleDowMonthSales台</span>
+							</li>
+							<li style="line-height: 30px">
+								<span>最优的商品价格，推荐个人用户升级个人销售后，可获得额外收益</span>
+							</li>
+						</ul>
+					</li>
+					<li class="fc">
+						<ul>
+							<li>
+								<span>个人客户</span>
+							</li>
+							<li>
+								<span>/</span>
+							</li>
+							<li>
+								<span>/</span>
+							</li>
+							<li>
+								<span>/</span>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+   <div class="boom"></div>
+		<div class="Errors">
+			<h4>提示</h4>
+			<span> </span>
+			<div class="delBtn">确认</div>
+		</div>
+		
+		<div class="errors">
+			<h4>提示</h4>
+			<span> </span>
+			<div class="delbtn"><button id="sure">确认</buttton><button id="cancel">取消</button></div>
+		</div>
+  </div>
+        <!--footer-->
+        #parse("/frame/base.vm")
+    </div> 
+	<script type="text/javascript" src="$request.getContextPath()/res/appjs/grade.js"></script>
+</body> 
+</html>

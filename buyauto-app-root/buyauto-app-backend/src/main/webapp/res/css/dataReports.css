@@ -1,0 +1,68 @@
+.reportsUl {
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+.reportsUl li {
+	margin-top: 20px;
+}
+
+.reportsUl li .rptDivfirst {
+	border: 1px solid #ddd;
+	border-radius: 15px;
+	height: 200px;
+	font-size: 18px;
+}
+
+.reportsUl li div .reportsImg {
+	width: 50%;
+	height: 152px;
+	float: left;
+	text-align: center;
+	line-height: 152px;
+}
+
+.reportsUl li .rptDivfirst span:first-child {
+	float: left;
+	height: 47px;
+	line-height: 47px;
+	border-bottom: 1px solid #e6e6e6;
+	font-size: 15px;
+	margin: 0 auto;
+	text-align: center;
+	width: 100%;
+}
+
+.reportsUl li .rptDivfirst span:last-child {
+	width: 50%;
+	float: left;
+	height: 152px;
+	font-size: 28px;
+	line-height: 152px;
+}
+
+#littleFont {
+	border-top: 1px solid #e6e6e6;
+	font-size: 14px;
+	text-align: center;
+	line-height: 28px;
+}
+
+#reportsImgTotalMoney {
+	width: 36%;
+	float: left;
+	height:80px;
+	text-align: center;
+	line-height: 80px;
+	margin-top:36px;
+}
+
+#totalMoneySpan {
+	width: 50%;
+	float: left;
+	height:80px;
+	font-size: 28px;
+	line-height: 80px;
+	margin-top:36px;
+}

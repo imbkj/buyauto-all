@@ -1,0 +1,573 @@
+
+
+.reg_info .dealer_list{
+	margin-top:80px;
+}
+
+.reg_info .card_list{
+	margin-bottom:140px;
+}
+
+.main{
+	width:1100px;
+	margin:0 auto;
+	overflow:hidden;
+}
+
+.topnav{
+	 width:1100px;
+	 height:50px;
+	 line-height: 50px;
+	 margin-top:58px;
+	 border-bottom: 2px solid #e6e6e6;
+}
+
+.topnav ul{
+	width:100%;
+	display:inline-block;
+}
+.topnav ul li{
+	width:23%;
+	float:left;
+	text-align:center;
+	margin-left: 227px;
+}
+
+.topnav ul li:last-child{
+	margin-left: 180px;
+}
+
+.topnav ul li a{
+	font-size: 20px;
+	color:#222;
+	
+}
+
+.topnav ul li a:hover{
+	color:#ff9900;
+}
+
+
+.topnav ul li.btline{
+	width:250px;
+	height:50px;
+	border-bottom:2px solid #ff9900; 
+}
+
+.topnav ul li.btline a{
+	color:#ff9900;
+}
+
+.register_info{
+	width: 1100px;
+	margin: 0 auto;
+}
+
+.title{
+	margin-top: 20px;
+}
+
+.star{
+	width: 9px;
+	height: 9px;
+	margin-left: 25px;
+}
+
+.title span{
+	color: #404040;
+	font-size: 16px;
+}
+
+.account_info_title{
+	width: 1100px;
+	height: 56px;
+	line-height: 56px;
+	border-bottom: 1px solid #e6e6e6;
+}
+
+.account_info_title span{
+	color: #111111;
+	font-size: 16px;
+	font-weight: bold;
+	margin-left: 20px;
+}
+
+.account_list,.dealer_list{
+	width: 1100px;
+	margin: 0 auto;
+}
+
+.account_list ul li,.dealer_list ul li{
+	width: 100%;
+	height: 50px;
+	margin-top: 30px;
+}
+
+.account_list .lt,.dealer_list .lt{
+	width: 325px;
+	height: 50px;
+	float: left;
+	line-height: 50px;
+	text-align: right;
+	color: #111111;
+	font-size: 14px;
+}
+
+.account_list .rt,.dealer_list rt{
+	width: 325px;
+	height: 50px;
+	float: left;
+	line-height: 50px;
+	margin-left: 45px;
+	text-align: left;
+	color: #111111;
+	font-size: 14px;
+}
+
+.account_list input,.dealer_list input{
+	padding-left: 20px;
+	padding-right: 20px;
+	width: 318px;
+	height: 48px;
+	float: left;
+	border: 1px solid #e6e6e6;
+	margin-left: 45px;
+	color: #111111;
+	font-size: 14px;
+}
+
+.dealer_info{
+	width: 1100px;
+	height: 56px;
+	margin-top: 20px;
+	line-height: 56px;
+	border-bottom: 1px solid #e6e6e6;
+}
+
+.dealer_info_title span{
+	color: #111111;
+	font-size: 16px;
+	font-weight: bold;
+	margin-left: 20px;
+}
+
+.dealer_list .dealer_lt{
+	width: 198px;
+	height: 48px;
+	border: 1px solid #e6e6e6;
+	float: left;
+	margin-left: 45px;
+	color: #111111;
+	font-size: 14px;
+}
+
+.dealer_list .dealer_rt{
+	width: 110px;
+	height: 50px;
+	float: left;
+	margin-left: 10px;
+	text-align: center;
+	line-height: 50px;
+	color: #fff;
+	font-size: 14px;
+	padding: 0;
+	background: #ff9900;
+	cursor: pointer;
+}
+
+.dealer_list .getCode{
+	background: #e6e6e6;
+	color: #666666;
+}
+
+.dealer_list .getCode{
+	width: 110px;
+	height: 50px;
+	float: left;
+	margin-left: 10px;
+	text-align: center;
+	line-height: 50px;
+	color: #111111;
+	font-size: 14px;
+	padding: 0;
+	background: #e6e6e6;
+}
+
+.card_info{
+	width: 1100px;
+	margin: 20px auto 0;
+}
+
+.card_title{
+	width: 1100px;
+	height: 56px;
+	line-height: 56px;
+	border-bottom: 1px solid #e6e6e6;
+}
+
+.card_title span{
+	color: #111111;
+	font-size: 16px;
+	font-weight: bold;
+	margin-left: 20px;
+}
+
+.card_list{
+	width: 1100px;
+	margin: 0 auto;
+}
+
+.card_list ul li{
+	min-height: 50px;
+	width: 100%;
+	margin-top: 30px;
+}
+
+.card_list .lt{
+	width: 325px;
+	height: 50px;
+	float: left;
+	line-height: 50px;
+	text-align: right;
+	color: #111111;
+	font-size: 14px;
+}
+
+.card_sel{
+	width: 108px;
+	height: 48px;
+	margin-left: 45px;
+	float: left;
+	opacity: 0;
+	filter:alpha(opacity=0); 
+	position: relative;
+	z-index: 10;
+}
+
+.file{
+	position: absolute;
+	width: 108px;
+	height: 48px;
+	border: 1px solid #ff9900;
+	left: 370px;
+	text-align: center;
+	line-height: 48px;
+	z-index: 1;
+	color: #111111;
+	font-size: 14px;
+}
+
+.card_list .rt{
+	width: 580px;
+	height: 50px;
+	margin-left: 40px;
+	float: left;
+	line-height: 50px;
+	text-align: left;
+	color: #111111;
+	font-size: 14px;
+}
+
+.submit{
+	width: 310px;
+	padding-left:10px;
+	height: 50px;
+	background: #fda118;
+	text-align: center;
+	line-height: 50px;
+	border: none;
+	color: #fff;
+	font-size: 16px;
+	letter-spacing: 10px;
+	margin-left: 45px;
+	cursor: pointer;
+}
+
+.xieyi{
+	color: #111111;
+	float: left;
+	font-size: 14px;
+	margin-left: 6px;
+}
+
+.card_list a{
+	color: #fda118;
+	float: left;
+	border-bottom: 1px solid #fda118;
+}
+
+.tip{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 158px;
+	display: none;
+	overflow: hidden;
+}
+
+.bom{
+	width: 158px;
+	height: 118px;
+	position: absolute;
+	border: 1px solid #fda118;
+	z-index: 100;
+	top: 0;
+	left: 0;
+	background: url('../img/delete.png') no-repeat right bottom;
+	display: none;
+	cursor: pointer;
+}
+
+.bode{
+	height: 118px;
+	border: 1px solid #e6e6e6;
+}
+
+.box{
+	width: 160px;
+	height: 120px;
+	float: left;
+	margin-left: 10px;
+	position: relative;
+	display: none;
+}
+
+span.error,.mobile-error{
+    background: rgba(0, 0, 0, 0) url(../images/error.jpg) no-repeat scroll left center;
+    color: #91191e;
+    height: 50px;
+    line-height: 50px;
+    margin-left: 10px;
+    padding-left: 20px;
+    white-space: nowrap;
+}
+
+span.valid {
+    background: rgba(0, 0, 0, 0) url(../images/sucess.jpg) no-repeat scroll left center;
+    color: #91191e;
+    margin-left: 10px;
+    padding-left: 20px;
+    line-height: 50px;
+    height: 50px;
+}
+
+.delete{
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	width:30px;
+	height: 30px;
+}
+
+.Errors{
+	width: 600px;
+	height: 380px;
+	z-index: 10;
+	background: #ffffff;
+	position:fixed;
+	top: 50%;
+	left: 50%;
+	margin-top: -190px;
+	margin-left: -300px;
+	line-height: 200px;
+	text-align: center;
+	display:none;
+}
+
+.Errors h4{
+	color: #111111;
+	font-size: 24px;
+	font-weight: bold;
+	width: 100%;
+	text-align: center;
+	margin-top: 40px;
+}
+
+.boom{
+	background: #000;
+	opacity: 0.3;
+	position:fixed;
+	z-index: 9;
+	top: 0;
+	left: 0;
+	display:none;
+}
+
+.Errors span{
+	display: block;
+	color: #111111;
+	font-size: 18px;
+	font-weight: bold;
+	width: 100%;
+	text-align: center;
+	margin-top: 90px;
+	height: 20px;
+	line-height: 20px;
+}
+
+.delBtn{
+	width: 360px;
+	height: 50px;
+	margin-top: 110px;
+	margin-left: 120px;
+	text-align: center;
+	line-height: 50px;
+	background: #ff9900;
+	color: #fff;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+ input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance: none !important;
+    margin: 0; 
+}
+input[type="number"]{-moz-appearance:textfield;}
+
+.protocol{
+	width: 1080px;
+	height: 776px;
+	border: 10px solid #e6e6e6;
+	background: #ffffff;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+    display: none;
+    z-index:1000;
+}
+
+.order-deleat{
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	top: -10px;
+	right: -60px;
+	cursor: pointer;
+}
+
+.protocol h1{
+	color: #ff9900;
+	font-size: 24px;
+	font-weight: bold;
+	width:100%;
+	height: 85px;
+	text-align: center;
+	line-height: 85px;
+	border-bottom: 1px solid #e6e6e6;
+}
+
+.order-deleat img{
+	width: 100%;
+	height: 100%;
+}
+
+.logistics{
+	margin-top: 25px;
+	width: 100%;
+	height: 565px;
+	overflow-y: scroll;
+}
+
+.logistics h2{
+	color: #111111;
+	font-size: 16px;
+	font-weight: bold;
+	width:100%;
+	text-align: center;
+}
+
+.logistics p{
+	width: 888px;
+	margin: 0 auto;
+	text-indent:28px;
+	color: #404040;
+	font-size: 14px;
+	line-height: 28px;
+}
+
+.logistics .p1{
+	font-weight: bold;
+	margin-top: 40px;
+	text-indent:0px;
+}
+
+.logistics a{
+	color: #fda836;
+	text-decoration:underline;
+}
+
+.btn01{
+	width: 320px;
+	height: 50px;
+	color: #fff;
+	background: #fda118;
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 50px;
+	text-align: center;
+	margin-top: 20px;
+	margin-left: 380px;
+	cursor: pointer;
+}
+
+.radio_rt{
+	width:318px;
+	float:left;
+	margin-left:20px;
+	height:48px;
+	line-height:48px;
+}
+
+/*单选*/
+
+   .radio_box {
+       display: inline-block;
+       position: relative;
+   }
+   
+   .radio_box  input[type = "radio"]{
+        width:67px;
+        display: none;
+   }
+
+   body {
+         font: menu;
+         font-size: 16px;
+     }
+   
+   .radio_box label{
+      padding-top:5px;
+      padding-left:56px;
+      font-weight:normal;
+      cursor:pointer;
+   }
+   .radio_box label em{
+       width: 15px;
+       height: 15px;
+       position: absolute;
+       top: 0;
+       left: 21px;
+       border: 2px solid #ff9900;
+       border-radius: 50%;
+       background: #fff;
+       cursor: pointer;
+   }
+
+   .radio_box input:checked+ label em:after {
+       content: '';
+       width: 9px;
+       height: 9px;
+       position: absolute;
+       top: 3px;
+       left: 3px;
+       background: #ff9900;
+       border-radius: 50%;
+   }
+
+   .radio_box em {
+       margin: 20px 0 0 5px;
+   }

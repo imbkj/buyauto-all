@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--meta-->
+	    #parse("/frame/meta.vm")
+	<!--meta-->
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/style.css">
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/about_help.css" />
+	<title>麦卡进口车 - 帮助中心</title>
+</head>
+<body>
+	 <div class="main">
+	 	<!--header-->
+		#parse("/frame/header.vm")
+	 	<div class="help_top">
+			<span>你是否遇到了这些问题？</span>
+		</div>
+
+		<div class="title">
+			<a href="$request.getContextPath()/">首页</a>&nbsp;>&nbsp;<a href="$request.getContextPath()/aboutHelp">帮助中心</a>&nbsp;>&nbsp;<a href="#" class="_title"></a>
+		</div>
+
+		<div class="help_box">
+			<div class="help_lt">
+				<div class="about">
+					<h1 class="type ty01">关于平行进口车</h1>
+					<ul>
+						<li>
+							<span>什么是平行进口车？</span>
+						</li>
+						<li>
+							<span>平行进口车可靠吗？</span>
+						</li>
+						<li>
+							<span>国家政策允许平行进口车销售吗？</span>
+						</li>
+					</ul>
+				</div>
+				<div class="order">
+					<h1 class="type ty02">账户管理</h1>
+					<ul>
+						<li>
+							<span>我怎么才能拥有账号？</span>
+						</li>
+						<li>
+							<span>作为经销商我可以进行哪些账号管理操作？</span>
+						</li>
+						<li>
+							<span>我怎么对我的工作人员进行账号管理？</span>
+						</li>
+					</ul>
+				</div>
+				<div class="buy">
+					<h1 class="type ty03">购车帮助</h1>
+					<ul>
+						<li>
+							<span>购车流程是怎么样的？</span>
+						</li>
+						<li>
+							<span>能取消订单吗？</span>
+						</li>
+						<li>
+							<span>从哪里取车？</span>
+						</li>
+						<li>
+							<span>如何支付定金？</span>
+						</li>
+						<li>
+							<span>我的订单什么时候能够确认？</span>
+						</li>
+					</ul>
+				</div>
+				<div class="service">
+					<h1 class="type ty04">售后服务</h1>
+					<ul>
+						<li>
+							<span>需要多久才能收到车？</span>
+						</li>
+						<li>
+							<span>购车后我能拿到合法的证明文件吗？</span>
+						</li>
+						<li>
+							<span>售后保修去找谁？</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="help_rt">
+				<div class="_about">
+					<h2>什么是平行进口车？</h2>
+					<p style="margin-top:15px;">平行进口汽车，是指贸易商从海外市场购买，并引入中国市场进行销售的汽车。为了区别经品牌厂商授权，按照中国规范设计发往中国市场的进口“中规车”，我们又称平行进口汽车为“非中规车”，或按其进口地、版本不同，可分为“美规车”、“美版车”、“中东版车”等。</p>
+					<h2 style="margin-top:40px;">平行进口车可靠吗？</h2>
+					<p style="margin-top:15px;">麦卡进口车与国内知名的供应链公司共同合作，为经销商精选海外优质车源，从源头上提供保障，并提供相应的进口证明文件。</p>
+					<h2 style="margin-top:40px;">国家政策允许平行进口车销售吗？</h2>
+					<p style="margin-top:15px;">2017年
+《汽车销售管理办法》(以下简称《管理办法》)将于7月1日起正式施行。
+《管理办法》明确销售汽车不再需要品牌授权，传统授权的4S经销商不得随意加价，不能绑定销售保险、金融、配件等，这不仅打破了品牌授权为核心的4S模式，还实现了打破汽车零部件销售垄断等多方面的突破。车商之间竞争会加剧，汽车价格会更加优惠，广大购车者也随之受益。
+同时，新《办法》打破了进口车总经销商备案制，经销商无需从总经销商处进货，也无需获得厂家授权，可直接从海外进口车辆。
+</p><p style="margin-top:40px;">2016年
+2月22日，商务部、工业和信息化部、公安部、环境保护部、交通运输部、海关总署、质检总局、国家认监委等8部门印发《关于促进汽车平行进口试点的若干意见》。
+2月26日，工业和信息化部、发改委、公安部联合发布《关于开展放宽皮卡车进城限制试点促进皮卡车消费的通知》。
+6月13日，中国质量认证中心（CQC）发布《平行进口汽车认证管理要求（试行）》。
+</p>
+				</div>
+				<div class="_order">
+					<h2>我怎么才能拥有账号？</h2>
+					<p style="margin-top:15px;">经销商在网站中进行注册，提供并上传三证文件扫描件（营业执照，税务登记证和组织机构代码证），并与麦卡签订合作协议，审核通过后，即可享有麦卡经销商账号。</p>
+					<h2 style="margin-top:40px;">作为经销商我可以进行哪些账号管理操作？</h2>
+					<p style="margin-top:15px;">您可以对账户进行基本信息修改，查看并管理账房，订单管理以及子账号管理等功能操作。</p>
+					<h2 style="margin-top:40px;">我怎么对我的工作人员进行账号管理？</h2>
+					<p style="margin-top:15px;">子账号可添加经销商的不同职位人员，人员标配至少三人——管理员、销售、财务，并可对相应账号进行修改和冻结管理。
+每个子账号的信息包括：必填——姓名、岗位（管理员、销售、财务）、账号名、手机、密码；选填——邮箱、工号、入职时间、所属区域。</p>
+				</div>
+				<div class="_buy">
+					<h2>购车流程是怎么样的？</h2>
+					<p style="margin-top:15px;">经销商在线注册成为麦卡会员，麦卡为经销商提供相应的后台系统<br />
+经销商指定的销售人员在线下单<br />
+经销商指定的财务人员支付定金并上传付款凭证<br />
+麦卡平台向经销商发送订单确认的通知<br />
+供应商安排发货<br />
+经销商支付尾款<br />
+供应商交付车辆
+</p>
+					<h2 style="margin-top:40px;">能取消订单吗？</h2>
+					<p style="margin-top:15px;">在未支付定金之前，可随时取消订单。
+在支付了定金之后，不可取消订单。
+</p>				<h2 style="margin-top:40px;">从哪里取车？</h2>
+					<p style="margin-top:15px;">所有车辆均由专业的物流公司安排配送，经销商可全程跟踪物流信息。</p>
+					<h2 style="margin-top:40px;">如何支付定金？</h2>
+					<p style="margin-top:15px;">由经销商以银行转账的方式支付，支付成功后，由经销商财务人员上传付款凭证。</p>
+					<h2 style="margin-top:40px;">我的订单什么时候能够确认？</h2>
+					<p style="margin-top:15px;">当经销商在线支付了定金之后，供应商确认收到定金，经销商会收到“订单已确认”的通知，供应商会尽快安排发送车辆。</p>
+				</div>
+				<div class="_service">
+					<h2>需要多久才能收到车？</h2>
+					<p style="margin-top:15px;">具体的提车时间将根据定金的支付时间而定，在经销商支付定金之后，供应商会尽快安排发货，经销商可随时跟踪物流配送信息（具体的配送时间受交通、天气等不可抗力因素影响）。</p>
+					<h2 style="margin-top:40px;">购车后我能拿到合法的证明文件吗？</h2>
+					<p style="margin-top:15px;">可以的，供应商会随车配送一系列相关证明文件，包括“进口机动车辆随车检验单”、“海关货物进口证明书”和“车辆一致性证书”等。</p>
+					<h2 style="margin-top:40px;">售后保修去找谁？</h2>
+					<p style="margin-top:15px;">经销商可选择不同类型的三包险（与知名保险公司进行合作），麦卡线下的合作伙伴也可提供相应的维修服务。</p>
+				</div>
+			</div>
+		</div>
+		 <!--footer-->
+		#parse("/frame/base.vm")
+	 </div>
+	 <script type="text/javascript" src="$request.getContextPath()/res/appjs/about_help.js"></script>
+</body>	 	 
+</html>

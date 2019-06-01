@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--meta-->
+	    #parse("/frame/meta.vm")
+	<!--meta-->
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/style.css" />
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/main.css" />
+	<title>麦卡进口车 - 消息中心</title>
+</head>
+<body>
+	 <div class="main">
+	 	<!--header-->
+		#parse("/frame/header.vm")
+		<div class="title">
+			<a href="$request.getContextPath()/h/l/user/leaderIndex">&nbsp;首页</a>&nbsp;><a href="#">&nbsp;个人中心</a>
+		</div>
+		<div class="content_box">
+			#parse("/frame/per_nav.vm")
+			<div class="per_content">
+				<div class="message_title">
+				 	<span>消息中心</span>
+				 	<span class="all">全部已读</span>
+				 </div>
+				 <ul class="messase_list">
+ 
+		 		</ul>
+		 		<div class="page">
+		        	<span class="preBtn" id="preBtn"><</span>
+			        <div class="ctPage">
+			            <ul>
+			                  
+			            </ul>
+			        </div>
+		        	<span class="nextBtn" id="nextBtn">></span>
+		    	</div>
+			</div>
+			
+		</div>
+		 <!-- 提示 -->
+		<div class="boom"></div>
+		<div class="Errors">
+			<h4>提示</h4>
+			<span></span>
+			<div class="delBtn">确认</div>
+		</div>
+		 <!--footer-->
+		#parse("/frame/base.vm")
+	 </div>
+	 <script type="text/javascript" src="$request.getContextPath()/res/appjs/message.js"></script>
+</body>	 	 
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--meta-->
+	    #parse("/frame/meta.vm")
+	<!--meta-->
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/style.css" />
+	<title>麦卡进口车 - 500</title>
+</head>
+<body>
+	 <div class="main">
+	 	<!--header-->
+		#parse("/frame/header.vm")
+	 	<div  style="width: 100%;height: 700px;">
+	 		<div style="height:150px;"></div>
+		 	<ul style="margin:0 auto;width: 560px;height: 500px;">
+		 		<li>
+		 			<img src="$request.getContextPath()/res/images/500.png" alt="" style="width: 560px;height: 390px;">
+		 		</li>
+		 		<li>
+		 			<span style="color: #373737;font-size: 14px;font-weight:bold;float:left;width: 100%;text-align:center;">遇到错误啦,请返回</span>
+		 		</li>
+		 		<li>
+		 			<a href="$request.getContextPath()/" style="float:left;width:150px;height: 36px;line-height:36px;text-align:center;color: #fff;background:#ff9900;border-radius: 3px;margin-left: 205px;margin-top: 15px;">返回首页</a>
+		 		</li>
+		 	</ul>
+		 </div>
+		 <!--footer-->
+		#parse("/frame/base.vm")
+	 </div>
+</body>	 	 
+</html>

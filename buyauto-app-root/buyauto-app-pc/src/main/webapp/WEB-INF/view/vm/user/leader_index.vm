@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--meta-->
+	    #parse("/frame/meta.vm")
+	<!--meta-->
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/leader_index.css" />
+     <link rel="stylesheet" href="$request.getContextPath()/res/css/style.css"> 
+	<title>经销商管理 - 首页</title>
+</head>
+<body>
+	<div class="main">
+		<!--header-->
+		#parse("/frame/header.vm")
+		<div class="top_banner">
+			<img src="$request.getContextPath()/res/img/top_banner.png" alt="">
+		</div>
+
+		<div class="order_box">
+			#parse("/frame/order_nav.vm")
+	
+			<div class="order_rt">
+				<ul>
+					<li class="rt_f01">
+						<span>今日订单数</span>
+						<img src="$request.getContextPath()/res/images/index-orders.png" alt="">
+						<span class="index_num">$indexData.orderCount</span>
+					</li>
+					<li class="rt_f02">
+						<span>今日总成交金额</span>
+						<img src="$request.getContextPath()/res/images/index-money.png" alt="">
+						<span class="index_amount">$VCToolbar.formattingMoneyCN("$indexData.amountTotal",false)</span>
+						<span class="deposit_title">定金</span>
+						<span class="index_deposit">$VCToolbar.formattingMoneyCN("$indexData.deposit",false)</span>
+						<span class="retainage_title">尾款</span>
+						<span class="index_retainage">$VCToolbar.formattingMoneyCN("$indexData.retainage",false)</span>
+					</li>
+					<li class="rt_f03">
+						<span>待付款(定金按笔统计)</span>
+						<img src="$request.getContextPath()/res/images/index-pre.png" alt="">
+						<span class="index_num">$indexData.snpaidOrderCount</span>
+					</li>
+					<li class="rt_f04 pre">
+						<span>待交车</span>
+						<img src="$request.getContextPath()/res/images/index-car.png" alt="">
+						<span class="index_num">$indexData.waitCount</span>
+					</li>
+					<li class="rt_f05">
+						<span>当前员工数</span>
+						<img src="$request.getContextPath()/res/images/index-maker.png" alt="">
+						<span class="index_num">$indexData.staffCount</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+    	<!--footer-->
+		#parse("/frame/base.vm")
+	</div>
+</html>

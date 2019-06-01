@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--meta-->
+	    #parse("/frame/meta.vm")
+	<!--meta-->
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/products_list.css" />
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/user_center_lt.css" />
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/style.css"> 
+	<title>个人中心-商品列表</title>
+</head>
+<body>
+	<!--header-->
+	#parse("/frame/user_header.vm")
+
+    	<div class="wrap">
+		<div class="topmenu">
+			<span>首页</span><em>></em><span>个人中心</span>
+		</div>
+		<div class="center">
+		
+		<!--nav left-->
+          #parse("/frame/user_nav_lt.vm")
+
+		<div class="rt_count">
+			 <div class="count_tit">
+			 	  <p>商品管理</p>
+			 </div>
+			 <div class="count_list count">
+			 	  <h6>筛选条件</h6>
+			 	  <ul>
+			 	  	<li>
+			 	  		<dl>
+			 	  			<dt>产品状态</dt>
+			 	  			<dd class="currt"><span class="status" data-status="">全部</span></dd>
+			 	  			<dd><span class="status" data-status="2">已上架</span></dd>
+			 	  			<dd><span class="status" data-status="4">未上架</span></dd>
+			 	  			<dd><span class="status" data-status="5">未通过</span></dd>
+			 	  			<dd><span class="status" data-status="1">未审核</span></dd>
+			 	  		</dl>
+			 	  	</li>
+			 	  	<li>
+			 	  		<div class="pdtname">
+			 	  			<label> 产品名称 </label>
+			 	  			<input type="text" id="productname">
+			 	  		</div>
+			 	  	</li>
+			 	  	<li>
+			 	  		 <div class="pdtname">
+			 	  		 	<label >产品ID</label>
+			 	  		 	<input type="text" class="dit" id="productid">
+			 	  		 </div>
+			 	  	</li>
+			 	  </ul>
+			 	  
+			 	  <div class="newly">
+ 	  				<a href="javascript:void(0)" id="search" class="sera"><i></i>查询</a>
+ 	  				<a href="$request.getContextPath()/h/l/supplier/productsAdd" class="add"><i></i>新增</a>
+ 	  			  </div>
+
+			 	  <div class="count_product">
+			 	  	   <h6>商品列表</h6>
+			 	  	   <table>
+		 	  	           <col width="100px">
+		 	  	       	   <col width="100px">
+		 	  	       	   <col width="100px">
+		 	  	       	   <col width="100px">
+		 	  	       	   <col width="100px">
+		 	  	       	   <col width="130px">
+				 	  	   	<thead>
+			 	  	       	    <tr>
+				 	  	   		  <th>ID</th>
+				 	  	   	   	  <th>商品名称</th>
+				 	  	   	   	  <th>价格</th>
+				 	  	   	   	  <th>创建时间</th>
+				 	  	   	   	  <th>审核状态</th>
+				 	  	   	   	  <th>操作</th>
+				 	  	   	   </tr>
+				 	  	   	</thead>
+			 	  	       <tbody>
+			 	  	       	  
+			 	  	       </tbody> 
+			 	  	   </table>
+			 	    </div>
+			 	    
+			 	    <div class="nolist_ser">
+						<span></span>
+					</div>
+					
+			 	 </div> 
+		 	   <div class="page">
+		        	<span class="preBtn" id="preBtn">&lt;</span>
+			        <div class="ctPage">
+			            <ul> </ul>
+			        </div>
+		        	<span class="nextBtn" id="nextBtn">&gt;</span>
+		    	</div>
+		   </div>
+	   </div>
+    </div>
+    
+     <div class="boom"></div>
+		<div class="Errors">
+			<h4>提示</h4>
+			<span> </span>
+			<div class="delBtn">确认</div>
+		</div>
+		
+		
+	<!--footer-->
+	#parse("/frame/base.vm")
+	
+	<script type="text/javascript" src="$request.getContextPath()/res/appjs/products_list.js"></script>
+</html>

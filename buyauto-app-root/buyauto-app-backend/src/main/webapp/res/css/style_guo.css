@@ -1,0 +1,65 @@
+/*数据统计*/
+.row{
+	margin:40px 0 20px 110px;
+}
+.row .col-md-4{
+	width:493px;
+	margin:0 40px;
+}
+.dashbox .panel-body {
+    padding: 0px;
+}
+.dashbox .panel-left{
+	width: 30%;
+    float: left;
+    padding: 20px;
+    border-radius: 4px 0 0 4px;
+    text-align: center;
+    background-color: #f4f4f4;
+    border-right: 1px solid #ddd;
+}
+.dashbox .panel-left i{
+	font-size:12px;
+	font-style:normal;
+}
+.dashbox .panel-right {
+    width: 70%;
+    float: right;
+    padding-left: 20px;
+    padding-top: 10px;
+    border-radius: 0 4px 4px 0;
+    position: relative;
+}
+.dashbox .panel-right .number {
+    font-size: 30px;
+    font-weight: 400;
+    color: #666666;
+}
+.dashbox .panel-right .number i{
+	font-style:normal;
+	font-size:12px;
+}
+.dashbox .panel-right .label {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    font-size: 11px;
+}
+.label {
+    display: inline;
+    padding: .2em .6em .3em;
+    font-size: 75%;
+    font-weight: bold;
+    line-height: 1;
+    color: #ffffff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+}
+.col-md-4 p{
+	text-align: right;
+	font-size:14px;
+	font-weight:normal;
+	color:#666;
+}

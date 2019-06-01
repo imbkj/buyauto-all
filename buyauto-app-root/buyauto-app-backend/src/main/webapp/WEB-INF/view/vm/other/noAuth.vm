@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <title>麦卡进口车-权限不足</title>
+    #parse("/frame/public.vm")
+    <link rel="stylesheet" href="$request.getContextPath()/res/vendors/jqwidgets/jqwidgets/styles/jqx.base.css" type="text/css" />
+    
+</head>
+
+<body class="nav-md">
+
+<div class="container body">
+    <div class="main_container">
+
+        <div class="col-md-12">
+            <div class="col-middle">
+                <div class="text-center text-center">
+                    <h1 class="error-number">No Permission</h1>
+
+                    <h2>访问失败，您的权限不足。</h2>
+
+                    <p>现在您可以 <a href="$request.getContextPath()/">返回首页</a></p>
+
+                  
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<div id="custom_notifications" class="custom-notifications dsp_none">
+    <ul class="list-unstyled notifications clearfix" data-tabbed_notifications="notif-group">
+    </ul>
+    <div class="clearfix"></div>
+    <div id="notif-group" class="tabbed_notifications"></div>
+</div>
+
+
+#parse("/frame/footer_resouce.vm")
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <!--meta-->
+	    #parse("/frame/meta.vm")
+	<!--meta-->
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/accountant_child.css" />
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/page.css" />
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/style.css"> 
+	<title>经销商管理 - 子账号管理</title>
+</head>
+<body>
+	<!--header-->
+	#parse("/frame/header.vm")
+	<!--header-->
+	<div class="main car_size">
+		 <div class="top_banner">
+			<img src="$request.getContextPath()/res/img/top_banner.png" alt="">
+		</div>
+
+		<div class="title">
+			<a href="$request.getContextPath()/h/l/user/leaderIndex">&nbsp;首页</a>&nbsp;><a href="$request.getContextPath()/h/l/user/employee">&nbsp;子账号管理</a>
+		</div>
+
+		<div class="order_box">
+		
+			#parse("/frame/order_nav.vm")
+			
+			<div class="sketch fr">
+				<div class="cl new_staffs">
+					<h5 class="fl">账号概况</h5>
+					<div class="cl fr">
+						<a class="fl" href="$request.getContextPath()/h/l/user/add">新建员工</a>
+						<span title="录入员工信息，同事为员工创建专属账号，一人一号掌握员工权限和操作记录"></span>
+					</div>
+				</div>
+				<div class="cl view">
+					<ul class="viewse">
+						<li class="fl"><span class="account1"></span>可使用账号</li>
+						<li class="fl"><span class="account2"></span>可新建账号</li>
+						<li class="fl"><span class="account3"></span>冻结账号</li>
+					</ul>
+				</div>
+				<div class="staff_govern">
+					<table>
+						<caption>员工管理</caption>
+						<thead>
+							<tr>
+								<th>账号名</th>
+								<th>使用者</th>
+								<th>岗位</th>
+								<th>状态</th>
+								<th class="handle" title="管理员工账号密码、启用停用员工账户">操作</th>
+							</tr>
+						</thead>
+						<tbody class="car_management">
+							
+						</tbody>
+					</table>
+				</div>
+				<div class="page">
+		        	<span class="preBtn" id="preBtn"><</span>
+			        <div class="ctPage">
+			            <ul>
+			                  
+			            </ul>
+			        </div>
+		        	<span class="nextBtn" id="nextBtn">></span>
+		    	</div>
+			</div>
+		</div>
+	</div>
+	<!--footer-->
+	#parse("/frame/base.vm")
+	<!-- 提示框 -->
+	#parse("/frame/toolTip.vm")
+	<script src="$request.getContextPath()/res/js/plug/jquery-1.9.1.min.js"></script>
+	<script src="$request.getContextPath()/res/appjs/accountant_child.js"></script>
+</html>

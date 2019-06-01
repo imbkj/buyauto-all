@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <!--meta-->
+	    #parse("/frame/meta.vm")
+	<!--meta-->
+	<title>信用卡信息</title>
+	<link rel="stylesheet" href="$request.getContextPath()/res/js/fileinput/css/fileinput.css" />
+    <link rel="stylesheet" href="$request.getContextPath()/res/js/fileinput/css/bootstrap.css" />
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/idcards.css">
+    <style>
+        body{background:#f2f2f2;
+        .file-preview {width: 95%;}
+    </style>
+</head>
+<body>
+	 <div class="wrap">
+	 	 <!--<div class="topnav">
+	 	 	  <a href="javascript:window.history.go(-1);"></a>
+	 	 	  <p>信用卡信息</p>
+	 	 </div>-->
+
+	 	 <div class="content">
+	 	 	<form action="post">
+	 	 		<ul>
+	 	 			<li>
+	 	 				<span>信用卡号</span>
+		 	 		 	 <div class="rt">
+		 	 		 	 	 <input type="text" placeholder="请输入信用卡号" value="$!user.creditCard" id="creditid" onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');"  maxlength="18">
+		 	 		 	 	 <input type="hidden" id="msgId" value="$msgId" />
+		 	 		 	 	 <input type="hidden" id="token" value="$token" />
+		 	 		 	 	 <input type="hidden" id="card" value="$!user.creditCardFile" />
+		 	 		 	 </div>
+	 	 			</li>
+	 	 			<li>
+	 	 				<span>信用卡行</span>
+		 	 		 	 <div class="rt">
+		 	 		 	 	 <input type="text" placeholder="请输入信用卡发卡行"  value="$!user.creditCardBank"  id="creditname"  onkeyup="value=value.replace(/[0-9]+/g,'')"  maxlength="50"  >
+		 	 		 	 </div>
+	 	 			</li>
+	 	 		</ul>
+	 	 		<div class="content_photo">
+	 	 		      <div class="filecards">
+	 	 		          <div style="width:100%;margin:0 auto;">
+								<input type="file"  id="fileimages"  multiple="true"  />
+						 </div>
+	 	 		          <p>信用卡正面图片</p>
+	 	 		      </div>
+	 	 		</div>
+	 	 		<div class="buttons">
+	 	 			 <input type="button" value="确认" id="submit_button">
+	 	 		</div>
+	 	 	</form> 	 	
+	 	 </div>
+	 	 
+	 	 <div class="pop">
+            <div class="popMain">
+                <div class="popTop"></div>
+                <div class="popMiddle">
+                    <p></p>
+                    <div class="popBottom">
+                       <span class="confirm">确定</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+	 </div>
+     
+	<script type="text/javascript" src="$request.getContextPath()/res/js/common/jquery.fileinputUpload.common.js"></script>
+	<script type="text/javascript" src="$request.getContextPath()/res/js/fileinput/fileinput.js"></script>
+    <script type="text/javascript" src="$request.getContextPath()/res/js/fileinput/fileinput_locale_zh.js"></script>
+	<script type="text/javascript" src="$request.getContextPath()/res/appjs/credit_cards.js"></script>
+</body>
+</html>

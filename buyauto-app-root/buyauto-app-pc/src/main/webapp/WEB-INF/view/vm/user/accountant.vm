@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <!--meta-->
+	    #parse("/frame/meta.vm")
+	<!--meta-->
+	<link rel="stylesheet" href="$request.getContextPath()/res/js/fileinput/css/bootstrap.css" />
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/accountant.css" />
+     <link rel="stylesheet" href="$request.getContextPath()/res/css/style.css"> 
+     <link rel="stylesheet" href="$request.getContextPath()/res/js/fileinput/css/fileinput.css" />
+    
+	<title>经销商管理 - 账房</title>
+</head>
+<body>
+	<div class="main">
+		<!--header-->
+		#parse("/frame/header.vm")
+		<div class="top_banner">
+			<img src="$request.getContextPath()/res/img/top_banner.png" alt="">
+		</div>
+
+		<div class="title">
+			<a href="$request.getContextPath()/h/l/user/leaderIndex">&nbsp;首页</a>&nbsp;><a href="$request.getContextPath()/h/l/orders/myAccount">&nbsp;账房</a>
+		</div>
+
+		<div class="order_box">
+		 	#parse("/frame/order_nav.vm")
+			<div class="order_rt">
+				<div class="order_state">
+					<span class="state">订单状态:</span>
+					<ul>
+						<li class="limit" id="101">
+							待支付定金
+						</li>
+						<li id="104">
+							待支付尾款
+						</li>
+						<li id="0">
+							查看付款凭证
+						</li>
+						<li id="402">
+							定金审核未通过
+						</li>
+						<li id="403">
+							尾款审核未通过
+						</li>
+						<li id="222">
+							已退款
+						</li>
+					</ul>
+				</div>
+
+				<div class="order_list">
+					<ul class="order_list_title">
+						<li>车辆信息</li>
+						<li>定金</li>
+						<li>总价格</li>
+						<li>待支付尾款</li>
+						<li>买家</li>
+						
+						<li>状态</li>
+					</ul>
+					<div id="order_list"> </div>
+				</div>
+			</div>
+			
+			<div class="order_ser">
+				<span>暂时没有满足搜索条件的订单</span>
+			</div>
+		</div>
+
+		<div class="page">
+        	<span class="preBtn" id="preBtn"><</span>
+	        <div class="ctPage">
+	            <ul>
+	                  
+	            </ul>
+	        </div>
+        	<span class="nextBtn" id="nextBtn">></span>
+    	</div>	
+    	<!--上传凭证-->
+    	<div class="boom"></div>
+    	<div class="Errors">
+			<h4>提示</h4>
+			<span></span>
+			<div class="delBtn">确认</div>
+		</div>
+    	<div class="proof pro01">
+    		<div class="order-deleat">
+    			<img src="$request.getContextPath()/res/images/icon-deleat.png" />
+    		</div>
+			<div>
+				<span class="lt">
+					支付定金凭证
+				</span>	
+			</div>
+			<div style="clear:both;">
+			</div>
+			<div style="width:800px; margin:0 auto;">
+				<input type="file"  id='imageInput01'  multiple="true"  />
+			</div>
+			<div>
+				<span class="rt" id="proBtn01">
+					确定
+				</span>	
+			</div>
+		</div>
+		<div class="proof pro02">
+			<div class="order-deleat">
+    			<img src="$request.getContextPath()/res/images/icon-deleat.png" />
+    		</div>
+			<div>
+				<span class="lt">
+					支付尾款凭证
+				</span>	
+			</div>
+			<div style="clear:both;">
+			</div>
+			<div style="width:800px; margin:0 auto;">
+				<input type="file"  id='imageInput02'  multiple="true"  />
+			</div>
+			<div>
+				<span class="rt" id="proBtn02">
+					确定
+				</span>	
+			</div>
+		</div>
+		
+		<div class="check_pro">
+			<div class="check_btn">
+    			<img src="$request.getContextPath()/res/images/icon-deleat.png" />
+    		</div>
+			<span class="check_d dj">支付定金凭证：</span>
+			<ul class="check01 dj">
+				 
+				 
+			</ul>
+			<span class="check_w wk">支付尾款凭证：</span>
+			<ul class="check02 wk">
+				 
+				 
+			</ul>
+			<span class="check_t tk">退款凭证：</span>
+			<ul class="check03 tk">
+				 
+				 
+			</ul>
+		</div>
+    	<!--footer-->
+		#parse("/frame/base.vm")
+	</div>
+	<script type="text/javascript">
+	  var operation = $userSessionInfo.hasAuth('6201');
+	</script>
+	<script type="text/javascript" src="$request.getContextPath()/res/appjs/accountant.js"></script>
+	<script type="text/javascript" src="$request.getContextPath()/res/js/fileinput/fileinput.js"></script>
+	<script type="text/javascript" src="$request.getContextPath()/res/js/fileinput/fileinput_locale_zh.js"></script>
+	<script type="text/javascript" src="$request.getContextPath()/res/js/common/jquery.fileinputUpload.common.js"></script>
+</html>

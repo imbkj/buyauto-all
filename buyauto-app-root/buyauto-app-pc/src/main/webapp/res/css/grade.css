@@ -1,0 +1,278 @@
+ .per_content{
+	float: right;
+	width: 860px;
+}
+
+.grade_title{
+	width: 100%;
+	height: 28px;
+	line-height: 19px;
+	border-bottom: 2px solid #ff9900;
+}
+
+.grade_title span{
+	color: #121212;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.grade_content{
+	width: 100%;
+	height: 72px;
+	padding: 54px 0 54px 24px;
+	position:relative;
+}
+
+.grade_content img{
+	float: left;
+}
+
+.personal{
+	width: 729px;
+	float: left;
+	margin-left: 35px;
+	color: #121212;
+	font-size: 18px;
+}
+
+.personal_info{
+	float: left;
+	margin-left: 35px;
+	color: #808080;
+	font-size: 14px;
+	margin-top: 24px;
+}
+
+.personal_back{
+	position: absolute;
+	left: 250px;
+	width: 125px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	border: 1px solid #ff9900;
+	color: #ff9900;
+	cursor: pointer;
+}
+
+.personal_back:hover{
+	background: #ff9900;
+	color: #fff; 
+}
+
+.grade_info{
+	width: 858px;
+	height: 223px;
+	border: 1px solid #e6e6e6;
+}
+
+.grade_info ul{
+	 
+}
+
+.grade_info ul li.fl{
+	padding-left: 10px;
+	width: 848px;
+	height: 40px;
+	border-bottom: 1px solid #e6e6e6;
+	background: #f2f2f2;
+	line-height: 40px;
+	color: #929292;
+	font-size: 14px;
+}
+
+.grade_info ul li.fc{
+	width: 858px;
+	height: 40px;
+	background: #f2f2f2;
+	line-height: 40px;
+	color: #929292;
+	font-size: 14px;
+}
+
+.grade_info ul li.fc ul{
+	width: 858px;
+	height: 40px;
+}
+
+.grade_info ul li.fr{
+	width: 858px;
+	height: 40px;
+	border-bottom: 1px solid #e6e6e6;
+	border-top: 1px solid #e6e6e6;
+	background: #fff;
+	line-height: 40px;
+	color: #929292;
+	font-size: 14px;
+}
+
+.grade_info ul li.fr ul li:first-child{
+	float: left;
+	width: 99px;
+	border-right: 1px solid #e6e6e6;
+	text-align: center;
+}
+
+.grade_info ul li.fr ul li:nth-child(2){
+	float: left;
+	width: 279px;
+	border-right: 1px solid #e6e6e6;
+	text-align: center;
+}
+
+.grade_info ul li.fr ul li:nth-child(3){
+	float: left;
+	width: 219px;
+	border-right: 1px solid #e6e6e6;
+	text-align: center;
+}
+.title {
+    width: 1100px;
+    height: 54px;
+    margin: 0 auto;
+    line-height: 54px;
+    font-size: 14px;
+}
+
+.title a {
+    color: #404040;
+}
+
+.content_box{
+	width: 1100px;
+	margin: 0 auto;
+	overflow:hidden;
+	clear:both;
+	min-height: 500px;
+}
+.grade_info ul li.fr ul li:nth-child(4){
+	float: left;
+	width: 257px;
+	text-align: center;
+}
+
+.grade_info ul li.fc ul li:first-child{
+	float: left;
+	width: 99px;
+	border-right: 1px solid #e6e6e6;
+	text-align: center;
+}
+
+.grade_info ul li.fc ul li:nth-child(2){
+	float: left;
+	width: 279px;
+	border-right: 1px solid #e6e6e6;
+	text-align: center;
+}
+
+.grade_info ul li.fc ul li:nth-child(3){
+	float: left;
+	width: 219px;
+	border-right: 1px solid #e6e6e6;
+	text-align: center;
+}
+
+.grade_info ul li.fc ul li:nth-child(4){
+	float: left;
+	width: 257px;
+	text-align: center;
+}
+
+.per_nav ul li:nth-child(5) a {
+    color: #ff9900;
+    border-left: 2px solid #ff9900;
+}
+
+.Errors,.errors{
+	width: 600px;
+	height: 380px;
+	z-index: 10;
+	background: #ffffff;
+	position:fixed;
+	top: 50%;
+	left: 50%;
+	margin-top: -190px;
+	margin-left: -300px;
+	text-align: center;
+	display:none;
+}
+
+.Errors h4,.errors h4{
+	color: #111111;
+	font-size: 24px;
+	font-weight: bold;
+	width: 100%;
+	text-align: center;
+	margin-top: 40px;
+}
+
+.boom{
+	background: #000;
+	opacity: 0.3;
+	position:fixed;
+	z-index: 9;
+	top: 0;
+	left: 0;
+	display:none;
+}
+
+.Errors span,.errors span{
+	display: block;
+	color: #111111;
+	font-size: 18px;
+	font-weight: bold;
+	width: 100%;
+	text-align: center;
+	margin-top: 90px;
+	height: 20px;
+	line-height: 20px;
+}
+
+.delBtn,.delbtn{
+	width: 360px;
+	height: 50px;
+	margin-top: 110px;
+	margin-left: 120px;
+	text-align: center;
+	line-height: 50px;
+	background: #ff9900;
+	color: #fff;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+ span.error, .mobile-error {
+    background: rgba(0, 0, 0, 0) url(../images/error.jpg) no-repeat scroll left center;
+    color: #91191e;
+    height: 50px;
+    line-height: 36px;
+    margin-left: 10px;
+    padding-left: 20px;
+    white-space: nowrap;
+}
+
+span.valid {
+    background: rgba(0, 0, 0, 0) url(../images/sucess.jpg) no-repeat scroll left center;
+    color: #91191e;
+    margin-left: 10px;
+    padding-left: 20px;
+    line-height: 36px;
+    height: 50px;
+}
+
+.delbtn{
+	background:none;
+	
+}
+.delbtn button{
+	 width:90px;
+	 height:34px;
+	 line-height:34px;
+	 text-align:center;
+	 font-size:14px;
+	 color:#fff;
+	  background:#ff9900;
+	 margin-right:20px;
+	 cursor:pointer;
+	 border:none;
+}

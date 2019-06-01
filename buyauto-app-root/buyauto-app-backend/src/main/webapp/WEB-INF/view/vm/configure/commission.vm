@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>麦卡进口车-抽佣规则管理</title>
+    #parse("/frame/public.vm")
+    <link rel="stylesheet" href="$request.getContextPath()/res/vendors/jqwidgets/jqwidgets/styles/jqx.base.css" type="text/css" />
+    
+    <script type="text/javascript" src="$request.getContextPath()/res/vendors/bootstrap-fileinput/js/fileinput.min.js"></script>
+	<script type="text/javascript" src="$request.getContextPath()/res/vendors/bootstrap-fileinput/js/fileinput_locale_zh.js"></script>
+	<script type="text/javascript" src="$request.getContextPath()/res/js/common/jquery.fileinputUpload.common.js"></script>
+</head>
+
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+
+        <!-- 导航菜单部分 -->
+        #parse("/frame/public_nav_panel.vm")
+
+        <!-- top navigation -->
+        #parse("frame/public_top_nav_panel.vm")
+        <!-- /top navigation -->
+
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="clearfix"></div>
+
+            <div class="page-title">
+                <div class="title_left">
+                    <h3>抽佣规则管理</h3>
+                </div>
+            </div>
+            <div class="">
+                <!-- 主体内容部分 -->
+				<!-- 筛选条件 -->
+                <div class="row">
+                    <div class="col-md-12 col-xs-12">
+                    <div class="x_panel" >
+                        <div class="x_title">
+                            <h2>筛选条件</h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li>
+                                	<a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>
+                                <li>
+                                	<a class="close-link"><i class="fa fa-close"></i></a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        
+			               <div class="ln_solid"></div>
+                        	
+                        
+                        
+                        <div class="x_content">
+                            <form class="form-horizontal form-label-left" id="mem_search" action="#" novalidate>
+                            </form>
+                        </div>
+                    </div>  
+                   </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+	                             <div class="x_title">
+		                              <h2>下线抽佣规则</h2>
+		                              <ul class="nav navbar-right panel_toolbox">
+		                                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+		                                  </li>
+		                              </ul>
+		                              <div class="clearfix"></div>
+		                          </div>
+                            	 <div class="x_content">
+		                            <table class="table table-hover table-striped  table-bordered   dt-responsive nowrap" id="audit_list" style="width: 100%;">
+		                                <thead>
+		                                <tr>
+		                                	<th>级别</th>
+											<th>抽佣比例</th>
+		                                	<th>状态</th>
+		                                	<th>创建时间</th>
+		                                    <th>操作</th>
+		                                </tr>
+		                                </thead>
+		                                <tbody>
+		                                </tbody>
+		                            </table>
+		                        </div>
+                            </div>
+                        </div>
+				</div>                     
+            </div>
+                       <!-- 经销商详情 start-->
+            
+
+			<div class="modal fade info-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" style="width:900px">
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                            </button>
+                            <h4 class="modal-title" id="myUASModalLabel">编辑</h4>
+                        </div>
+                        <div class="modal-body">
+
+                            <form  id="form_cms_banner" action="#" class="form-horizontal form-label-left" method="POST" novalidate>
+								 <div class="row">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">类别</label>
+                                        <div class="col-md-5 col-sm-6 col-xs-12">
+                                            <input type="text"  id="scRemark" name="scRemark" maxlength="22" readonly="readonly" required="required"  class="form-control " />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">佣金比例(%)</label>
+                                        <div class="col-md-5 col-sm-6 col-xs-12">
+                                            <input type="text"  id="scValue" name="scValue" maxlength="10" required="required"  class="form-control " onkeyup="clearNoNum(this)" onblur="clearNoNum(this)"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" id="btn_edit_submit" class="btn btn-primary"  data-id="">确定</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- 经销商详情 end-->
+          
+            <!-- 审核start -->
+            <div class="modal fade auditor-modal-lg " id="checkCancelOrder" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" style="width:900px">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                            </button>
+                            <h4 class="modal-title" id="cancelOrder">佣金审核</h4>
+                        </div>
+                        <div class="modal-body">
+                        	<form  action="#" class="form-horizontal form-label-left" method="POST" >
+	                        	<div class="row">
+								  <div class="item form-group">
+							        <div id="gender" class="btn-group col-md-10 col-sm-6 col-xs-12" data-toggle="buttons">
+							        	<label id="yesCancel" class="btn btn-default active" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                            <input id="cancelYes" type="radio" name="auditchk" checked value="0"> 审核通过
+                                        </label>
+							        	<label id="noCancel" class="btn btn-default " data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                            <input id="cancelNo" type="radio" name="auditchk"  value="1"> 审核未通过
+                                        </label>
+	                                   </div>
+	                                </div>
+	                            </div>
+	                            <div class="row" style="margin-top:10px;">
+	                                <div class="item form-group">
+	                                    <div class="col-md-12 col-sm-6 col-xs-12">
+	                                        <textarea id="auditReason" name="cancelReason" placeholder="理由" rows="10" style="outline:none;resize:none;" class="form-control" maxlength="500"></textarea>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                            <input type="hidden" id="orderOldStatus"/>
+                             </form>
+                        </div>
+                       
+                        <div class="modal-footer">
+                       		<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            <button type="button" id="btn_audit_submit" class="btn btn-primary"  data-id="" >保  存</button>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+            <!-- 审核end -->
+            
+            <!-- 审核原因 start-->
+            <div class="modal fade uas-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" style="width:900px">
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                            </button>
+                            <h4 class="modal-title" id="myUASModalLabel">审核意见</h4>
+                        </div>
+                        <div class="modal-body">
+
+                            <form  id="form_audit" action="#" class="form-horizontal form-label-left" method="POST" novalidate>
+                                <div class="row">
+                                    <div class="item form-group">
+                                        <div class="col-md-12 col-sm-6 col-xs-12">
+                                        	<input type="hidden"  name="id" id="auditId" />
+                                        	<input type="hidden"  name="result" value="1" />
+                                            <textarea id="audit_info" class="form-control" readOnly="readOnly" rows="10" required="required" style="outline:none;resize:none;" maxlength="256" name="info"></textarea> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- 审核不通过 end-->
+     
+            
+            <!-- /主体内容部分 -->
+        </div>
+    </div>
+    <!-- /page content -->
+
+    <!-- footer content -->
+    #parse("/frame/footer.vm")
+    <!-- /footer content -->
+</div>
+
+#parse("/frame/footer_resouce.vm")
+
+<!-- Flot -->
+
+<script type="text/javascript" src="$request.getContextPath()/res/appjs/t_commission.js"></script>
+<script type="text/javascript" src="$request.getContextPath()/res/js/common/jquery.time.plugin.js"></script>
+<script type="text/javascript" src="$request.getContextPath()/res/vendors/jqwidgets/jqwidgets/jqxcore.js"></script>
+<script type="text/javascript" src="$request.getContextPath()/res/vendors/jqwidgets/jqwidgets/jqxbuttons.js"></script>
+<script type="text/javascript" src="$request.getContextPath()/res/vendors/jqwidgets/jqwidgets/jqxscrollbar.js"></script>
+<script type="text/javascript" src="$request.getContextPath()/res/vendors/jqwidgets/jqwidgets/jqxpanel.js"></script>
+<script type="text/javascript" src="$request.getContextPath()/res/vendors/jqwidgets/jqwidgets/jqxtree.js"></script>
+<script type="text/javascript" src="$request.getContextPath()/res/vendors/jqwidgets/jqwidgets/jqxcheckbox.js"></script>
+<script language="JavaScript" type="text/javascript"> 
+function clearNoNum(obj){ 
+    obj.value = obj.value.replace(/[^\d.]/g,"");  //清除“数字”和“.”以外的字符  
+    obj.value = obj.value.replace(/\.{2,}/g,"."); //只保留第一个. 清除多余的  
+    obj.value = obj.value.replace(".","$#$").replace(/\./g,"").replace("$#$","."); 
+    obj.value = obj.value.replace(/^(\-)*(\d+)\.(\d\d).*$/,'$1$2.$3');//只能输入两个小数  
+    if(obj.value.indexOf(".")< 0 && obj.value !=""){//以上已经过滤，此处控制的是如果没有小数点，首位不能为类似于 01、02的金额 
+        obj.value= parseFloat(obj.value); 
+    } 
+} 
+</script>  
+</body>
+</html>

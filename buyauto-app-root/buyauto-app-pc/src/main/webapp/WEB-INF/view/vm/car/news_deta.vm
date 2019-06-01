@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--meta-->
+	    #parse("/frame/meta.vm")
+	<!--meta-->
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/style.css" />
+	<title>麦卡进口车-资讯详情</title>
+</head>
+<body>
+	<div class="car_box">
+		<!--header-->
+	    #parse("/frame/header.vm")
+	    <!--header-->
+		<div class="car_size info_detas">
+			
+	    </div>
+	    <div class="cl info_nav" style="display:none;">
+    		<a class="fl last" href="#"><span><</span>上一篇</a>
+    		<a class="fl back" href="#">返回列表</a>
+    		<a class="fr next" href="#">下一篇<span>></span></a>
+    	</div>
+		<!--base-->
+	    #parse("/frame/base.vm")
+	    <!--base-->
+	</div>
+</body>
+	<script src="$request.getContextPath()/res/js/plug/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript">
+           var  g_requestContextPath= "$request.getContextPath()";
+    </script>
+    <script src="$request.getContextPath()/res/appjs/news_deta.js"></script>
+</html>

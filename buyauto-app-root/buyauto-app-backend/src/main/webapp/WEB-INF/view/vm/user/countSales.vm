@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>麦卡进口车-个人销售上下线统计</title>
+    #parse("/frame/public.vm")
+    <link rel="stylesheet" href="$request.getContextPath()/res/vendors/jqwidgets/jqwidgets/styles/jqx.base.css" type="text/css" />
+    
+    <script type="text/javascript" src="$request.getContextPath()/res/vendors/bootstrap-fileinput/js/fileinput.min.js"></script>
+	<script type="text/javascript" src="$request.getContextPath()/res/vendors/bootstrap-fileinput/js/fileinput_locale_zh.js"></script>
+	<script type="text/javascript" src="$request.getContextPath()/res/js/common/jquery.fileinputUpload.common.js"></script>
+</head>
+
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+
+        <!-- 导航菜单部分 -->
+        #parse("/frame/public_nav_panel.vm")
+
+        <!-- top navigation -->
+        #parse("frame/public_top_nav_panel.vm")
+        <!-- /top navigation -->
+
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="clearfix"></div>
+
+            <div class="page-title">
+                <div class="title_left">
+                    <h3>个人销售上下线统计</h3>
+                </div>
+            </div>
+            <div class="">
+                <!-- 主体内容部分 -->
+				<!-- 筛选条件 -->
+                <div class="row">
+                    <div class="col-md-12 col-xs-12">
+                    <div class="x_panel" >
+                        <div class="x_title">
+                            <h2>筛选条件</h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li>
+                                	<a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>
+                                <li>
+                                	<a class="close-link"><i class="fa fa-close"></i></a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        
+                        
+                        <div class="x_content">
+                            <form class="form-horizontal form-label-left" id="mem_search" action="#" novalidate>
+
+                            	<!--创建时间-->
+								<div class="row">
+								  <div class="item form-group">
+								    <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">业绩统计时间:</label>
+								        <div class="col-md-5 col-sm-6 col-xs-12">
+								           <input id="crstartTime"   name="strStartDate" value="" type="hidden">
+								            <input id="crendTime"   name="strEndDate" value="" type="hidden">
+								            <div id="reportrange1" class="form-control col-md-12 col-xs-12">
+								                <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+								                <span style="color:#555;">&nbsp;&nbsp;请选择时间范围&nbsp;</span>
+								            </div>
+								        </div>
+								    </div>
+								</div>
+								                            	<!--审核类型-->
+                            	<div class="row">
+								  <div class="item form-group">
+									<label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">选择类型:</label>
+                                    <div id="gender" class="col-md-5 col-sm-6 col-xs-12 btn-group" data-toggle="buttons">
+                                        <label id="isTrue0" class="btn btn-default active" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                            <input type="radio" checked  name="type" value="0"> 全部
+                                        </label>
+                                        <label id="" class="btn btn-default " data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                            <input type="radio"   name="type" value="3"> 直接上级
+                                        </label>
+                                        <label id="" class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                            <input type="radio" name="type" value="1"> 直接下级
+                                        </label>
+                                        <label id="" class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                            <input type="radio" name="type" value="4"> 间接上级
+                                        </label>
+                                        <label id="" class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                            <input type="radio" name="type" value="2"> 间接下级
+                                        </label>
+                                    </div>
+								  </div>
+								</div>
+																<!-- 姓名 -->
+                                <div class="row">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">姓名:</label>
+                                        <div class="col-md-5 col-sm-6 col-xs-12">
+                                            <input type="text" id="name" name="name" class="form-control" maxlength="20">
+                                        </div>
+                                    </div>
+                                </div>
+																<!-- 手机号 -->
+                                <div class="row">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">手机号:</label>
+                                        <div class="col-md-5 col-sm-6 col-xs-12">
+                                            <input type="text" id="phone" name="phone" onkeyup='this.value=this.value.replace(/\D/gi,"")' class="form-control" maxlength="11">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name"></label>
+                                    <div class="col-md-5 col-sm-6 col-xs-12">
+                                        <button type="button" class="btn btn-success" id="transfer_frmSearch"><i class="fa fa-search"></i>&nbsp;&nbsp;查 询</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>  
+                   </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+	                             <div class="x_title">
+		                              <h2>销售列表</h2>
+		                              <ul class="nav navbar-right panel_toolbox">
+		                                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+		                                  </li>
+		                              </ul>
+		                              <div class="clearfix"></div>
+		                          </div>
+                            	 <div class="x_content">
+		                            <table class="table table-hover table-striped  table-bordered   dt-responsive nowrap" id="audit_list" style="width: 100%;">
+		                                <thead>
+		                                <tr>
+		                                	<th>姓名</th>
+		                                	<th>手机号</th>
+		                                	<th>身份证号</th>
+		                                	<th>类型</th>
+		                                	<th>借记卡行</th>
+		                                    <th>借记卡号</th>
+											<th>信用卡行</th>
+		                                    <th>信用卡号</th>
+		                                    <th>累计销售金额</th>
+											<th>累计销售佣金</th>
+		                                </tr>
+		                                </thead>
+		                                <tbody>
+		                                </tbody>
+		                            </table>
+		                        </div>
+                            </div>
+                        </div>
+				</div>                     
+            </div>
+            
+       
+            <!-- /主体内容部分 -->
+        </div>
+    </div>
+    <!-- /page content -->
+
+    <!-- footer content -->
+    #parse("/frame/footer.vm")
+    <!-- /footer content -->
+</div>
+
+#parse("/frame/footer_resouce.vm")
+
+<!-- Flot -->
+
+<script type="text/javascript" src="$request.getContextPath()/res/appjs/countSales.js"></script>
+<script type="text/javascript" src="$request.getContextPath()/res/js/common/jquery.time.plugin.js"></script>
+<script type="text/javascript" src="$request.getContextPath()/res/vendors/jqwidgets/jqwidgets/jqxcore.js"></script>
+<script type="text/javascript" src="$request.getContextPath()/res/vendors/jqwidgets/jqwidgets/jqxbuttons.js"></script>
+<script type="text/javascript" src="$request.getContextPath()/res/vendors/jqwidgets/jqwidgets/jqxscrollbar.js"></script>
+<script type="text/javascript" src="$request.getContextPath()/res/vendors/jqwidgets/jqwidgets/jqxpanel.js"></script>
+<script type="text/javascript" src="$request.getContextPath()/res/vendors/jqwidgets/jqwidgets/jqxtree.js"></script>
+<script type="text/javascript" src="$request.getContextPath()/res/vendors/jqwidgets/jqwidgets/jqxcheckbox.js"></script>
+</body>
+</html>

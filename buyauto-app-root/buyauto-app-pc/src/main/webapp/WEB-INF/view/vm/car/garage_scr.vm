@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--meta-->
+	    #parse("/frame/meta.vm")
+	<!--meta-->
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/garage_scr.css" />
+     <link rel="stylesheet" href="$request.getContextPath()/res/css/style.css">
+    <title>麦卡进口车 - 车库筛选</title>
+</head>
+<body>
+    <div class="main">
+        <!--header-->
+        #parse("/frame/header.vm")
+
+        <div class="scr_search">
+            <div class="scr_search_lt">
+                <span>
+                   	 <a href="$request.getContextPath()/">&nbsp;首页</a>&nbsp;><a href="javascript:;">&nbsp;车库筛选</a> 
+                   
+                </span>
+            </div>
+            <div class="scr_search_rt">
+	            <input type="hidden" id="brandId" value="$!brandId"/>
+	            <input type="hidden" id="carType" value="$!carType"/>
+	            <input type="hidden" id="priceRange" value="$!priceRange"/>
+	            <input type="hidden" id="title" value="$!title"/>
+	            <input type="hidden" id="sortOrder" value="$!sortOrder"/>
+	            <input type="hidden" id="openMode" value="$!openMode"/>
+                <input type="text" placeholder="搜索您想要的车" value="" id="titleSearch" class="search" />
+                <input type="submit" id="search_btn" class="search_btn sub" value="搜索" />
+            	
+            
+            </div>
+        </div>
+
+        <div class="car_classify">
+            <ul class="car_classify_ul">
+                <li>
+                    <ul class="car_brand sea">
+                        <li class="tps">品牌:</li>
+                        <li class="sub brand" id="-1">不限</li>
+                        <li class="more">更多<img src="$request.getContextPath()/res/images/more.png" /></li>
+                    </ul>
+                    <ul class="more_brand">
+                    	
+                    </ul>
+                </li>
+                <li>
+                    <ul class="car_type sea">
+                        <li class="tps">车身:</li>
+                        <li class="sub type" name="body" id="-1">不限</li>
+                        <li class="sub type" name="body" id="0">轿车</li>
+                        <li class="sub type" name="body" id="1">SUV</li>
+                        <li class="sub type" name="body" id="2">MPV</li>
+                        <li class="sub type" name="body" id="3">皮卡</li>
+                        <li class="sub type" name="body" id="4">货车</li>
+                        <li class="sub type" name="body" id="5">跑车</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="car_price sea">
+                        <li class="tps">价格:</li>
+                        <li class="sub price" style="width:80px;" id="-1">不限</li>
+                        <li class="sub price" id='0'>50万以下</li>
+                        <li class="sub price" id='1'>50-100万</li>
+                        <li class="sub price" id='2'>100-150万</li>
+                        <li class="sub price" id='3'>150万以上</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="list_title">
+            <ul>
+                <li class="list_n sub sort" id="0">默认排序</li>
+                <li class="list_n sub sort" id="1">价格<span style="margin-left:10px;">↓</span></li>
+                <li class="list_n sub sort" id="2">价格<span style="margin-left:10px;">↑</span></li>
+            </ul>
+        </div>
+
+        <div class="car_list">
+            <ul>
+                 
+            </ul>
+        </div>
+	
+		<div class="isError">
+			<div class="isError_top">
+				<span>暂时没有满足：<a>搜索</a>&nbsp;条件的车辆</span>
+			</div>
+			<h5>建议您更换筛选条件</h5>
+			<div class="isError_bot">
+				<span>您有兴趣看下：</span>	
+				<ul>
+					 
+				</ul>
+			</div>
+		</div>
+		
+        <div class="page">
+        	<span class="preBtn" id="preBtn"><</span>
+	        <div class="ctPage">
+	            <ul>
+	                  
+	            </ul>
+	        </div>
+        	<span class="nextBtn" id="nextBtn">></span>
+    	</div>
+        <!--footer-->
+        #parse("/frame/base.vm")
+    </div>
+    <script type="text/javascript" src="$request.getContextPath()/res/appjs/garage_scr.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--meta-->
+	    #parse("/frame/meta.vm")
+	<!--meta-->
+    <title>平行进口车-新建员工</title>
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/style.css">
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/new_employee.css">
+</head>
+<body>
+    #parse("/frame/header.vm")
+	 <div class="wrap">
+		<div class="top">
+			<img src="$request.getContextPath()/res/images/user_img.jpg" alt="">
+		</div>
+	    <div class="title_menu">
+			<a href="$request.getContextPath()/h/l/user/leaderIndex">首页</a><em>></em>
+			<a href="$request.getContextPath()/h/l/user/employee">子账号管理</a><em>></em>
+			<a href="javascript:void(0);">新建员工</a>
+		</div>
+
+    <div class="form_main">
+       <dl>
+       	 <dt>
+		   #parse("/frame/order_nav.vm")
+       	 </dt>
+       	   <dd>
+			   <form name="register_form" id="register_form" method="post" data-cid="$userSessionInfo.id" >
+				<div class="register_info">
+					<div class="account_info_title">
+						<span>新建员工</span>
+					</div>
+					<div class="account_list">
+						<ul>
+							 <li>
+							 	<label class="lt tit">
+									基本信息
+								</label>
+								<div class="con">（*为必填项）</div>
+							 </li>
+							<li>
+								<label class="lt">
+									<em>*</em>姓名
+								</label>
+								<input type="text" name="name" id="name" placeholder="请输入姓名" maxlength="30"/>
+							</li>
+							<li>
+								<label class="lt">
+									<em>*</em>选择岗位
+								</label>
+								<select name="power" id="power">
+								     <option value="">-请选择岗位-</option>
+									  <option value="1">销售</option>
+									  <option value="2">财务</option>
+								</select>
+							</li>
+							<li>
+								<label class="lt">
+									<em>*</em>账号名
+								</label>
+								<div class="con">
+									<p id="companyName" data-cname="$userSessionInfo.companyName" >$userSessionInfo.companyName:</p>
+								    <input type="text" id="user" name="user" maxlength="20"/>
+								</div>
+							</li>
+							<li>
+								<label class="lt">
+									<em>*</em>手机号码
+								</label>
+								<input type="text" name="phone" placeholder="请输入手机号码" id="phone"  maxlength="11"/>
+							</li>
+                            <li>
+								<label class="lt">
+									邮箱
+								</label>
+								<input type="text" name="email" placeholder="请输入邮箱地址" id="email" maxlength="26"/>
+							</li>
+							<li>
+								<label class="lt">
+									 <em>*</em>密码
+								</label>
+								<input type="text" onpaste="return false" name="password" placeholder="请输入密码" id="password" maxlength="10" />
+							</li>
+							<li>
+								<span class="lt tit">其他信息</span>
+							</li>
+						</ul>
+					</div>
+
+					<div class="dealer_list">
+						<ul>
+							<li>
+								<label class="lt">
+									入职时间
+								</label>
+
+								 <i></i> 
+
+								<input  name="hirdeate" class="date_picker" id="hirdeate" /> 
+							</li>
+							<li>
+								<label class="lt">
+									工号
+								</label>
+								<input type="text" name="leadername" id="leadername" maxlength="30"/>
+							</li>
+						
+							<li>
+								<label class="lt">
+									所在区域
+								</label>
+								<input type="text" name="inform" id="inform" maxlength="40"/>
+							</li>
+						</ul>
+					</div>
+					<div class="account_sub">
+						 <ul>
+						 	<li><input type="submit" value="确认创建" id="submit_sure"></li>
+						 	<li><a id="btn_createCont" href="javascript:void(0)" >创建并继续添加</a></li>
+						 	<li><a href="$request.getContextPath()/h/l/user/employee">取消</a></li>
+						 </ul>
+					</div>
+			    </form>
+			  </dd>
+			</dl>
+		</div>
+  </div>
+  
+    <div class="biger_box"></div>
+	<div class="error_msg">
+		<h6>提示</h6>
+		<div class="tips">
+		    <i></i>
+		    <p></p>	
+		</div>
+		<div class="surebtn" id="surebtn">确定</div>
+	</div>
+	#parse("/frame/base.vm")
+   
+    
+    <script type="text/javascript" src="$request.getContextPath()/res/js/plug/jquery-1.9.2.min.js"></script>
+	<script type="text/javascript" src="$request.getContextPath()/res/js/plug/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="$request.getContextPath()/res/js/plug/jquery.validate.form.js"></script>
+	<script type="text/javascript" src="$request.getContextPath()/res/js/plug/jquery.validate.zh.js"></script>
+	<script type="text/javascript" src="$request.getContextPath()/res/js/plug/data_input_pack.js"></script>
+	<script type="text/javascript" src="$request.getContextPath()/res/appjs/new_employee.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,270 @@
+html,body,h1,h2,h3,h4,h5,h6,div,dl,dt,dd,ul,ol,li,p,blockquote,pre,hr,figure,table,caption,th,td,form,fieldset,legend,input,button,textarea,menu{margin:0;padding:0;}
+header,footer,section,article,aside,nav,hgroup,address,figure,figcaption,menu,details{display:block;}
+table{border-collapse:collapse;border-spacing:0;}
+caption,th{text-align:left;font-weight:normal;}
+html,body,fieldset,img,iframe,abbr{border:0;}
+i,cite,em,var,address,dfn{font-style:normal;}
+[hidefocus],summary{outline:0;}
+li{list-style:none;}
+h1,h2,h3,h4,h5,h6,small{font-size:100%;}
+sup,sub{font-size:83%;}
+pre,code,kbd,samp{font-family:inherit;}
+q:before,q:after{content:none;}
+textarea{overflow:auto;resize:none;}
+label,summary{cursor:default;}
+a,button{cursor:pointer;}
+h1,h2,h3,h4,h5,h6,em,strong,b{font-weight:bold;}
+del,ins,u,s,a,a:hover{text-decoration:none;}
+body,textarea,input,button,select,keygen,legend{font:12px/1.5 "Microsoft YaHei",tahoma,arial,'Hiragino Sans GB',\5b8b\4f53,sans-serif;color:#333;outline:0;}
+body{background:#fff; font-size: 14px;}
+input::-ms-clear{display:none;}
+input::-ms-reveal{display:none;}
+a{
+	text-decoration: none;
+}
+*{
+	font-family: "微软雅黑";
+}
+img{
+	max-width: 100%;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+.m_suervey{
+	width: 100%;
+	height: auto;
+	background: url(../images/suervey.jpg) no-repeat left center;
+	background-size: 100% 100%;
+}
+.m_suervey .suervey_con{
+	width: 1160px;
+	margin: 0 auto;
+	overflow: hidden;
+	padding: 0 20px;
+}
+.m_suervey .suervey_con .suervey_title{
+	font-size: 30px;
+	color: #fff;
+	background: url(../images/m_l_t.png) no-repeat center center;
+	height: 100px;
+	width: 700px;
+	margin: 0 auto;
+	background-size: 100% 100%;
+	line-height: 100px;
+	text-align: center;
+	margin-top: 40px;
+	margin-bottom: 62px;
+}
+.m_suervey .suervey_con .suervey_preface{
+	margin-bottom: 70px;
+}
+.m_suervey .suervey_con .suervey_preface p,.m_suervey .suervey_con .suervey_preface h5{
+	font-size: 20px;
+	color: #4C5067;
+	font-weight: normal;
+}
+.m_suervey .suervey_con .suervey_preface h5{
+	margin-bottom:20px;
+}
+.m_suervey .suervey_con .suervey_preface p{
+	text-align: justify;
+	text-indent: 2em;
+	line-height: 34px;
+}
+.m_suervey .suervey_con .suervey_name{
+	width: 100%;
+	text-align: center;
+	font-size:20px;
+	color: #4C5067;
+	margin-bottom: 50px;
+}
+.m_suervey .suervey_con .suervey_name span{
+	margin-right: 18px;
+}
+.m_suervey .suervey_con .suervey_name input{
+	border: 0px;
+	border-bottom: 1px solid #4C5067;
+	width: 300px;
+	margin-right: 50px;
+	font-size: 18px;
+	font-weight: normal;
+	color: #4C5067;
+	text-indent: .5em;
+	background: #f7fbff;
+	text-align: center;
+}
+.m_suervey .suervey_con .m_estimate{
+	width: 100%;
+	overflow: hidden;
+	box-shadow: 1px 1px 5px #a8a7ac;
+	margin-bottom: 80px;
+	background: #fff;
+}
+.m_estimate .m_es_top,.m_estimate .m_es_bottom{
+	overflow: hidden;
+}
+.m_estimate .m_es_top{
+	width:100%;
+	border-bottom: 1px solid #a8a7ac;
+}
+.m_estimate .m_es_top li,.m_estimate .m_es_top ul{
+	float: left;
+	color: #4C5067;
+}
+.m_estimate .m_es_top .issue{
+	width: 465px;
+	padding: 0 20px;
+	height: 150px;
+	line-height: 150px;
+	font-size: 22px;
+	color: #535562;
+	text-align: center;
+}
+.m_estimate .m_es_top .score{
+	width:655px;
+}
+.m_estimate .m_es_top .score .tt{
+	border-bottom: 1px solid #a8a7ac;
+}
+.m_estimate .m_es_top .score .tt li{
+	width: 130px;
+	border-left: 1px solid #a8a7ac;text-align: center;
+	font-size: 20px;
+	line-height: 50px;
+}
+.m_estimate .m_es_top .score .ct,.m_estimate .m_es_top .score .bt{
+	width: 100%;
+	border-left: 1px solid #a8a7ac;
+	border-bottom: 1px solid #a8a7ac;
+}
+.m_estimate .m_es_top .score .ct li,.m_estimate .m_es_top .score .bt li{
+	width: 64.5px;
+	text-align: center;
+	border-left: 1px solid #a8a7ac;
+	font-size: 18px;
+	height: 50px;
+	line-height: 50px;
+}
+.m_estimate .m_es_top .score .bt{
+	border-bottom: 0px;
+}
+.m_estimate .m_es_top .score .bt li{
+	height: 48px;
+	line-height: 48px;
+	cursor: pointer;
+}
+.m_estimate .m_es_top .score .bt li.active{
+	background: url(../images/cor.png) no-repeat center center;
+}
+.m_estimate .m_es_top .score .bt input[type="checkbox"]{
+	display: none;
+}
+/*.m_estimate .m_es_top .score .bt li input{
+	border: none;
+	width: 100%;
+	height: 100%;
+	border: 1px solid #fff;
+	background: #fff;
+}*/
+.m_estimate .m_es_top .score .ct li:first-child,.m_estimate .m_es_top .score .bt li:first-child{
+	border: 0px;
+}
+.m_estimate .m_es_bottom{
+	width:100%;
+	height: 116px;
+}
+.m_estimate .m_es_bottom div{
+	width: 225px;
+	line-height: 116px;
+	font-size: 22px;
+	color: #535562;
+	text-align: center;
+	border-right: 1px solid #a8a7ac;
+}
+.m_estimate .m_es_bottom textarea{
+	width: 918px;
+	height: 92px;
+	font-size: 18px;
+	border: none;
+	line-height: 30px;
+	padding:8px;
+}
+.m_advise,.m_bottom{
+	width: 100%;
+	overflow: hidden;
+	text-align: center;
+}
+.m_advise p{
+	font-size: 20px;
+	color: #4e505c;
+}
+.m_advise div{
+	width: 1156px;
+	height: 267px;
+	box-shadow: 1px 1px 5px #a8a7ac;
+	overflow: hidden;
+	margin: 0 auto;
+	margin-top: 42px;
+	margin-bottom: 70px;
+}
+.m_advise div textarea{
+	width: 100%;
+	height: 100%;
+	border: 0px;
+	font-size: 18px;
+	line-height: 30px;
+	color: #535562;
+	padding:8px;
+}
+.m_bottom .dt{
+	text-align: right;
+	margin-top: 114px;
+	font-size: 18px;
+	margin-bottom: 70px;
+}
+.m_bottom .dt input{
+	text-align: center;
+	border: 0px;
+	border-bottom: 1px solid #535562;
+	width: 100px;
+	font-size: 18px;
+	background: #f7fbff;
+}
+.m_bottom .sat{
+	width: 530px;
+	margin: 0 auto;
+	font-size: 20px;
+	color: #535562;
+	text-align: left;
+	line-height: 60px;
+}
+.m_bottom .sat span{
+	display: inline-block;
+	width: 120px;
+	text-align: right;
+}
+.m_bottom .sat input{
+	border: 0px;
+	border-bottom: 1px solid #535562;
+	width: 150px;
+	text-align: center;
+	background: #f7fbff;
+	font-size:18px;
+}
+.m_bottom button.submit{
+	width: 150px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	background: #e31e2f;
+	color: #fff;
+	font-size: 20px;
+	margin: 0 auto;
+	border-radius: 5px;
+	border: 1px solid #e31e2f;
+	margin: 116px 0 122px 0;
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--meta-->
+	    #parse("/frame/meta.vm")
+	<!--meta-->
+	<link rel="stylesheet" href="$request.getContextPath()/res/css/page.css" />
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/style.css" />
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/order.css" />
+	<title>麦卡进口车-我的订单</title>
+</head>
+<body>
+	<div class="car_box">
+		<!--header-->
+	    #parse("/frame/header.vm")
+	    <!--header-->
+		<div class="car_size car_indent">
+			<div class="cl car_seek">
+				<h5 class="fl">我的订单</h5>
+				<div class="cl fr">
+					<input class="fl search" type="text" placeholder="请输入车辆名称或订单号"/>
+					<a class="fl hunt" href="javascript:;">搜索</a>
+				</div>
+			</div>
+			<div class="cl indent_mn">
+				<span class="fl">订单状态：</span>
+				<ul class="cl fl" id="indent_mn">
+					<li class="fl active"><a href="javascript:;" state="">全部</a></li>
+					<!--<li class="fl" state="100"><a href="javascript:;">确认中</a></li>-->
+					<li class="fl" state="101"><a href="javascript:;">待支付定金</a></li>
+					<li class="fl" state="102"><a href="javascript:;">定金待审核</a></li>
+					<!--<li class="fl" state="103"><a href="javascript:;">待发货</a></li>-->
+					<li class="fl" state="104"><a href="javascript:;">待支付尾款</a></li>
+					<li class="fl" state="105"><a href="javascript:;">尾款待审核</a></li>
+					<li class="fl" state="107"><a href="javascript:;">等待交车</a></li>
+					<li class="fl" state="106"><a href="javascript:;">待上传三证</a></li>
+					<li class="fl" state="108"><a href="javascript:;">订单取消待审核</a></li>
+					<li class="fl" state="405"><a href="javascript:;">订单关闭</a></li>
+					<li class="fl" state="200"><a href="javascript:;">订单完成</a></li>
+					<li class="fl" state="402"><a href="javascript:;">定金审核未通过</a></li>
+					<li class="fl" state="403"><a href="javascript:;">尾款审核未通过</a></li>
+					<li class="fl" state="404"><a href="javascript:;">订单取消</a></li>
+				</ul>
+			</div>
+			<div class="order_ser">
+				<span>暂时没有满足搜索条件的订单</span>
+			</div>
+			<div class="cl indent_con">
+				<ul class="cl indent_con_mn">
+					<li class="fl" style="width:380px;">车辆信息</li>
+					<li class="fl" style="width:140px">必选件价格</li>
+					<li class="fl" style="width:140px">可选件价格</li>
+					<li class="fl" style="width:140px">总价格</li>
+					<li class="fl" style="width:140px">状态</li>
+					<li class="fl" style="width:140px">操作</li>
+				</ul>
+				<div class="car_indent_deta">
+					
+				</div>
+				<div class="page">
+		        	<span class="preBtn" id="preBtn"><</span>
+			        <div class="ctPage">
+			            <ul>
+			                  
+			            </ul>
+			        </div>
+		        	<span class="nextBtn" id="nextBtn">></span>
+		    	</div>
+			</div>
+		</div>
+		<!--取消订单弹框-->
+		<div class="abolish_order">
+			<div class="order_con">
+				<h5>您确认取消该订单吗?取消订单后，不能恢复哦！</h5>
+				<div class="cl reason">
+					<i class="fl">请选择取消订单的理由：</i>
+					<select name="" id="cancelOrderReason" class="fl">
+						<option value="" selected="selected">请选择取消订单的理由</option>
+						<option value="我不想买了">我不想买了</option>
+						<option value="信息填错，重新下单">信息填错，重新下单</option>
+						<option value="付款遇到问题">付款遇到问题</option>
+						<option value="买错了">买错了</option>
+						<option value="其他原因">其他原因</option>
+					</select>
+					<input type="hidden" id="cancelOrderId"/>
+					<div class="fl">
+						<a class="order_abolish" href="javascript:;">取消</a>
+						<a class="order_affirm" href="javascript:;">确认</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--取消订单弹框-->
+		<!--确认收车-->
+		<div class="popup">
+			<div class="popup_prompt">
+				<p class="prompt_line">确认收车？</p>
+				<div class="cl">
+					<input type="hidden" id="orderId"/>
+					<a class="fl abolish" href="javascript:;">取消</a>
+					<a class="fl affirm" href="javascript:;">确认</a>
+				</div>
+			</div>
+		</div>
+		<!--确认收车-->
+		<!--base-->
+	    #parse("/frame/base.vm")
+	    <!--base-->
+	    <!--base-->
+	    #parse("/frame/toolTip.vm")
+	    <!--base-->
+	</div>
+</body>
+<script src="$request.getContextPath()/res/js/plug/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+       var  g_requestContextPath= "$request.getContextPath()";
+</script>
+<script src="$request.getContextPath()/res/appjs/order_my_order.js"></script>
+</html>

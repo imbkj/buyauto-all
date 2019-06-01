@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>麦卡进口车-订单管理</title>
+    #parse("/frame/public.vm")
+    <link rel="stylesheet" href="$request.getContextPath()/res/vendors/jqwidgets/jqwidgets/styles/jqx.base.css" type="text/css" />
+    <script type="text/javascript" src="$request.getContextPath()/res/vendors/bootstrap-fileinput/js/fileinput.js"></script>
+	<script type="text/javascript" src="$request.getContextPath()/res/vendors/bootstrap-fileinput/js/fileinput_locale_zh.js"></script>
+	<script type="text/javascript" src="$request.getContextPath()/res/js/common/jquery.fileinputUpload.common.js"></script>
+	<style type="text/css">
+		a img{border:1px solid #2a3f54;}
+	</style>
+</head>
+
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+
+        <!-- 导航菜单部分 -->
+        #parse("/frame/public_nav_panel.vm")
+
+        <!-- top navigation -->
+        #parse("frame/public_top_nav_panel.vm")
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="clearfix"></div>
+
+            <div class="page-title">
+                <div class="title_left">
+                    <h3>订单管理</h3>
+                </div>
+            </div>
+            <div class="">
+                <!-- 主体内容部分 -->
+				<!-- 筛选条件 -->
+                <div class="row">
+                    <div class="col-md-12 col-xs-12">
+                    <div class="x_panel" >
+                        <div class="x_title">
+                            <h2>筛选条件</h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>
+                                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <form class="form-horizontal form-label-left" id="mem_search" action="#" novalidate>
+                            	<!-- 选择经销商 -->
+                            	<div class="row" id="shelvesMode">
+                                    <div class="item form-group property">
+                                          <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">经销商:<b></b></label>
+                                          <div class="col-md-5 col-sm-6 col-xs-12">
+                                            <select class="input-md form-control" id="SearCompanyId" name="companyId">
+                                                 <option value="-1">请选择</option>
+                                            </select>
+                                          </div>
+                                    </div>
+                                </div>
+								<!-- 订单状态 -->
+								
+								<!-- 选择订单状态 -->
+                            	<div class="row" id="shelvesMode">
+                                    <div class="item form-group property">
+                                          <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">订单状态:<b></b></label>
+                                          <div class="col-md-5 col-sm-6 col-xs-12">
+                                            <select class="form-control" id="searchOrderSatus" name="state" >
+                                                 <option  value="-1">全部</option>
+                                                 <option  value="110">待系统确认</option>
+                                                 <option  value="100">确认中</option>
+                                                 <option  value="101">待支付定金</option>
+                                                 <option  value="102">定金待审核</option>
+                                                 <option  value="402">定金审核未通过</option>
+                                                 <option  value="103">待发货</option>
+                                                 <option  value="104">待支付尾款</option>
+                                                 <option  value="105">尾款待审核</option>
+                                                 <option  value="106">待上传车辆三证</option>
+                                                 <option  value="403">尾款审核未通过</option>
+                                                 <option  value="107">等待交车</option>
+                                                 <option  value="200">订单已完成</option>
+                                                 <option  value="404">订单已取消</option>
+                                                 <option  value="405">订单已关闭</option>
+                                                 <option  value="108">取消待审核</option>
+                                            </select>
+                                          </div>
+                                    </div>
+                                </div>
+								
+                            	<!--创建时间-->
+								<div class="row">
+								  <div class="item form-group">
+								    <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">创建时间:</label>
+								        <div class="col-md-5 col-sm-6 col-xs-12">
+								           <input id="crstartTime"   name="strStartDate" value="" type="hidden">
+								            <input id="crendTime"   name="strEndDate" value="" type="hidden">
+								            <div id="reportrange1" class="form-control col-md-12 col-xs-12">
+								                <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+								                <span style="color:#555;">&nbsp;&nbsp;请选择时间范围&nbsp;</span>
+								            </div>
+								        </div>
+								    </div>
+								</div>
+								<!-- 订单编号 -->
+                                <div class="row">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">订单编号:</label>
+                                        <div class="col-md-5 col-sm-6 col-xs-12">
+                                            <input type="text" id="orderIdForSearch" name="orderId" onkeyup='this.value=this.value.replace(/\D/gi,"")' class="form-control" maxlength="19">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name"></label>
+                                    <div class="col-md-5 col-sm-6 col-xs-12">
+                                    	<!-- 解决bootstrap与AJAX异步提交表单的冲突 -->
+                                    	<input type="text" value="" hidden/>
+                                        <button type="button" class="btn btn-success" id="transfer_frmSearch"><i class="fa fa-search"></i>&nbsp;&nbsp;查 询</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>  
+                   </div>
+                </div>
+                <!-- 列表 -->
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+	                             <div class="x_title">
+		                              <h2>订单列表</h2>
+		                              <ul class="nav navbar-right panel_toolbox">
+		                                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+		                                  </li>
+		                              </ul>
+		                              <div class="clearfix"></div>
+		                          </div>
+                            	 <div class="x_content">
+		                            <table class="table table-hover table-striped  table-bordered   dt-responsive nowrap" id="t_orders" style="width: 100%;">
+		                                <thead>
+		                                <tr>
+		                                    <th>商品</th>
+		                                    <th>定金</th>
+		                                    <th>总价</th>
+		                                    <th>买家信息</th>
+		                                    <th>交易状态</th>
+		                                    <th>支付状态</th>
+		                                    <th>订单来源</th>
+		                                    <th>操作</th>
+		                                </tr>
+		                                </thead>
+		                                <tbody>
+		                                </tbody>
+		                            </table>
+		                        </div>
+                            </div>
+                        </div>
+				</div>                     
+            </div>
+            
+            <!-- 发货start -->
+            <div class="modal fade uas-modal-lg " id="shipBorder" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" style="width:900px">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                            </button>
+                            <h4 class="modal-title" id="ship">发货</h4>
+                        </div>
+                        <div class="modal-body">
+                             <div class="row">
+                                 <div class="item form-group">
+                                     <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">当前发车编号:</label>
+                                     <span id="orderCarIdGo"></span>
+                                 </div>
+                             </div>
+                              <input type="hidden" id="orderIdGo"/>
+                        </div>
+                        <div class="modal-footer">
+                        	<button type="button" class="btn btn-default" data-dismiss="modal">取  消</button>
+                            <button type="button" id="btn_orderShip_submit" class="btn btn-primary">保  存</button>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+            <!-- 发货end -->
+            
+            <!-- 订单取消原因 start-->
+            <div class="modal fade uas-modal-lg " id="orderCancelRea" tabindex="-1" role="dialog" aria-hidden="true">
+               <div class="modal-dialog" style="width:900px">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                            </button>
+                            <h4 class="modal-title" id="ship"><font id="lookReasonFont"></font></h4>
+                        </div>
+                        <div class="modal-body">
+                             <div class="row">
+                                 <div class="item form-group">
+                                 	<textarea rows="10" readOnly="readOnly" class="form-control" id="orderCancelReason" style="outline:none;resize:none;"></textarea>
+                                 </div>
+                             </div>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+            <!-- 订单取消原因 end-->
+            
+            <!-- 审核取消订单start -->
+            <div class="modal fade uas-modal-lg " id="checkCancelOrder" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" style="width:900px">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                            </button>
+                            <h4 class="modal-title" id="cancelOrder">审核取消订单</h4>
+                        </div>
+                        <div class="modal-body">
+                        	<form id="form_orders_CancelOrder" action="#" class="form-horizontal form-label-left" method="POST"
+                                  novalidate target="_blank">
+	                            <div class="row" style="margin-top:10px;">
+	                                <div class="item form-group">
+	                                	<label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">取消原因：</label>
+                                        <div class="col-md-5 col-sm-6 col-xs-12">
+                                            <input type="text" id="cancelReason" readonly="readonly" class="form-control">
+                                        </div>
+	                                </div>
+	                            </div>
+	                            <div class="row">
+								  <div class="item form-group">
+								  	<label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">操作：</label>
+							        <div id="gender" class="col-md-5 col-sm-6 col-xs-12 btn-group" data-toggle="buttons">
+							        	<label id="yesCancel" class="btn btn-default active" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                            <input id="cancelYes" type="radio" name="orderchk" checked value="0"> 同意取消订单
+                                        </label>
+							            <label id="noCancel" class="btn btn-default " data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                            <input id="cancelNo" type="radio" name="orderchk" value="1"> 不同意取消订单
+                                        </label>
+	                                   </div>
+	                                </div>
+	                            </div>
+	                            <!-- 取消订单审核不通过原因 -->
+	                            <div class="row" style="display:none;" id="writeCheckInfo">
+	                            	<div class="item form-group">
+	                            		<label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">未通过原因：</label>
+		                            	<div  class="col-md-8 col-sm-8 col-xs-12">
+			                            	<textarea id="checkCencelOrderInfo" placeholder="理由" rows="5" style="outline:none;resize:none;" class="form-control" maxlength="500"></textarea>
+		                            	</div>
+	                            	</div>
+	                            </div>
+	                            <div class="row" id="bakckMoneyRadio">
+	                                <div class="item form-group" style="margin-top:10px;margin-left:160px;">
+	                                    <div>
+	                                    	<input type="radio" name="options" id="optionsYes" value="" checked>退还定金
+                                    	 	<input type="radio" name="options" id="optionsNo" value="">不退还定金
+	                                    </div>
+	                                </div>
+	                            </div>
+	                            <div class="row" id="moneyBackCheck" style="display:none;">
+	                                  <div class="item form-group">
+	                                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">定金退款凭证：</label>
+	                                        <div class="col-md-8 col-sm-8 col-xs-12">
+	                                        	<input type="file" id="depositBackImageCheck" name="depositBackImageCheck[]"  multiple="true"/>
+						 				  		<input type="hidden" id="depositBackImageHCheck" name="depositBackImageHCheck"  />
+	                                            <input type="hidden" id="depositBackImageOldCheck" name="depositBackImageOldCheck" />
+									   		</div>
+	                                  </div>
+	                             </div>
+	                            <input type="hidden" id="orderId"/>
+	                            <input type="hidden" id="orderOldStatus"/>
+                             </form>
+                        </div>
+                       
+                        <div class="modal-footer">
+                       		<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            <button type="button" id="btn_orderCencel_submit" class="btn btn-primary">保  存</button>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+            <!-- 审核取消订单end -->
+            
+            <!-- 查看订单凭证start -->
+             <div class="modal fade uas-modal-lg " id="checkCertificateOrder" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" style="width:900px">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                            </button>
+                            <h4 class="modal-title" id="checkCertificate">查看<font id="certificateType"></font>凭证</h4>
+                        </div>
+                        <div class="modal-body">
+                         	<div class="row">
+                                 <div class="item form-group">
+                                 	 <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">定金凭证</label>
+                                     <div class="col-md-12 col-sm-8 col-xs-12" style="border:1px solid #ccc;height:420px;overflow-y:scroll;margin-bottom:20px;" id="depositImagesShowList">
+                                     </div>
+                                     <div style="clear:both;"></div>
+                                 </div>
+                             </div>
+                         	<div class="row" id="tailMoney">
+                                 <div class="item form-group">
+                                 	 <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">尾款凭证</label>
+                                     <div class="col-md-12 col-sm-8 col-xs-12" style="border:1px solid #ccc;height:420px;overflow-y:scroll;margin-bottom:20px;" id="TailmoneyImagesShowList">
+                                     </div>
+                                     <div style="clear:both;"></div>
+                                 </div>
+                             </div>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+            <!-- 查看订单凭证end -->
+            
+            <!-- 退款start -->
+            <div class="modal fade uas-modal-lg " id="moneyBackBorder" tabindex="-1" role="dialog" aria-hidden="true">
+               <div class="modal-dialog" style="width:900px">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                            </button>
+                            <h4 class="modal-title" id="moneyBack">上传/查看<font id="whatMoney"></font>凭证</h4>
+                        </div>
+                        <div class="modal-body">
+                        	<form id="form_orders_moneyBack" action="#" class="form-horizontal form-label-left" method="POST"
+                                  novalidate target="_blank">
+								<div class="row">
+	                                  <div class="item form-group">
+	                                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name"><font id="whatMoneyLabel"></font>凭证</label>
+	                                        <div class="col-md-10 col-sm-2 col-xs-12">
+						 				  		<input type="file" id="depositBackImage" name="depositBackImage[]"  multiple="true"/>
+						 				  		<input type="hidden" id="depositBackImageH" name="depositBackImageH"  />
+	                                            <input type="hidden" id="depositBackImageOld" name="depositBackImageOld" />
+	                                            <input type="hidden" id="orderDepositId"/>
+	                                            <input type="hidden" id="orderFilesType"/>
+									   		</div>
+	                                  </div>
+	                             </div>
+                              </form>                     	
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal" id="updateClose">关闭</button>
+                            <button type="button" id="btn_deposit_submit" class="btn btn-primary">保存</button>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+            <!-- 退款end -->
+            
+            <!-- 审核定金/尾款start -->
+             <div class="modal fade uas-modal-lg " id="depositChecking" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" style="width:900px">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                            </button>
+                            <h4 class="modal-title"><font class="whichMoneyChecking"></font>审核</h4>
+                        </div>
+                        <div class="modal-body">
+                         	<div class="row">
+                                 <div class="item form-group">
+                                 	 <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name"><font class="whichMoneyChecking"></font>凭证</label>
+                                     <div class="col-md-12 col-sm-8 col-xs-12" style="border:1px solid #ccc;height:420px;overflow-y:scroll;margin-bottom:20px;" id="depositImagesShow">
+                                     </div>
+                                 </div>
+                             </div>
+                             <div class="row" id="checkingResultDiv">
+								  <div class="item form-group">
+							        <div id="gender" class="btn-group col-md-10 col-sm-6 col-xs-12" data-toggle="buttons">
+							        	<label id="yesCancelChecking" class="btn btn-default active" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                            <input id="checkingYes" type="radio" name="moneyChecking" checked value="0"> 审核通过
+                                        </label>
+							            <label id="noCancelChecking" class="btn btn-default " data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                            <input id="checkingNo" type="radio" name="moneyChecking" value="1"> 审核未通过
+                                        </label>
+	                                   </div>
+	                                </div>
+	                            </div>
+	                            <div id="checkDIV" style="display:none;">
+		                            <div class="row" style="margin-top:10px;">
+		                                <div class="item form-group">
+		                                    <div class="col-md-12 col-sm-6 col-xs-12">
+		                                        <textarea id="checkInfo" name="checkInfo" placeholder="未通过原因" rows="10" style="outline:none;resize:none;" class="form-control" maxlength="500"></textarea>
+		                                    </div>
+		                                </div>
+		                            </div>
+		                            <!-- 审核定金和尾款时暂时不提供退款操作start -->
+		                            <!-- <div class="row" style="margin-top:10px;">
+		                                <div class="item form-group">
+		                                    <div class="col-md-10 col-sm-6 col-xs-12">
+		                                    	 <input type="radio" name="optionsChecking" id="optionsCheckingYes" value="" >退还<font class="whichMoneyChecking"></font>
+		                                    	 <input type="radio" name="optionsChecking" id="optionsCheckingNo" value="" checked>不退还<font class="whichMoneyChecking"></font>
+		                                    </div>
+		                                </div>
+		                            </div>
+		                            <div class="row" id="moneyBackChecking" style="display:none;margin-top:10px;">
+		                                  <div class="item form-group">
+		                                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name"><font class="whichMoneyChecking"></font>退款凭证</label>
+		                                        <div class="col-md-10 col-sm-2 col-xs-12">
+		                                        	<input type="file" id="depositBackImageChecking" name="depositBackImageChecking[]"  multiple="true"/>
+							 				  		<input type="hidden" id="depositBackImageHChecking" name="depositBackImageHChecking"  />
+		                                            <input type="hidden" id="depositBackImageOldChecking" name="depositBackImageOldChecking" />
+										   		</div>
+		                                  </div>
+		                             </div> -->
+		                             <!-- 审核定金和尾款时暂时不提供退款操作end -->
+                             	</div>
+                             
+                            <input type="hidden" id="checkDepositOrderId"/>
+                            <input type="hidden" id="checkDepositOrderStatus"/>
+                        </div>
+                        <div class="modal-footer">
+                        	<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            <button type="button" id="btn_depositCheck_submit" class="btn btn-primary">保存</button>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+            <!-- 审核定金/尾款审核end -->
+            
+            <!-- 订单详情 start-->
+            <div class="modal fade uas-modal-lg " id="orderDetialBorder" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" style="width:900px;">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                            </button>
+                            <h4 class="modal-title" id="myUASModalLabel">订单详情</h4>
+                        </div>
+                    
+                        <table class="table table-hover" id="orderDetialTable">
+							<tbody>
+								<tr>
+									<th scope="row"></th>
+									<td><span for="first-name">订单编号:</span></td>
+									<td><span class="control-label col-md-12 col-sm-2 col-xs-12" id="orderNum" class="form-control"></span></td>
+								</tr>
+								<tr>
+									<th scope="row"></th>
+									<td> <span for="first-name">创建时间:</span></td>
+									<td> <span class="control-label col-md-12 col-sm-2 col-xs-12" id="oCreateDate" class="form-control"></span></td>
+								</tr>
+								<tr>
+									<th scope="row"></th>
+									<td><span for="first-name">产品图片:</span></td>
+									<td><span class="control-label col-md-12 col-sm-2 col-xs-12" class="form-control">
+										<a id="productImageAHref" target="_blank" href=""><img id="productImage" alt="缩略图" width="160px" height="120px" src=""/></a>
+									</span></td>
+								</tr>
+								<tr>
+									<th scope="row"></th>
+									<td><span for="first-name">产品名称:</span></td>
+									<td><span class="control-label col-md-12 col-sm-2 col-xs-12" id="pdtName" class="form-control"></span></td>
+								</tr>
+								<tr>
+									<th scope="row"></th>
+									<td><span for="first-name">麦卡价:</span></td>
+									<td><span class="control-label col-md-12 col-sm-2 col-xs-12" id="pdtCarPrice" class="form-control"></span></td>
+								</tr>
+								<tr>
+									<th scope="row"></th>
+									<td><span for="first-name">产品型号:</span></td>
+									<td><span class="control-label col-md-12 col-sm-2 col-xs-12" id="pdtCarModel" class="form-control"></span></td>
+								</tr>
+								<tr>
+									<th scope="row"></th>
+									<td><span for="first-name">发动机:</span></td>
+									<td><span class="control-label col-md-12 col-sm-2 col-xs-12" id="pdtEngine" class="form-control"></span></td>
+								</tr>
+								<tr>
+									<th scope="row"></th>
+									<td><span for="first-name">颜色:</span></td>
+									<td><span class="control-label col-md-12 col-sm-2 col-xs-12" id="pdtCarColor" class="form-control"></span></td>
+								</tr>
+								<tr>
+									<th scope="row"></th>
+									<td><span for="first-name">变速箱:</span></td>
+									<td><span class="control-label col-md-12 col-sm-2 col-xs-12" id="pdtGearBox" class="form-control"></span></td>
+								</tr>
+								<tr>
+									<th scope="row"></th>
+									<td><span for="first-name">必选配置:</span></td>
+									<td><span class="control-label col-md-12 col-sm-2 col-xs-12" id="mustConfig" class="form-control"></span></td>
+								</tr>
+								<tr>
+									<th scope="row"></th>
+									<td><span for="first-name">可选配置:</span></td>
+									<td><span class="control-label col-md-12 col-sm-2 col-xs-12" id="optionalCinfig" class="form-control"></span></td>
+								</tr>
+								<tr>
+									<th scope="row"></th>
+									<td><span for="first-name">订单状态:</span></td>
+									<td><span class="control-label col-md-12 col-sm-2 col-xs-12" id="oStatus" class="form-control"></span></td>
+								</tr>
+								<tr>
+									<th scope="row"></th>
+									<td><span for="first-name">支付状态:</span></td>
+									<td><span class="control-label col-md-12 col-sm-2 col-xs-12" id="oPayStatus" class="form-control"></span></td>
+								</tr>
+								<tr>
+									<th scope="row"></th>
+									<td><span for="first-name">提车人姓名:</span></td>
+									<td><span class="control-label col-md-12 col-sm-2 col-xs-12" id="oCustomer" class="form-control"></span></td>
+								</tr>
+								<tr>
+									<th scope="row"></th>
+									<td><span for="first-name">提车人电话:</span></td>
+									<td><span class="control-label col-md-12 col-sm-2 col-xs-12" id="oCcustomerTel" class="form-control"></span></td>
+								</tr>
+								<tr>
+									<th scope="row"></th>
+									<td><span for="first-name">提车地点:</span></td>
+									<td><span class="control-label col-md-12 col-sm-2 col-xs-12" id="oTakeLocation" class="form-control"></span></td>
+								</tr>
+								<tr>
+									<th scope="row"></th>
+									<td><span for="first-name">提车方式:</span></td>
+									<td><span class="control-label col-md-12 col-sm-2 col-xs-12" id="oTakeWay" class="form-control"></span></td>
+								</tr>
+								<tr>
+									<th scope="row"></th>
+									<td><span for="first-name">期望交付时间:</span></td>
+									<td><span class="control-label col-md-12 col-sm-2 col-xs-12" id="oDeliverTime" class="form-control"></span></td>
+								</tr>
+								<tr>
+									<th scope="row"></th>
+									<td><span for="first-name">留言:</span></td>
+									<td><span class="control-label col-md-12 col-sm-2 col-xs-12" id="oMessage" class="form-control"></span></td>
+								</tr>
+								<tr>
+									<th scope="row"></th>
+									<td><span for="first-name">必选配置金额:</span></td>
+									<td><span class="control-label col-md-12 col-sm-2 col-xs-12" id="mustConfigPrice" class="form-control"></span></td>
+								</tr>
+								<tr>
+									<th scope="row"></th>
+									<td><span for="first-name">可选配置金额:</span></td>
+									<td><span class="control-label col-md-12 col-sm-2 col-xs-12" id="optionalCinfigPrice" class="form-control"></span></td>
+								</tr>
+								<tr>
+									<th scope="row"></th>
+									<td><span for="first-name">合计:</span></td>
+									<td><span class="control-label col-md-12 col-sm-2 col-xs-12" id="orderTotalPrice" class="form-control"></span></td>
+								</tr>
+								<tr id="carCertificate" style="display:none;">
+									<th scope="row"></th>
+									<td><span for="first-name">车辆三证:</span></td>
+									<td><span class="control-label col-md-12 col-sm-2 col-xs-12" id="ordercarCertificate" class="form-control"><img alt="" src=""></span></td>
+								</tr>
+							</tbody>
+						</table>
+                    </div>
+                </div>
+            </div>
+            <!-- 订单详情end-->
+            
+            <!-- 物流跟踪？start -->
+             <div class="modal fade uas-modal-lg " id="ordersLogistics" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" style="width:900px">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                            </button>
+                            <h4 class="modal-title">物流信息</h4>
+                        </div>
+                        <div class="modal-body">
+                        	<div class="row">
+								<div>
+									<ul id="logistUl">
+									</ul>
+								</div>
+							</div>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+            <!-- 物流跟踪？end -->
+            
+            <!-- 上传三证start -->
+            <div class="modal fade uas-modal-lg " id="uploadTreeCardsModal" tabindex="-1" role="dialog" aria-hidden="true">
+               <div class="modal-dialog" style="width:900px">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                            </button>
+                            <h4 class="modal-title" id="moneyBack">上传车辆三证</h4>
+                        </div>
+                        <div class="modal-body">
+                        	<form id="form_orders_moneyBack" action="#" class="form-horizontal form-label-left" method="POST"
+                                  novalidate target="_blank">
+								<div class="row">
+	                                  <div class="item form-group">
+	                                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">车辆三证</label>
+	                                        <div class="col-md-10 col-sm-2 col-xs-12">
+						 				  		<input type="file" id="uploadThreeCardsImage" name="uploadThreeCardsImage[]"  multiple="true"/>
+						 				  		<input type="hidden" id="uploadThreeCardsImageH" name="uploadThreeCardsImageH"  />
+	                                            <input type="hidden" id="uploadThreeCardsImageOld" name="uploadThreeCardsImageOld" />
+	                                            <input type="hidden" id="uploadThreeCardsOrderId"/>
+									   		</div>
+	                                  </div>
+	                             </div>
+                              </form>                     	
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="button" id="btn_uploadThreeCards_submit" class="btn btn-primary">保存</button>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+            <!-- 上传三证end -->
+            
+           <!-- /主体内容部分 -->
+        </div>
+    </div>
+    <!-- /page content -->
+
+    <!-- footer content -->
+    #parse("/frame/footer.vm")
+    <!-- /footer content -->
+</div>
+
+#parse("/frame/footer_resouce.vm")
+<!-- Flot -->
+<script type="text/javascript">
+    var deposit = $session.getAttribute('UserSessionInfoBackend').hasAuth('5201');
+    var retainage = $session.getAttribute('UserSessionInfoBackend').hasAuth('5202');
+    var voucher = $session.getAttribute('UserSessionInfoBackend').hasAuth('5203');
+    var cancel = $session.getAttribute('UserSessionInfoBackend').hasAuth('5204');
+    var reason = $session.getAttribute('UserSessionInfoBackend').hasAuth('5205');
+    var refund = $session.getAttribute('UserSessionInfoBackend').hasAuth('5206');
+    var uploadProof = $session.getAttribute('UserSessionInfoBackend').hasAuth('5207');
+    var logistics = $session.getAttribute('UserSessionInfoBackend').hasAuth('5208');
+    var again = $session.getAttribute('UserSessionInfoBackend').hasAuth('5209');
+    var examine = $session.getAttribute('UserSessionInfoBackend').hasAuth('5210');
+    var detailed = $session.getAttribute('UserSessionInfoBackend').hasAuth('5211');
+</script>
+
+<script type="text/javascript" src="$request.getContextPath()/res/appjs/t_orders.js"></script>
+<script type="text/javascript" src="$request.getContextPath()/res/appjs/t_orders_validate.js"></script>
+<script type="text/javascript" src="$request.getContextPath()/res/js/common/jquery.time.plugin.js"></script>
+</body>
+</html>

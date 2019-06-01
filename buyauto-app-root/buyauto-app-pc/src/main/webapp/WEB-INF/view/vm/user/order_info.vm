@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <!--meta-->
+	    #parse("/frame/meta.vm")
+	<!--meta-->
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/order_info.css" />
+     <link rel="stylesheet" href="$request.getContextPath()/res/css/style.css"> 
+	<title>经销商管理 - 订单详情</title>
+</head>
+<body>
+	<div class="main">
+		<!--header-->
+		#parse("/frame/header.vm")
+		 <div class="top_banner">
+			<img src="$request.getContextPath()/res/img/top_banner.png" alt="">
+		</div>
+
+		<div class="title">
+			<a href="$request.getContextPath()/h/l/user/leaderIndex">&nbsp;首页</a>&nbsp;>
+			#if($!position == 0)
+				<a href="$request.getContextPath()/h/l/orders/myOrdersMgr">&nbsp;订单管理</a>&nbsp;>
+			#elseif($!position == 2)
+				<a href="$request.getContextPath()/h/l/orders/myAccount">&nbsp;账房</a>&nbsp;>
+			#end
+			<a href="javascript:void(0);">订单详情</a>
+		</div>
+
+		<div class="order_box">
+			#parse("/frame/order_nav.vm")
+
+			<div class="order_rt">
+				<div class="flow">
+					<ul>
+						#if($!order.status == 110 || $!order.status == 100 || $!order.status == 101 || $!order.status == 102 || $!order.status == 103 || $!order.status == 108 || $!order.status == 402 || $!order.status == 109 || $!order.status == 404)
+							<li>
+								<img src="$request.getContextPath()/res/images/flow_2.png" alt="" />
+								<span class="fontColor">选择车型</span>
+							</li>
+							<li>
+								<img src="$request.getContextPath()/res/images/dots.png" alt="" />
+							</li>
+							<li>
+								<img src="$request.getContextPath()/res/images/flow_3.png" alt="" />
+								<span>物流运输</span>
+							</li>
+							<li>
+								<img src="$request.getContextPath()/res/images/dot_c.png" alt="" />
+							</li>
+							<li>
+								<img src="$request.getContextPath()/res/images/flow_5.png" alt="" />
+								<span>完成</span>
+							</li>
+						#elseif($!order.status == 104 || $!order.status == 105 || $!order.status == 106 || $!order.status == 107 || $!order.status == 403)
+							<li>
+								<img src="$request.getContextPath()/res/images/flow_2.png" alt="" />
+								<span class="fontColor">选择车型</span>
+							</li>
+							<li>
+								<img src="$request.getContextPath()/res/images/dot_l.png" alt="" />
+							</li>
+							<li>
+								<img src="$request.getContextPath()/res/images/flow_4.png" alt="" />
+								<span class="fontColor">物流运输</span>
+							</li>
+							<li>
+								<img src="$request.getContextPath()/res/images/dots.png" alt="" />
+							</li>
+							<li>
+								<img src="$request.getContextPath()/res/images/flow_5.png" alt="" />
+								<span>完成</span>
+							</li>
+						#elseif($!order.status == 200)
+							<li>
+								<img src="$request.getContextPath()/res/images/flow_2.png" alt="" />
+								<span class="fontColor">选择车型</span>
+							</li>
+							<li>
+								<img src="$request.getContextPath()/res/images/dot_l.png" alt="" />
+							</li>
+							<li>
+								<img src="$request.getContextPath()/res/images/flow_4.png" alt="" />
+								<span class="fontColor">物流运输</span>
+							</li>
+							<li>
+								<img src="$request.getContextPath()/res/images/dot_l.png" alt="" />
+							</li>
+							<li>
+								<img src="$request.getContextPath()/res/images/flow_6.png" alt="" />
+								<span class="fontColor">完成</span>
+							</li>
+						#else
+							<li>
+								<img src="$request.getContextPath()/res/images/flow_1.png" alt="" />
+								<span>选择车型</span>
+							</li>
+							<li>
+								<img src="$request.getContextPath()/res/images/dot_c.png" alt="" />
+							</li>
+							<li>
+								<img src="$request.getContextPath()/res/images/flow_3.png" alt="" />
+								<span>物流运输</span>
+							</li>
+							<li>
+								<img src="$request.getContextPath()/res/images/dot_c.png" alt="" />
+							</li>
+							<li>
+								<img src="$request.getContextPath()/res/images/flow_5.png" alt="" />
+								<span>完成</span>
+							</li>
+						#end
+					</ul>
+				</div>
+
+				<div class="order_price">
+					<ul>
+						<!-- 还需付款 -->
+						#set($paymentMoney = $!order.amount - $!order.deposit)
+						
+						<li>
+							#if($!order.status==110)
+								<span>
+									待系统确认
+								</span>
+								</li>
+								<li>
+									<span>您的订单已提交，请耐心等待系统确认！</span>
+								</li>
+							#elseif($!order.status==100)
+								<span>
+									订单确认中
+								</span>
+								</li>
+								<li>
+									<span>您的订单已提交成功，系统确认需要3~5分钟，请耐心等待！</span>
+								</li>
+							#elseif($!order.status==401)
+								<span>
+									库存确认未通过
+								</span>
+								</li>
+								<li>
+									<span>抱歉，当前暂时没有满足条件的汽车！</span>
+								</li>
+							#elseif($!order.status==101)
+								<span>
+									待支付定金
+								</span>
+								</li>
+								<li>
+									<span>待支付定金：￥$VCToolbar.formatBigDecimalThousand("$!order.deposit",true)</span>
+								</li>
+							#elseif($!order.status==102)
+								<span>
+									定金待审核
+								</span>
+								</li>
+								<li>
+									<span>定金已付，请耐心等待平台运营审核</span>
+								</li>
+							#elseif($!order.status==402)
+								<span>
+									定金审核未通过
+								</span>
+								</li>
+								<li>
+									<span>原因：$!tAuditing.info</span>
+								</li>
+							#elseif($!order.status==103)
+								<span>
+									待发货
+								</span>
+								</li>
+								<li>
+									<span>定金审核通过，请耐心等待供应商发货</span>
+								</li>
+							#elseif($!order.status==104)
+								<span>
+									待支付尾款
+								</span>
+								</li>
+								<li>
+									<span>供应商已发货，请尽快联系财务支付尾款</span>
+								</li>
+								<li>
+									<span>代付尾款￥$VCToolbar.formatBigDecimalThousand("$paymentMoney",true)</span>
+								</li>
+							#elseif($!order.status==105)
+								<span>
+									尾款待审核
+								</span>
+								</li>
+								<li>
+									<span>尾款已付，请耐心等待平台运营审核</span>
+								</li>
+							#elseif($!order.status==403)
+								<span>
+									 尾款审核未通过
+								</span>
+								</li>
+								<li>
+									<span>原因：$!tAuditing.info</span>
+								</li>
+							#elseif($!order.status==106)
+								<span>
+									三证待上传
+								</span>
+								</li>
+								<li>
+									<span>尾款已付，请耐心等待供应商上传车辆三证信息</span>
+								</li>
+							#elseif($!order.status==107)
+								<span>
+									等待收车
+								</span>
+								</li>
+								<li>
+									<span>车辆已发出</span>
+								</li>
+							#elseif($!order.status==200)
+								<span>
+									订单已完成
+								</span>
+								</li>
+								<li>
+									<span>车辆已交付</span>
+								</li>
+							#elseif($!order.status==404)
+								<span>
+									订单已取消
+								</span>
+								</li>
+								<li>
+									<span>取消订单已成功</span>
+								</li>
+							#elseif($!order.status==405)
+								<span>
+									订单已关闭
+								</span>
+								<li>
+									<span>
+										#if($!order.payStatus == 0)
+											未支付
+										#elseif($!order.payStatus == 10)
+											定金已支付
+										#elseif($!order.payStatus == 20)
+											定金已退
+										#elseif($!order.payStatus == 11)
+											尾款已支付
+										#elseif($!order.payStatus == 12)
+											尾款已退
+										#else
+											定金支付超时
+										#end
+									</span>
+								</li>
+								</li>
+							#elseif($!order.status==108)
+								<span>
+									取消待审核
+								</span>
+								</li>
+								<li>
+									<span>取消订单审核中</span>
+								</li>
+							#end
+					</ul>
+				</div>
+
+				<div class="logistics" >
+					<h5>定金需网上支付，对公银行账号：123462736487236482</h5>
+					<h3>物流信息</h3>
+					<input type="hidden" id="logisticsInfoValue" value='$!order.logisticsInfo'/>
+					<ul id="logistics">
+						<li>
+							<span>物流跟踪：</span>
+						</li>
+					</ul>
+				</div>
+				
+				<div class="car_card">
+					<span>车辆三证信息</span>
+					<ul>
+						<input type="hidden" id="carThreCars" value="$!carThree"/>
+						#foreach ($carThreeCard in $!carThree)
+							<div>
+								<a class="cl card_information" href="$uploadPath$carThreeCard.filePath" download="$uploadPath$carThreeCard.filePath">
+									<span class="lit check" >$carThreeCard.filePath</span><span class="fl">(点击下载)</span>
+								</a>
+							</div>
+						#end
+					</ul>
+				</div>
+				<!-- 产品必选配置价格（万元） -->
+				#set($mustConfigPrice = $!order.product.mustConfigurePrice / 10000)
+				<!-- 产品总价（万元）  产品价格+必选配置价格+可选配置价格 -->
+				<div class="buyer_info">
+					<ul>
+						<li id="buyer">
+							<span>提车信息</span>
+						</li>
+						<li>
+							<span>提车人：</span>
+							<span>$!order.customer</span>
+						</li>
+						<li>
+							<span>手机号码：</span>
+							<span>$!order.customerTel</span>
+						</li>
+						<li>
+							<span>提车方式：</span>
+							<span>
+								#if($!order.takeWay == 0)
+									客户自提
+								#elseif($!order.takeWay == 1)
+									配送
+								#end
+							</span>
+						</li>
+						<li>
+							<span>提车地点：</span>
+							<span>$!order.takeLocation</span>
+						</li>
+						<li>
+							<span>期待交付日期：</span>
+							<span>$!order.deliverTime</span>
+						</li>
+						<li>
+							<span>留言：</span>
+							<span>
+							#if(!$order.message || "" == $order.message)
+								无
+							#else
+								$order.message
+							#end
+							</span>
+						</li>
+					</ul>
+				</div>
+
+				<div class="car_info">
+					<div class="car_lt">
+						<img src="$uploadPath$order.productImage.filePath" alt="产品图片">
+					</div>
+					<div class="car_rt">
+						<ul>
+							<li class="rt_f01">
+								<span>$!order.product.title</span>
+							</li>
+							<li class="rt_f02">
+								<h5>参数配置</h5>
+								<ul>
+									<li>
+										<span>型号</span>
+										<span>$!order.product.carModel</span>
+									</li>
+									<li>
+										<span>发动机</span>
+										<span>$!order.product.engine</span>
+									</li>
+									<li>
+										<span>颜色</span>
+										<span>车身&nbsp;$!order.product.outColor&nbsp;&nbsp;&nbsp;内饰&nbsp;$!order.product.inColor</span>
+									</li>
+									<li>
+										<span>变速箱</span>
+										<span>$!order.product.gearbox</span>
+									</li>
+								</ul>
+							</li>
+							<li class="rt_f03">
+								<h5>必选配置</h5>
+								<ul>
+									<li class="fl">$!order.product.mustConfigure</li>
+								</ul>
+							</li>
+							<li class="rt_f03">
+								<h5>可选配置</h5>
+								<input type="hidden" id="carOptionalConfigure" value='$!order.configure'/>
+									#if(!$order.configure || $order.configure == "")
+										<li>无可选配置</li>
+									#else
+									#end
+								<ul id="carOptionalConfigUl">
+									
+								</ul>
+							</li>
+							<li class="rt_04">
+								<ul>
+									<li>
+										<span>麦卡价</span>
+										<span style="color:#ff9900;">￥$VCToolbar.formatBigDecimalThousand("$!order.product.carPrice",true)</span>
+									</li>
+									<li>
+										<span>必选配置(含保险金)</span>
+										<span style="color:#ff9900;">￥$VCToolbar.formatBigDecimalThousand("$!order.product.mustConfigurePrice",true)</span>
+									</li>
+									<li>
+										<span>可选配置</span>
+										<span style="color:#ff9900;">
+										#if(!$order.ConfigurePrice || $order.ConfigurePrice == "")
+											￥0
+										#else
+											￥$VCToolbar.formatBigDecimalThousand("$!order.ConfigurePrice",true)</p>
+										#end
+										</span>
+									</li>
+									<li>
+										<span style="font-size:16px;font-weight:bold;">合计</span>
+										<span style="color:#ff9900;">￥$VCToolbar.formatBigDecimalThousand("$!order.amount",true)</span>
+									</li>
+									<li style="width:10%;float:right;height:1px;background:#e6e6e6;margin: 15px 0;"></li>
+									<li>
+										<span>首月应付</span>
+										<span>￥166677</span>
+									</li>
+									<li>
+										<span>月供</span>
+										<span>￥166677</span>
+									</li>
+									<li>
+										<span>期限</span>
+										<span>120年</span>
+									</li>
+									<li>
+										<span>其他(必选配置+可选配置)</span>
+										<span>￥166677</span>
+									</li>
+									<li>
+										<span>保险金</span>
+										<span>12000</span>
+									</li>
+									<li>
+										<span>手续费</span>
+										<span>12043454</span>
+									</li>
+									
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="boom"></div>
+    	<!--footer-->
+		#parse("/frame/base.vm")
+	</div>
+	<script type="text/javascript" src="$request.getContextPath()/res/appjs/order_info.js"></script>
+ 	<script src="$request.getContextPath()/res/js/plug/nicescroll.js"></script>
+</html>

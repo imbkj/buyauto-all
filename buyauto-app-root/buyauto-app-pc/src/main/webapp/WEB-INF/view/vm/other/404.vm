@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--meta-->
+	    #parse("/frame/meta.vm")
+	<!--meta-->
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/style.css" />
+	<title>麦卡进口车 - 404</title>
+</head>
+<body>
+	 <div class="main">
+	 	<!--header-->
+		#parse("/frame/header.vm")
+	 	<div style="width: 100%;height: 700px;">
+	 		<div style="height:150px;"></div>
+		 	<ul style="margin:0 auto;width: 452px;height: 500px;">
+		 		<li>
+		 			<img src="$request.getContextPath()/res/images/404.png" alt="" style="width:452px;height: 270px;">
+		 		</li>
+		 		<li>
+		 			<span style="color: #373737;font-size: 14px;font-weight:bold;float:left;width: 100%;text-align:center;">您访问的页面弄丢了，<a href="#" style="color:#373737;" id="time">5</a>秒后返回首页</span>
+		 		</li>
+		 		<li>
+		 			<a href="$request.getContextPath()/" style="float:left;width:150px;height: 36px;line-height:36px;text-align:center;color: #fff;background:#ff9900;border-radius: 3px;margin-left: 151px;margin-top: 15px;">立即返回</a>
+		 		</li>
+		 	</ul>
+		 </div>
+		 <!--footer-->
+		#parse("/frame/base.vm")
+	 </div>
+	 <script type="text/javascript" src="$request.getContextPath()/res/appjs/404.js"></script>
+</body>	 	 
+</html>

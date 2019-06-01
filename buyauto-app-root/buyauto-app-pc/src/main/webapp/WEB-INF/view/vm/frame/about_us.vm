@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--meta-->
+	    #parse("/frame/meta.vm")
+	<!--meta-->
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/style.css">
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/about_us.css" />
+	<title>麦卡进口车 - 关于我们</title>
+</head>
+<body>
+	 <div class="main">
+	 	<!--header-->
+		#parse("/frame/header.vm")
+	 	<div class="about_us">
+			<h1>关于麦卡</h1>
+			<div class="about_us_title">
+				<div class="line1"></div>
+				<span>About&nbsp;&nbsp;Mycar</span>
+				<div class="line2"></div>
+			</div>
+			<div class="article">
+				<p>麦卡平行进口车（以下简称麦卡），是高端平行进口车的信息服务平台，致力于为车辆进口商和国内具有资质的汽车经销商之间，提供“全面、专业、高端、个性”的信息中介服务。主要汽车品牌包括奔驰、宝马、奥迪、路虎等国际一线高端品牌。</p>
+				<p>麦卡团队拥有多年的互联网运营经验，凭借专业的服务团队、成熟的业务体系，覆盖全国主要直辖市、各省会城市，为用户带来愉悦的购车体验。
+				</p>
+				<p>麦卡直接连接了车辆进口商和国内具有资质的汽车经销商，改变了汽车传统销售模式，省去了诸多中间环节，节省了大量时间和物力成本，在业内遥遥领先。</p>
+				<p>未来，麦卡平台将根据中国用户的需求和市场趋势，不断为用户提供更加优质、专业、贴心的信息服务，进而不断提升用户体验。</p>
+			</div>
+			<div class="about_us01">
+				<img src="$request.getContextPath()/res/images/about_us01.png" alt="">
+			</div>
+		</div>
+
+		<div class="business_model_bk">
+			<div class="business_model">
+				<h1>业务模式</h1>
+				<div class="business_model_title">
+					<div class="line1"></div>
+					<span>Business&nbsp;&nbsp;Model</span>
+					<div class="line2"></div>
+				</div>
+				<div class="about_us02">
+					<img src="$request.getContextPath()/res/images/about_us02.png" alt="">
+				</div>
+			</div>
+		</div>
+
+		<div class="advof_us">
+			<h1>我们的优势</h1>
+			<div class="advof_us_title">
+				<div class="line1"></div>
+				<span>Advantages&nbsp;&nbsp;Of&nbsp;&nbsp;Mycar</span>
+				<div class="line2"></div>
+			</div>
+			<div class="adv_box">
+				<ul>
+					<li>
+						<img src="$request.getContextPath()/res/images/about_us03.png" alt="">
+						<h3>海外采购</h3>
+						<p>车辆均为海外直采，车源信息全面，价格透明。</p>
+					</li>
+					<li style="margin-left:20px;">
+						<img src="$request.getContextPath()/res/images/about_us04.png" alt="">
+						<h3>车型丰富</h3>
+						<p>提供全球超过二十多个品牌，上百款车型供用户进行挑选。</p>
+					</li>
+					<li style="margin-top:20px;">
+						<img src="$request.getContextPath()/res/images/about_us05.png" alt="">
+						<h3>专属配送</h3>
+						<p>与国内知名供应链公司强强合作，拥有大型的现代化仓库，可提供详细的实时配送运输信息。</p>
+					</li>
+					<li style="margin-left:20px;margin-top:20px;">
+						<img src="$request.getContextPath()/res/images/about_us06.png" alt="">
+						<h3>手续齐全</h3>
+						<p>附带正规合法手续文件，包括货物进口证明书、车辆一致证明书、进口机动车随车检验单、车辆基本信息表、车辆正规发票等。</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+		 <!--footer-->
+		#parse("/frame/base.vm")
+	 </div>
+</body>	 	 
+</html>

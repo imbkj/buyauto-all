@@ -1,0 +1,72 @@
+   <!DOCTYPE html>
+<html>
+<head>
+    <title>麦卡进口车 - 返佣信息</title>
+    <!--meta-->
+	    #parse("/frame/meta.vm")
+	<!--meta-->
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/rackback.css" />
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/style.css">
+</head>
+<body>
+    <div class="main">
+        <!--header-->
+        #parse("/frame/header.vm")
+		<div class="title">
+		<a href="$request.getContextPath()/h/l/user/leaderIndex">&nbsp;首页</a>&nbsp;><a href="#">&nbsp;个人中心</a>
+	</div>
+	<div class="content_box">
+		#parse("/frame/per_nav.vm")
+		<div class="per_content">
+			<div class="per_content_title">
+				<ul>
+					<li>
+						<span>返佣信息</span>
+					</li>
+					<li>
+						<span>您被用户：</span>
+					</li>
+					<li>
+						<span>$!recommPhone</span>
+					</li>
+					<li>
+						<span>邀请</span>
+					</li>
+				</ul>
+			</div>
+			<div class="content_info">
+				<ul>
+					<li>
+						<ul class="list_nav">
+							<li>序号</li>
+							<li>推荐用户</li>
+							<li>订单完成时间</li>
+							<li>返佣比例</li>
+							<li>我的奖励</li>
+						</ul>
+					</li>
+					<li id = 'recomm'>
+					</li>
+					<li class="noData list">
+						<span>暂无推荐数据</span>
+					</li>
+				</ul>
+			</div>
+			<div class="page">
+	        	<span class="preBtn" id="preBtn"><</span>
+		        <div class="ctPage">
+		            <ul>
+		                  
+		            </ul>
+		        </div>
+	        	<span class="nextBtn" id="nextBtn">></span>
+	    	</div>
+		</div>
+	</div>
+        
+        <!--footer-->
+        #parse("/frame/base.vm")
+    </div> 
+    <script type="text/javascript" src="$request.getContextPath()/res/appjs/rackback.js"></script>
+</body> 
+</html>

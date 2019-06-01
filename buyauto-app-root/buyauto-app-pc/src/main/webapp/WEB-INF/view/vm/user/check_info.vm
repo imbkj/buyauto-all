@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <!--meta-->
+	    #parse("/frame/meta.vm")
+	<!--meta-->
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/check_info.css" />
+     <link rel="stylesheet" href="$request.getContextPath()/res/css/style.css"> 
+	<title>经销商管理 - 凭证详情</title>
+</head>
+<body>
+	<div>
+		<!--header-->
+		#parse("/frame/header.vm")
+		 	<div class="main">
+				<div class="top"></div>
+				 
+				<div class="big_img">
+					<img src="" alt="">
+				</div>
+				<div class="small_img">
+					<img src="$request.getContextPath()/res/images/icon-left.png" alt="" class="icon-left">
+					<div class="small_box">
+						<ul>
+							 
+						</ul>
+					</div>
+					<img src="$request.getContextPath()/res/images/icon-right.png" alt="" class="icon-right">
+				</div>
+			</div>
+    	<!--footer-->
+		#parse("/frame/base.vm")
+	</div>
+	<script type="text/javascript" src="$request.getContextPath()/res/appjs/check_info.js"></script>
+</html>

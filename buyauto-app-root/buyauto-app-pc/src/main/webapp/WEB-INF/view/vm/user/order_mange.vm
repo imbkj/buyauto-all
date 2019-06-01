@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--meta-->
+	    #parse("/frame/meta.vm")
+	<!--meta-->
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/order_mange.css" />
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/style.css"> 
+	<title>经销商管理 - 订单管理</title>
+</head>
+<body>
+	<div class="main">
+		<!--header-->
+		#parse("/frame/header.vm")
+
+    	<div class="top_banner">
+		<img src="$request.getContextPath()/res/img/top_banner.png" alt="">
+	</div>
+
+	<div class="nav" style="border:none">
+		<a href="$request.getContextPath()/h/l/user/leaderIndex">&nbsp;首页</a>&nbsp;><a href="$request.getContextPath()/h/l/orders/myOrdersMgr">&nbsp;订单管理</a>
+	</div>
+
+	<div class="order_box">
+		 #parse("/frame/order_nav.vm")
+
+		<div class="order_rt">
+			<div class="sel">
+				<span>销售人员</span>
+				<select id="test">
+					<option id="">选择销售人员</option>
+					 
+				</select>
+				<div class="Btn">
+					<span>确认</span>
+				</div>
+			</div>
+
+			<div class="cl indent_mn">
+				<span class="fw">订单状态：</span>
+				<ul class="cl fw" id="indent_mn">
+					<li class="fw sate active" style="margin-left: 13px;" state="">全部</li>
+					<li class="fw sate" state="100">确认中</li>
+					<li class="fw sate" state="101">待支付定金</li>
+					<li class="fw sate" state="102">定金待审核</li>
+					<li class="fw sate" state="103">待发货</li>
+					<li class="fw sate" state="104">待支付尾款</li>
+					<li class="fw sate" state="105">尾款待审核</li>
+					<li class="fw sate" state="107">等待交车</li>
+					<li class="fw sate" state="106">待上传三证</li>
+					<li class="fw sate" state="108">订单取消待审核</li>
+					<li class="fw sate" state="402">定金审核未通过</li>
+					<li class="fw sate" state="403">尾款审核未通过</li>
+					<li class="fw sate" state="404">订单取消</li>
+					<li class="fw sate" state="405">订单关闭</li>
+					<li class="fw sate" state="200">订单完成</li>
+				</ul>
+			</div>
+			<div class="order_list">
+				<ul class="order_list_title">
+					<li>车辆信息</li>
+					<li>定金</li>
+					<li>总价格</li>
+					<li>买家</li>
+					<li>状态</li>
+				</ul>
+				<div id="order_list">
+				
+				</div>	 
+			</div>
+		</div>
+		<div class="order_ser">
+			<span>暂时没有满足搜索条件的订单</span>
+		</div>
+	</div>
+
+	<div class="page">
+        	<span class="preBtn" id="preBtn"><</span>
+	        <div class="ctPage">
+	            <ul>
+	                  
+	            </ul>
+	        </div>
+        	<span class="nextBtn" id="nextBtn">></span>
+    	</div>	 
+	<!--footer-->
+	#parse("/frame/base.vm")
+	</div>
+	<script type="text/javascript" src="$request.getContextPath()/res/appjs/order_mange.js"></script>
+</html>

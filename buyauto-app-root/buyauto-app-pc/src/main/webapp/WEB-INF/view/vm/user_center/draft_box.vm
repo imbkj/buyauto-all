@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--meta-->
+	    #parse("/frame/meta.vm")
+	<!--meta-->
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/products_list.css" />
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/user_center_lt.css" />
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/style.css"> 
+	<title>个人中心-回收站</title>
+</head>
+<body>
+	<!--header-->
+	#parse("/frame/user_header.vm")
+
+    	<div class="wrap">
+		<div class="topmenu">
+			<span>首页</span><em>></em><span>个人中心</span>
+		</div>
+		<div class="center">
+        
+        <!--nav left-->
+		#parse("/frame/user_nav_lt.vm")
+
+		<div class="rt_count">
+			 <div class="count_tit">
+			 	  <p>回收站</p>
+			 </div>
+			 <div class="count_list">
+			 	  <h6>筛选条件</h6>
+			 	  <ul>
+			 	  	<li>
+			 	  		<dl>
+			 	  			<dt>产品名称</dt>
+			 	  			<dd><input type="text" id="productname"></dd>
+			 	  		</dl>
+			 	  	</li>
+			 	  	<li>
+			 	  		 <dl>
+			 	  		 	<dt>产品ID</dt>
+			 	  		 	<dd><input type="text" class="dit" id="productid"></dd>
+			 	  		 </dl>
+			 	  	</li>
+			 	  </ul>
+			 	  <div class="newly">
+ 	  				<a href="javascript:void(0)" id="search" class="sera"><i></i>查询</a>
+ 	  			  </div>
+
+			 	  <div class="count_product">
+			 	  	   <h6>回收站</h6>
+			 	  	  <table>
+		 	  	       	   <col width="180px">
+		 	  	       	   <col width="190px">
+		 	  	       	   <col width="90px">
+		 	  	       	   <col width="165px">
+		 	  	       	   <col width="155px">
+			 	  	   	   <thead>
+			 	  	   	   	  <th>ID</th>
+			 	  	   	   	  <th>商品名称</th>
+			 	  	   	   	  <th>价格</th>
+			 	  	   	   	  <th>创建时间</th>
+			 	  	   	   	  <!--<th>审核状态</th>-->
+			 	  	   	   	  <th>操作</th>
+			 	  	   	   </thead>
+			 	  	   	   <tbody>
+			 	  	   	     <!-- <tr>
+				 	  	   	   	  <td><p class="maths">354616874613564</p></td>
+				 	  	   	   	  <td><p class="pdt_name">审核状态审核状态</p></td>
+				 	  	   	   	  <td><p class="price">613564</p></td>
+				 	  	   	   	  <td>2017-06-30 15:21:06</td>
+				 	  	   	   	  <td>未通过</td>
+				 	  	   	   	  <td><a href="">提交审核</a><a href="">修改</a><a href="">删除</a></td>
+			 	  	   	     </tr>-->
+			 	  	   	   </tbody>
+			 	  	   </table>
+			 	  </div>
+			 	  
+			 	  <div class="nolist_ser">
+						<span></span>
+				   </div>
+			 </div>
+			 <div class="page">
+	        	<span class="preBtn" id="preBtn">&lt;</span>
+		        <div class="ctPage">
+		            <ul style="left: 0px; width: 70px;"> </ul>
+		        </div>
+	        	<span class="nextBtn" id="nextBtn">&gt;</span>
+	    	</div>
+		</div>
+	</div>
+	<div class="boom"></div>
+		<div class="Errors">
+			<h4>提示</h4>
+			<span> </span>
+			<div class="delBtn">确认</div>
+		</div>
+  </div>
+
+	<!--footer-->
+	#parse("/frame/base.vm")
+	
+	 <script type="text/javascript" src="$request.getContextPath()/res/appjs/darft_box.js"></script>
+</html>

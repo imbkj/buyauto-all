@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>麦卡进口车-banner管理</title>
+    #parse("/frame/public.vm")
+    <link rel="stylesheet" href="$request.getContextPath()/res/vendors/jqwidgets/jqwidgets/styles/jqx.base.css" type="text/css" />
+    <link rel="stylesheet" href="$request.getContextPath()/res/vendors/bootstrap-fileinput/css/fileinput.min.css" type="text/css" />
+
+    <script type="text/javascript" src="$request.getContextPath()/res/vendors/bootstrap-fileinput/js/fileinput.js"></script>
+    <script type="text/javascript" src="$request.getContextPath()/res/vendors/bootstrap-fileinput/js/fileinput_locale_zh.js"></script>
+    <script type="text/javascript" src="$request.getContextPath()/res/js/common/jquery.fileinputUpload.common.js"></script>
+</head>
+
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+
+        <!-- 导航菜单部分 -->
+        #parse("/frame/public_nav_panel.vm")
+
+        <!-- top navigation -->
+        #parse("frame/public_top_nav_panel.vm")
+        <!-- /top navigation -->
+
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="clearfix"></div>
+
+            <div class="page-title">
+                <div class="title_left">
+                    <h3>banner管理</h3>
+                </div>
+            </div>
+            <div class="">
+                <!-- 主体内容部分 -->
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel" >
+                            <div class="x_title">
+                                <h2>筛选条件</h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                    <!--
+                                    <li class="dropdown">
+                                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                      <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">Settings 1</a>
+                                        </li>
+                                        <li><a href="#">Settings 2</a>
+                                        </li>
+                                      </ul>
+                                    </li>-->
+                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+
+                                <!--条件查询start-->
+                                <form class="form-horizontal form-label-left" id="mem_search" action="#" novalidate>
+                                    <!--banner状态-->
+                                    <div class="row">
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">banner状态:</label>
+
+                                            <div id="gender" class="col-md-5 col-sm-6 col-xs-12 btn-group" data-toggle="buttons">
+                                                <label id="isTrue0" class="btn btn-default active" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                                    <input type="radio" checked  name="state" value="-1"> 全部
+                                                </label>
+                                                <label id="" class="btn btn-default " data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                                    <input type="radio"   name="state" value="0"> 下线
+                                                </label>
+                                                <label id="" class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                                    <input type="radio" name="state" value="1"> 已上线
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--创建时间-->
+                                    <div class="row">
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">创建时间:</label>
+                                            <div class="col-md-5 col-sm-6 col-xs-12">
+                                                <input id="crstartTime"   name="strStartDate" value="" type="hidden">
+                                                <input id="crendTime"   name="strEndDate" value="" type="hidden">
+                                                <div id="reportrange1" class="form-control">
+                                                    <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+                                                    <span style="color:#555;">&nbsp;&nbsp;请选择时间范围&nbsp;</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--banner标题-->
+                                    <div class="row">
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">banner标题:</label>
+                                            <div class="col-md-5 col-sm-6 col-xs-12">
+                                                <input type="text" name="title" id="searchTitle" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--按钮-->
+                                    <div class="row">
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name"></label>
+                                        <div class="col-md-5 col-sm-6 col-xs-12">
+                                        	<!-- 解决bootstrap与AJAX异步提交表单的冲突 -->
+                                    		<input type="text" value="" hidden/>
+                                            <!--查询按钮-->
+                                            <button type="button" class="btn btn-success" id="transfer_frmSearch"><i class="fa fa-search"></i>&nbsp;&nbsp;查 询</button>
+                                            <!--新增按钮-->
+                                            <button type="button" id="btn_create_banner" class="btn btn-warning" ><i class="fa fa-plus"></i>&nbsp;新 增</button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <!--条件查询end-->
+
+                            </div>
+
+                            <div class="x_content">
+
+                                <table class="table table-hover table-striped  table-bordered   dt-responsive nowrap" id="cms_banner_list" style="width: 100%;">
+                                    <thead>
+                                    <tr>
+                                        <th>标题</th>
+                                        <th>创建日期</th>
+                                        <th>模块</th>
+                                        <th>操作人</th>
+                                        <th>修改日期</th>
+                                        <th>状态</th>
+                                        <th>排序</th>
+                                        <th>操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>  </div>
+                </div>
+            </div>
+
+
+            <!-- 新增banner start-->
+
+            <div class="modal fade uas-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" style="width:900px">
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                            </button>
+                            <h4 class="modal-title" id="myUASModalLabel">banner编辑</h4>
+                        </div>
+                        <div class="modal-body">
+
+                            <form  id="form_cms_banner" action="#" class="form-horizontal form-label-left" method="POST" novalidate>
+                                <div class="row">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name"><span class="required">*</span>banner标题</label>
+                                        <div class="col-md-5 col-sm-6 col-xs-12">
+                                            <input type="text"  id="title" name="title" maxlength="22" required="required"  class="form-control " />
+                                            <input type="hidden"  id="id" name="id"    class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name"><span class="required">*</span>链接</label>
+                                        <div class="col-md-5 col-sm-6 col-xs-12">
+                                            <input type="text"  id="link" name="link"  required="required"  maxlength="100"  class="form-control " />
+                                        </div>
+                                    </div>
+                                </div>
+
+                            <!--    <div class="row">-->
+                            <!--        <div class="item form-group">-->
+                            <!--            <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name"><span class="required">*</span>模块</label>-->
+                           <!--             <div class="col-md-5 col-sm-6 col-xs-12">-->
+                                <!--               <button class="btn btn-default dropdown-toggle" type="button" id="bannerModel" data-toggle="dropdown">-->
+                              <!-- 请选择模块-->
+                             <!--               </button>-->
+                              <!--              <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">-->
+                            <!--                    <li class="divider"></li>-->
+                            <!--                    <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:bannerModel(0,'首页滚动');">首页滚动</a></li>-->
+                            <!--                    <li class="divider"></li>-->
+                            <!--                    <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:bannerModel(1,'新闻页');">新闻页</a></li>-->
+                            <!--                    <li class="divider"></li>-->
+                            <!--                   <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:bannerModel(2,'车辆详情页');">车辆详情页</a></li>-->
+                            <!--                    <li class="divider"></li>-->
+                            <!--                </ul>-->
+                            <!--                <input type="hidden"  id="type" name="type"  required="required"   class="form-control " />-->
+                            <!--            </div>-->
+                            <!--        </div>-->
+                           <!--     </div>	-->
+
+                                <div class="row">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">排序</label>
+                                        <div class="col-md-5 col-sm-6 col-xs-12">
+                                            <input type="number"  id="orderNum" name="orderNum" placeholder="默认为1" oninput="if(value.length>10)value=value.slice(0,10);if(value<1)value=''"   class="form-control " />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name"><span class="required"></span>是否上线</label>
+                                        <div id="gender" class="col-md-5 col-sm-6 col-xs-12 btn-group" data-toggle="buttons">
+                                            <label id="isTrue1" class="btn btn-default active" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                                <input type="radio" checked  name="status" value="0"> 否
+                                            </label>
+                                            <label id="isTrue2" class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                                <input type="radio" name="status" value="1"> 是
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">创建日期：</label>
+                                        <div class="col-md-5 col-sm-6 col-xs-12">
+                                            <input id="createTime" name="createTime" value="" type="hidden">
+                                            <input id="endTime" name="" value="" type="hidden">
+                                            <div id="reportrange2" class="form-control">
+                                                <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+                                                <span>&nbsp;&nbsp;请选择时间范围&nbsp;</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name"><span class="required">*</span>banner图片</label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input type="file" id="bannerImg" name=""  />
+                                            <input type="hidden" id="bannerImgPath" name="image"  />
+                                            <div>*建议上传图片尺寸1920*550</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="button" id="btn_cms_banner_submit" class="btn btn-primary">提交</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- 新增banner end-->
+
+            <!-- /主体内容部分 -->
+        </div>
+    </div>
+    <!-- /page content -->
+
+    <!-- footer content -->
+    #parse("/frame/footer.vm")
+    <!-- /footer content -->
+</div>
+</div>
+
+#parse("/frame/footer_resouce.vm")
+
+<script type="text/javascript" src="$request.getContextPath()/res/appjs/cms_banner.js"></script>
+<script type="text/javascript" src="$request.getContextPath()/res/js/common/jquery.time.plugin.js"></script>
+
+<script type="text/javascript" src="$request.getContextPath()/res/vendors/jqwidgets/jqwidgets/jqxcore.js"></script>
+<script type="text/javascript" src="$request.getContextPath()/res/vendors/jqwidgets/jqwidgets/jqxbuttons.js"></script>
+<script type="text/javascript" src="$request.getContextPath()/res/vendors/jqwidgets/jqwidgets/jqxscrollbar.js"></script>
+<script type="text/javascript" src="$request.getContextPath()/res/vendors/jqwidgets/jqwidgets/jqxpanel.js"></script>
+<script type="text/javascript" src="$request.getContextPath()/res/vendors/jqwidgets/jqwidgets/jqxtree.js"></script>
+<script type="text/javascript" src="$request.getContextPath()/res/vendors/jqwidgets/jqwidgets/jqxcheckbox.js"></script>
+
+</body>
+</html>

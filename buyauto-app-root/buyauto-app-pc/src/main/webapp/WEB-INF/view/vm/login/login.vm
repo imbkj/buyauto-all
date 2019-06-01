@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--meta-->
+	    #parse("/frame/meta.vm")
+	<!--meta-->
+    <title>麦卡进口车-登录</title>
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/style.css">
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/login.css">
+</head>
+<body>
+    #parse("/frame/header.vm")
+	<div class="min" id="minbg">
+		<div class="main_login">
+			<div class="login_list">
+			<div class="rtline"></div>
+
+			 <dl>
+			 	<dt>
+			 	   <form action="" id="form_list">
+			 	   	    <h6>登录</h6>
+			 	   	    <div class="tips" id="tips"></div>
+				 		<ul>
+				 			<li><input type="text" placeholder="请输入账户名" id="uername" maxlength="32"></li>
+				 			<li><input type="password" onpaste="return false" placeholder="请输入密码" id="password" maxlength="10"></li>
+				 			<li><input type="submit" value="提交" id="submit" style="padding-left:12px;"></li>
+				 		</ul>
+			 		</form>
+			 		<a href="$request.getContextPath()/h/n/user/forget" class="forget">忘记密码？</a>
+			 		<a href="$request.getContextPath()/h/n/user/registerPersonal" class="per_register">个人注册</a>
+			 	</dt>
+			 	<dd>
+			 		<ul>
+			 			<li>
+			 				<p>我是供应商/经销商，<br />还没有注册麦卡账号！</p>
+			 			</li>
+			 			<li>
+			 				<a href="$request.getContextPath()/h/n/user/register">企业注册</a>
+			 			</li>
+			 			
+			 			<!--<li>
+			 				<div class="wechart_evm">
+			 				<img src="$request.getContextPath()/res/images/ervma.jpg" alt="">
+			 				<div class="wechart">
+			 					  <p>关注微信公众号</br>
+									新车资讯早知道</p>
+			 				</div>
+			 				</div>
+			 			</li>-->
+			 		</ul>
+			 	</dd>
+			 </dl>
+		</div>
+	   </div>
+	</div>
+	
+	<div class="boom"></div>
+	<div class="Errors">
+		<h4>审核未通过原因</h4>
+		<div class="err_box">
+			<span></span>
+		</div>
+		<div class="delBtn">确认</div>
+	</div>
+	#parse("/frame/base.vm")
+    <script type="text/javascript" src="$request.getContextPath()/res/js/base/jquery.min.js"></script>
+    <script type="text/javascript" src="$request.getContextPath()/res/appjs/login.js"></script>
+</body>
+</html>

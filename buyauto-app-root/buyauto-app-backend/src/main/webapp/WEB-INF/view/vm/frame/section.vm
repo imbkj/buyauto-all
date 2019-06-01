@@ -1,0 +1,37 @@
+    <section class="g-goTop">
+      <ul >
+        <li class="f-cb" id="top">
+            <div class="top">
+                <a href="javascript:void(0)">
+                    <img src="$request.getContextPath()/res/images/goTop/top.png" class="g" />
+                    <img src="$request.getContextPath()/res/images/goTop/lg-top.png" class="c" /> 
+                </a>
+            </div>
+        </li> 
+        <li>
+            <div class="phone">
+                <a href="javascript:void(0)">
+                    <img src="$request.getContextPath()/res/images/goTop/phone.png" class="g" />
+                    <img src="$request.getContextPath()/res/images/goTop/lg-phone.png" class="c" />
+                </a>
+            </div>
+        </li>    
+        <li>
+            <div class="qq">
+                <a href="http://wpa.b.qq.com/cgi/wpa.php?ln=2&amp;uin=3220613499" target="_blank">
+                    <img src="$request.getContextPath()/res/images/goTop/qq.png" class="g" />
+                    <img src="$request.getContextPath()/res/images/goTop/lg-qq.png" class="c" />
+                </a>
+            </div>
+        </li> 
+        <li>
+            <div class="tips">
+                <a href="$request.getContextPath()/h/n/about/tip">
+                    <img src="$request.getContextPath()/res/images/goTop/tips.png" class="g" />
+                    <img src="$request.getContextPath()/res/images/goTop/lg-tips.png" class="c" />
+                </a>
+            </div>
+        </li>           
+        
+      </ul>
+    </section>

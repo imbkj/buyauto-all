@@ -1,0 +1,136 @@
+ .help_top{
+	width: 100%;
+	height: 200px;
+	text-align: center;
+	background: url('../images/about_help_bk.png') no-repeat left top;
+}
+
+.help_top span{
+	color: #ffffff;
+	font-size: 32px;
+	font-weight: bold;
+	line-height: 200px;
+}
+
+.title{
+	width:1100px;
+	height: 76px;
+	line-height: 76px;
+	margin: 0 auto;
+}
+
+.title a{
+	color: #404040;
+	font-size: 14px;
+}
+
+.help_box{
+	width: 1100px;
+	margin: 0 auto 55px;
+	border-top: 1px dotted #a0a0a0;
+	border-bottom: 1px dotted #a0a0a0;
+	overflow: hidden;
+	clear: both;
+}
+
+.help_lt{
+	float: left;
+	width: 340px;
+	height: 735px;
+	background: #f2f2f2;
+	padding-top: 15px;
+}
+
+.about h1{
+	width: 290px;
+	padding-left: 50px;
+	height: 40px;
+	line-height: 40px;
+	color: #ff9900;
+	font-size: 20px;
+	font-weight: bold;
+	cursor: pointer;
+	background: #e6e6e6 url('../images/help1.png') no-repeat 10px center;
+}
+
+.about ul,.order ul,.service ul{
+	width: 290px;
+	padding-left: 50px;
+	height: 117px;
+}
+
+.about ul li,.order ul li,.buy ul li,.service ul li{
+	width: 290px;
+	height: 39px;
+	line-height: 39px;
+}
+
+.about ul li span,.order ul li span,.buy ul li span,.service ul li span{
+	color: #404040;
+	font-size: 14px;
+}
+
+.order h1{
+	width: 290px;
+	padding-left: 50px;
+	height: 40px;
+	line-height: 40px;
+	color: #ff9900;
+	font-size: 20px;
+	font-weight: bold;
+	cursor: pointer;
+	background: #e6e6e6 url('../images/help2.png') no-repeat 10px center;
+}
+
+.buy h1{
+	width: 290px;
+	padding-left: 50px;
+	height: 40px;
+	line-height: 40px;
+	color: #ff9900;
+	font-size: 20px;
+	font-weight: bold;
+	cursor: pointer;
+	background: #e6e6e6 url('../images/help3.png') no-repeat 10px center;
+}
+
+.buy ul{
+	width: 290px;
+	padding-left: 50px;
+	height: 195px;
+}
+
+.service h1{
+	width: 290px;
+	padding-left: 50px;
+	height: 40px;
+	line-height: 40px;
+	color: #ff9900;
+	font-size: 20px;
+	font-weight: bold;
+	cursor: pointer;
+	background: #e6e6e6 url('../images/help4.png') no-repeat 10px center;
+}
+
+.help_rt{
+	float: right;
+	width: 730px;
+	height: 720px;
+	padding: 30px 0 0 30px;
+}
+
+h2{
+	color: #4a4a4a;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.help_rt p{
+	color: #666666;
+	font-size: 14px;
+	line-height: 28px;
+}
+
+._about,._order,._buy,._service{
+	display: none;
+}

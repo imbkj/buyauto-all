@@ -1,0 +1,30 @@
+<div class="car_bottom">
+	<div class="car_size">
+		<div class="cl btt_top">
+			<ul class="cl fl">
+				<li class="fl"><img src="$request.getContextPath()/res/images/lg.png" alt="" /></li>
+				<li class="fl" style="display:none;">
+					<h5>400-888-08888</h5>
+					<p>服务热线周一至周日</p>
+					<p>09:00 - 18:00</p>
+				</li>
+				<li class="fl"><a href="$request.getContextPath()/about">关于我们</a></li>
+				<li class="fl"><a href="$request.getContextPath()/aboutHelp">帮助中心</a></li>
+				<li class="fl" style="display:none;"><a href="#">加入我们</a></li>
+			</ul>
+			<ul class="cl fr" style="display:none;">
+				<li class="cl fr">
+					<img class="fl" src="$request.getContextPath()/res/images/index_ewm.jpg" alt="" width="80px" height="80px"/>
+					<p class="fl map">关注微信公众号</p>
+					<p class="fl">新车资讯早知道</p>
+				</li>
+			</ul>
+		</div>
+		<div class="cl btt_btt" >
+			<p class="car_Brand">©Copyright2017-2018. 上海泛外投资咨询有限公司 | 沪ICP备17029027号</p>
+			<p style="margin-top: -10px;">由纳泓互联网金融信息服务（上海）有限公司提供技术支持</p> 
+			<ul class="cl" style="width:380px;">
+			</ul>  
+		</div>
+	</div>
+</div>

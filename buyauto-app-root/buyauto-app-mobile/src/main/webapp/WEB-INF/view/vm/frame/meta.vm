@@ -1,0 +1,15 @@
+    <meta charset="UTF-8">
+	<meta name="viewport" content="minimal-ui=yes,width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="stylesheet" href="$request.getContextPath()/res/css/style.css">
+	<link rel="shortcut icon" type="image/ico" href="$request.getContextPath()/res/images/favicon.ico"/>
+	
+	<script type="text/javascript" src="$request.getContextPath()/res/js/common/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="$request.getContextPath()/res/js/common/common.js"></script>
+	
+	
+	
+<script type="text/javascript">
+	var  g_requestContextPath= "$request.getContextPath()";
+ </script>

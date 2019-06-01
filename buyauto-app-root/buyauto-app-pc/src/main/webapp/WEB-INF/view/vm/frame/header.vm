@@ -1,0 +1,97 @@
+<div class="tt_hd">
+		#if(!$!userSessionInfo)
+		<div class="cl tt_lg">
+    		<div class="car_size">
+   				<a href="$request.getContextPath()/h/n/user/login" class="lg">你好！请登录</a>
+   				<a href="$request.getContextPath()/h/n/user/register">企业注册</a>
+   				<span>&frasl;</span>
+				<a href="$request.getContextPath()/h/l/orders/ordersList" target="_blank">我的订单</a>
+				<span>&frasl;</span>
+				<a href="$request.getContextPath()/aboutHelp">帮助中心</a>
+				<span>&frasl;</span>
+				<a href="$request.getContextPath()/h/l/user/leaderIndex">经销商后台</a>
+			</div>
+   		</div>
+		<div class="car_size tt_hd_con">
+	    	<div class="car_size tt_hd_con">
+	    		<ul class="fl cl">
+	    			<li class="fl"><a href="$request.getContextPath()/"><img src="$request.getContextPath()/res/images/lg.png" alt="" width="140" height="56"/></a></li>
+	    			<li class="fl"><a href="$request.getContextPath()/">首页</a></li>
+	    			<li class="fl"><a href="$request.getContextPath()/h/n/products/garageScr">麦卡车库</a></li>
+	    			<!--<li class="fl"><a href="$request.getContextPath()/h/l/orders/ordersList">我的订单</a></li>-->
+	    			<li class="fl"><a href="$request.getContextPath()/about">关于我们</a></li>
+	    		</ul>
+	    		<ul class="fr cl">
+	    			<li class="fl phone" style="display:none;">400-888-8888</li>
+	    			<li class="fl register"><a href="$request.getContextPath()/h/n/user/register">注册</a></li>
+		    		<li class="fl login"><a href="$request.getContextPath()/h/n/user/login">登录</a></li>
+	    		</ul>
+	    	</div>
+	   	</div>
+   		#else
+   		<div class="cl tt_lg">
+   			<div class="car_size">
+   				#if($userSessionInfo.hasAuth('9101'))
+				<a href="$request.getContextPath()/h/l/orders/ordersList" target="_blank">我的订单</a>
+				<span>&frasl;</span>
+				#end
+				<a href="$request.getContextPath()/aboutHelp">帮助中心</a>
+				#if($userSessionInfo.hasAuth('6101'))
+				<span>&frasl;</span>
+				<a href="$request.getContextPath()/h/l/user/leaderIndex">经销商后台</a>
+				#end
+				#if($userSessionInfo.hasAuth('10001'))
+	   			<span>&frasl;</span>
+	   			<a href="$request.getContextPath()/h/l/supplier/toProductsList">供应商中心</a>
+	   			#end
+				
+			</div>
+  		</div>
+   		<div class="car_size tt_hd_con">
+		   	<div class="car_size tt_hd_con">
+		   		<ul class="fl cl">
+		   			<li class="fl"><a href="$request.getContextPath()/"><img src="$request.getContextPath()/res/images/lg.png" alt="" width="140" height="56"/></a></li>
+		   			<li class="fl"><a href="$request.getContextPath()/">首页</a></li>
+		   			<li class="fl"><a href="$request.getContextPath()/h/n/products/garageScr">麦卡车库</a></li>
+		   			<!--<li class="fl"><a href="$request.getContextPath()/h/l/orders/ordersList">我的订单</a></li>-->
+		   			<li class="fl"><a href="$request.getContextPath()/about">关于我们</a></li>
+	    			#if($userSessionInfo.hasAuth('9101'))
+	    			<li class="fl"><a href="$request.getContextPath()/h/l/orders/ordersList">个人中心 </a></li>
+	    			#end
+	    			#if($userSessionInfo.hasAuth('10001'))
+	    			<li class="fl"><a href="$request.getContextPath()/h/l/supplier/toProductsList" >个人中心</a></li>
+	    			#elseif($userSessionInfo.hasAuth('6302') && !$userSessionInfo.hasAuth('9101')  && !$userSessionInfo.hasAuth('10001'))
+		    			<li class="fl"><a href="$request.getContextPath()/h/l/orders/myOrder" >我的订单</a></li>
+		    		#end
+		   		</ul>
+		   		<ul class="fr cl enter">
+		   			<li class="fl phone" style="display:none;">400-888-8888</li>
+		   			<li class="fl cl portrait">
+						<div class="fl"><img src="$request.getContextPath()/res/img/tx.png" alt="" width="28" height="28"/></div>
+						#if($!userSessionInfo.companyName)
+							<span class="cl fl firm">$!userSessionInfo.companyName</span><span class="fl">： </span>
+						#end
+						<span class="cl fl named">
+							#if($userSessionInfo.uName)
+								$!userSessionInfo.uName
+							#else
+								$!userSessionInfo.phone
+							#end
+						</span>
+					</li>
+		   			<li class="fl log_in"><a href="$request.getContextPath()/h/n/user/logout">退出</a></li>
+		   		</ul>
+		   	</div>
+	   	</div>
+  		#end
+</div>
+<script>
+$(function(){
+	var aUrl = $(".tt_hd_con li a");
+	for(var i = 0; i < aUrl.length; i++){
+		if(aUrl[i].href == window.document.location.href){
+			aUrl[i].className = "opt_for";
+		};
+	};
+})
+</script>

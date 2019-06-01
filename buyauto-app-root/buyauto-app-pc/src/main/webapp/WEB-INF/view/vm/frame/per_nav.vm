@@ -1,0 +1,37 @@
+ <div class="per_nav">
+			<ul>
+				<li>
+					 
+					<span class="per_title">#if($!userSessionInfo.realLevel == 0)个人客户#end
+							    #if($!userSessionInfo.realLevel == 1)个人销售#end
+								#if($!userSessionInfo.realLevel == 2)个人经销商#end
+					</span>
+				</li>
+				<li>
+					<a href="#" style="color: #121212;">
+						<span>我的个人中心</span>
+					</a>
+				</li>
+				<li>
+					<a href="$request.getContextPath()/h/l/orders/ordersList" class="getColor">
+						<span>我的订单</span>
+					</a>
+				</li>
+				<li>
+					<a href="$request.getContextPath()/h/l/commission/rackBack" class="getColor">
+						<span>返佣信息</span>
+					</a>
+				</li>
+				<li>
+					<a href="$request.getContextPath()/h/l/user/grade" class="getColor">
+						<span>我的等级</span>
+					</a>
+				</li>
+				<li>
+					<a href="$request.getContextPath()/h/l/msg/mainPage" class="getColor">
+						<span>消息中心</span>
+						<img src="$request.getContextPath()/res/images/point.png" alt="">
+					</a>
+				</li>
+			</ul>
+		</div>

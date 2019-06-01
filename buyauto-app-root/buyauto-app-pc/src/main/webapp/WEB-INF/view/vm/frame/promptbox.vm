@@ -1,0 +1,13 @@
+<div class="promptbox"></div>
+<div class="pmtbox">
+	<h5>提示</h5>
+	<p class="pmtcom"></p>
+	<a href="javascript:void(0);"></a>
+</div>
+<script>
+$(function(){
+	$(".promptbox,.pmtbox a").click(function(){
+		$(".promptbox,.pmtbox").hide();
+	})
+})
+</script>

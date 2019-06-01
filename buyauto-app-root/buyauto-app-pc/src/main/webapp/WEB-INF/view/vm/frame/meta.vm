@@ -1,0 +1,36 @@
+<meta charset='utf-8'>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+<meta name="description" content="不超过150个字符"/>
+<meta name="keywords" content=""/>
+<meta name="author" content="lily"/>
+<meta name="robots" content="index,follow"/>
+<!--国内主流双核浏览器默认建议其使用Webkit -->
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<link rel="shortcut icon" type="image/ico" href="$request.getContextPath()/res/img/favicon.ico"/>
+
+<script type="text/javascript" src="$request.getContextPath()/res/js/plug/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="$request.getContextPath()/res/js/common/common.js"></script>
+<script type="text/javascript">
+	var  g_requestContextPath= "$request.getContextPath()";
+	document.addEventListener("error", function (e) {
+	    var elem = e.target;
+	    if (elem.tagName.toLowerCase() === 'img') {
+	        elem.src = g_requestContextPath+"/res/img/moren.jpg";
+	    }
+	}, true); 
+		
+	var serverCurrentTime = "";
+	$.ajax({
+		url:g_requestContextPath+'/getServerCurrentTime',
+		type:'get',
+		async:false,
+		success:function(data){
+			serverCurrentTime = data;
+		}
+	});	
+ </script>
+
+

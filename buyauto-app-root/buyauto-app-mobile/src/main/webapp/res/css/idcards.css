@@ -1,0 +1,146 @@
+
+.topnav{
+	 width:100%;
+	 height:43px;
+	 line-height: 43px;
+	 background: #121212;
+	 position: relative;
+}
+
+.topnav a{
+	width: 20px;
+    height: 35px;
+    background: url('../images/lt_arrow.png') no-repeat center center;
+    background-size: 79%;
+    position: absolute;
+    left: 10px;
+    top: 4px;
+}
+
+.topnav p{
+	font-size:20px;
+	color:#fff;
+	text-align:center; 
+}
+
+.content ul{
+    width:100%;
+    display: inline-block;
+}
+
+.content ul li{
+	width:100%;
+	height:54px;
+	line-height: 54px;
+	border-bottom:1px solid #e6e6e6;
+	font-size:16px;
+	color:#121212;
+     background: #fff;
+}
+
+.content ul li span{
+	width:26%;
+	height:54px;
+	line-height: 54px;
+	float: left;
+	margin-right:3%; 
+	padding-left:5%;
+}
+
+.content ul li .rt{
+	width:66%;
+	float:right ;
+}
+
+.content ul li .rt input{
+	width:96%;
+	height:50px;
+	line-height: 50px;
+	border:none;
+	font-size: 16px;
+}
+
+.content_photo{
+	display:inlne-block;
+	position:relative;
+}
+
+.buttons input{
+    width:94%;
+    margin:0 3%;
+    height:50px;
+    line-height: 50px;
+    background: #ff9900;
+    text-align: center;
+    font-size: 18px;
+    color:#fff;
+    border:none;
+    letter-spacing: 10px;
+}
+
+.dialog {
+	height:40px;
+	line-height: 40px;	
+}
+
+.dialog p{
+	margin-left:34%;
+	font-size: 14px;
+	height:40px;
+	line-height: 40px;
+	background: url('../images/error.jpg') no-repeat scroll left center;
+    color: #91191e;
+    padding-left: 20px;
+    white-space: nowrap;
+}
+
+.filecards{
+	width:90%;
+	margin:30px auto;
+	
+}
+
+.filecards p{
+	font-size:14px;
+	color:#121212;
+	position:absolute;
+	bottom: -1%;
+    left: 40%;
+}
+
+.tips{
+	height:40px;
+	line-height:40px;
+	padding-left:3%;
+	font-size:14px;
+	color:#a8a8a8;
+}
+.conter li a{
+  width:100%;
+  height:100%;
+  display:inline-block;
+}
+
+.conter li a label{
+	width:40%;
+	float:left;
+	padding-left:4%;
+	font-size:15px;
+	color:#121212;
+}
+
+.conter li a .rt{
+	width:50%;
+	float:right;
+	padding-right:2%;
+	color:#a8a8a8;
+	font-size:15px;
+	text-align:right;
+}
+
+.conter li a .rt em{
+	padding-left:2%;
+}
+.button {
+	padding-top:190px;
+}

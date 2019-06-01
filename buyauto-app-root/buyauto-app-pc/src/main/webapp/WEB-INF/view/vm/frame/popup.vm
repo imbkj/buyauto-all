@@ -1,0 +1,9 @@
+<div class="popup">
+	<div class="popup_prompt">
+		<p class="prompt_line">确认收车？</p>
+		<div class="cl">
+			<a class="fl abolish" href="javascript:;">取消</a>
+			<a class="fl affirm" href="javascript:;">确认</a>
+		</div>
+	</div>
+</div>

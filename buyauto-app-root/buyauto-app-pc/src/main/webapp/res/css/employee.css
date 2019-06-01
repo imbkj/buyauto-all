@@ -1,0 +1,173 @@
+/*account_child*/
+.sketch{
+	width: 860px;
+}
+.sketch .new_staffs{
+	padding-bottom: 10px;
+	border-bottom: 1px solid #e6e6e6;
+	position: relative;
+}
+.sketch .new_staffs h5{
+	font-size: 16px;
+	color: #111111;
+	height: 32px;
+	line-height: 32px;
+}
+.sketch .new_staffs p.clue{
+	position: absolute;
+	right: 0;
+	top: 0;
+	color: #111111;
+	font-size: 16px;
+	width: 310px;
+	border: 1px solid #e6e6e6;
+	padding: 10px;
+}
+.sketch .new_staffs div a{
+	display: inline-block;
+	width: 90px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	color: #ff9900;
+	border: 1px solid #ff9900;
+	background: url(../images/acc_01.png) no-repeat 15px center;
+	padding-left: 30px;
+	margin-right: 10px;
+	font-size: 16px;
+}
+.sketch .new_staffs div a:hover{
+	color: #fff;
+	background: url(../images/acc_02.png) no-repeat 15px center #FF9900;
+}
+.sketch .new_staffs div span{
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	background: url(../images/acc_03.png) no-repeat right center;
+	margin-top: 8px;
+}
+.sketch .new_staffs div span:hover{
+	background: url(../images/acc_12.png) no-repeat right center;
+}
+.sketch .new_staffs div img{
+	margin-top: 8px;
+	cursor: pointer;
+}
+.sketch .view{
+	padding: 40px 0;
+	border-bottom: 1px solid #E6E6E6;
+}
+.sketch .view li{
+	color: #111;
+	font-size: 14px;
+	width: 33.33%;
+}
+.sketch .view li span{
+	display: inline-block;
+	width: 40px;
+	height: 24px;
+	line-height: 24px;
+	border-radius: 3px;
+	margin: 0 20px;
+	color: #fff;
+	text-align: center;
+}
+.sketch .view li:nth-child(1) span{
+	background: #FF9900;
+}
+.sketch .view li:nth-child(2) span{
+	background: #66c28f;
+}
+.sketch .view li:nth-child(3) span{
+	background: #3ac7f5;
+}
+.sketch .staff_govern{
+	padding-top: 30px;
+}
+.sketch .staff_govern table{
+	width: 858px;
+}
+.sketch .staff_govern table caption{
+	text-align: left;
+	color: #111111;
+	font-size: 16px;
+	padding-bottom: 10px;
+	font-weight: 700;
+}
+.sketch .staff_govern table thead tr th{
+	background: #f2f2f2;
+	height: 30px;
+	line-height: 30px;
+	color: #666;
+	font-weight: normal;
+	font-size: 14px;
+	text-align: center;
+	border: 1px solid #F2F2F2;
+}
+.sketch .staff_govern table thead tr th.handle{
+	background: url(../images/acc_03.png) no-repeat 145px center #F2F2F2;
+}
+.sketch .staff_govern table thead tr th.handle:hover{
+	background: url(../images/acc_12.png) no-repeat 145px center #F2F2F2;
+}
+.sketch .staff_govern table tbody tr td{
+	text-align: center;
+	height: 50px;
+	line-height: 50px;
+	color: #111;
+	border: 1px solid #dedede;
+	border-top:0px;
+}
+.sketch .staff_govern table tbody tr td.account_01{
+	width: 248px;
+}
+.sketch .staff_govern table tbody tr td.account_02{
+	width: 120px;
+}
+.sketch .staff_govern table tbody tr td.account_03{
+	width: 120px;
+}
+.sketch .staff_govern table tbody tr td.account_04{
+	width: 120px;
+}
+.sketch .staff_govern table tbody tr td.account_05{
+	width: 250px;
+	text-align: center;
+}
+.sketch .staff_govern table tbody tr td.account_05 a{
+	display: inline-block;
+	width: 44px;
+	height: 24px;
+	line-height: 24px;
+	padding-left: 16px;
+	text-align: center;
+}
+.sketch .staff_govern table tbody tr td.account_05 a.alter{
+	border: 1px solid #FF9900;
+	color: #FF9900;
+	background: url(../images/acc_04.png) no-repeat 5px center;
+}
+.sketch .staff_govern table tbody tr td.account_05 a.alter:hover{
+	background: url(../images/acc_05.png) no-repeat 5px center #FF9900;
+	color: #fff;
+}
+.sketch .staff_govern table tbody tr td.account_05 a.frost{
+	border: 1px solid #3dc6ef;
+	color: #3dc6ef;
+	background: url(../images/acc_06.png) no-repeat 5px center;
+}
+.sketch .staff_govern table tbody tr td.account_05 a.frost:hover{
+	color: #fff;
+	background: url(../images/acc_07.png) no-repeat 5px center #3dc6ef;
+}
+.sketch .staff_govern table tbody tr td.account_05 a.start{
+	border: 1px solid #62c18e;
+	color: #62c18e;
+	background: url(../images/acc_08.png) no-repeat 5px center;
+}
+.sketch .staff_govern table tbody tr td.account_05 a.start:hover{
+	color: #fff;
+	background: url(../images/acc_09.png) no-repeat 5px center #62c18e;
+}
+/*account_child end*/

@@ -1,0 +1,361 @@
+.center{
+	display:inline-block;
+}
+
+.wrap{
+	width:1100px;
+	margin:0 auto;
+}
+.counter{
+	width:100%;
+	display:inline-block;
+}
+.rt_count{
+	width:860px;
+	padding-bottom:112px;
+	float: right;
+	margin-left:20px;
+}
+.count_tit{
+	height:40px;
+    padding:5px 0 0 5px;
+    border-bottom: 2px solid #f39800;
+}
+.count_tit p{
+	font-size: 18px;
+	color:#121212;
+}
+.count_list h6{
+    height:38px;
+    line-height:38px;
+    font-size: 16px;
+    padding-left:5px;
+    color:#121212;
+    background:#f2f2f2;
+    font-weight:normal;
+}
+.count_list ul{
+	width: 100%;
+	display: inline-block;
+	padding-left:40px;
+}
+
+.count_list ul li{
+	height:30px;
+	line-height: 30px;
+	padding-top:10px;
+	font-size: 14px;
+	color:#121212;
+}
+.count_list ul li:first-child{
+	padding-top:20px;
+}
+
+
+.count_list ul li dl dt,.pdtname label{
+	 float: left;
+	 margin-right: 26px;
+}
+
+.count_list ul li dl dd,.pdtname input{
+	float:left;
+}
+
+.count_list ul li dl dd span{
+	 width:80px;
+	 height:26px;
+	 line-height: 26px;
+	 float: left;
+	 text-align: center;
+	 cursor: pointer;
+	 display: inline-block;
+}
+
+/* .count_list ul li dl dd span.current{
+	 background: #ff9900;
+	 color:#fff;
+} */
+
+.count_list ul li dl dd span:hover{
+	background: #ff9900;
+	 color:#fff;
+}
+.count_list ul li dl dd  input,.count_list ul li .pdtname input{
+     width:398px;
+     height:30px;
+     line-height: 30px;
+     border:1px solid #e6e6e6;
+}
+
+.newly{
+    height:36px;
+    padding: 20px 0 0 121px;
+	dispay:inline-block;
+}
+.newly .add,.newly .sera{
+	 width:57px;
+	 height:36px;
+	 display: inline-block;
+	 line-height: 36px;
+     float: left;
+     margin-right:20px;
+     color:#fff;
+     letter-spacing: 3px;
+     padding-left:41px;
+     position: relative;
+     background: #3dc6ef;
+} 
+.newly .add{
+	 background: #ff9900;
+}
+
+.count_list ul li dl dd.newly{
+	 margin-left:82px;
+}
+
+.newly .sera i{
+	width:12px;
+	height: 12px;
+	background:url('../img/lit_icon.png') no-repeat; 
+	display: inline-block;
+    vertical-align: middle;
+	background-position: -17px -104px;
+	position: absolute;
+	top:13px;
+	left:21px;
+}
+
+.newly i{
+	width:15px;
+	height: 12px;
+	background:url('../img/lit_icon.png') no-repeat; 
+	display: inline-block;
+    vertical-align: middle;
+	background-position: -16px -124px;
+	position: absolute;
+	top:12px;
+	left:20px;
+}
+
+.count_product{
+	 margin-top:30px;
+}
+.count_product h6{
+	 font-size:16px;
+	 color:#121212;
+	 height:40px;
+	 line-height: 40px;
+	 padding-left: 5px;
+	 border-top:1px solid #e6e6e6;
+	 font-weight: normal;
+	 border-bottom:none;
+}
+.count_product table{
+	width:860px;
+	 border-collapse: collapse;
+	 border:1px solid #e6e6e6;
+	 font-size: 14px;
+	 color:#121212;
+}
+.dit{
+	margin-left: 13px;
+}
+
+.count_product table tr th{
+	height:38px;
+	line-height: 38px;
+}
+.count_product table td{
+	 height:38px;
+	 line-height: 38px;
+	 border:1px solid #e6e6e6;
+	 text-align: center;
+}
+
+.count_product table td a{
+	 color:#0050bf;
+	 margin-right:10px;
+	 text-align: left;
+}
+.count_product table td a:hover{
+	 text-decoration: underline;
+}
+
+ .count_product table td .price,
+ .count_product table td .maths,
+ .count_product table td .pdt_name{
+	width: 164px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis; 
+} 
+
+.count_product table td .pdt_name{
+	width: 157px;
+} 
+.count ul li dl dd.currt {
+    background: #fa9d00 none repeat scroll 0 0;
+    color: #fff;
+}
+
+.count_product table td .price{
+	  width:130px;
+} 
+
+/* 翻页样式 */
+.page {
+    display: flex;
+    flex-direction: row;
+    height: 30px;
+    justify-content: center;
+    margin: 40px auto 0px;
+}
+.preBtn, .nextBtn {
+    border: 1px solid #ccc;
+    cursor: pointer;
+    float: left;
+    height: 27px;
+    line-height: 27px;
+    text-align: center;
+    width: 27px;
+}
+.nextBtn {
+    margin-left: 10px;
+}
+.ctPage {
+    float: left;
+    margin-left: 10px;
+    max-width: 190px;
+    overflow: hidden;
+}
+.ctPage ul {
+    clear: both;
+    min-width: 30px;
+    overflow: hidden;
+    position: relative;
+}
+.ctPage ul li:first-child {
+    margin-left: 0;
+}
+.ctPage ul li {
+    border: 1px solid #ccc;
+    cursor: pointer;
+    float: left;
+    height: 27px;
+    line-height: 28px;
+    list-style: outside none none;
+    margin-left: 10px;
+    text-align: center;
+    width: 27px;
+}
+
+.current {
+    color: #fff;
+    background: #fa9d00;
+}
+
+.Errors{
+	width: 600px;
+	height: 380px;
+	z-index: 10;
+	background: #ffffff;
+	position:fixed;
+	top: 50%;
+	left: 50%;
+	margin-top: -190px;
+	margin-left: -300px;
+	text-align: center;
+	display:none;
+}
+
+.Errors h4{
+	color: #111111;
+	font-size: 24px;
+	font-weight: bold;
+	width: 100%;
+	text-align: center;
+	margin-top: 40px;
+}
+
+.boom{
+	background: #000;
+	opacity: 0.3;
+	position:fixed;
+	z-index: 9;
+	top: 0;
+	left: 0;
+	display:none;
+}
+
+.Errors span{
+	display: block;
+	color: #111111;
+	font-size: 18px;
+	font-weight: bold;
+	width: 100%;
+	text-align: center;
+	margin-top: 90px;
+	height: 20px;
+	line-height: 20px;
+}
+
+.delBtn{
+	width: 360px;
+	height: 50px;
+	margin-top: 110px;
+	margin-left: 120px;
+	text-align: center;
+	line-height: 50px;
+	background: #ff9900;
+	color: #fff;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.per_nav ul li:last-child a {
+    color: #ff9900;
+    border-left: 2px solid #ff9900;
+}
+ 
+ span.error, .mobile-error {
+    background: rgba(0, 0, 0, 0) url(../images/error.jpg) no-repeat scroll left center;
+    color: #91191e;
+    height: 50px;
+    line-height: 36px;
+    margin-left: 10px;
+    padding-left: 20px;
+    white-space: nowrap;
+}
+
+span.valid {
+    background: rgba(0, 0, 0, 0) url(../images/sucess.jpg) no-repeat scroll left center;
+    color: #91191e;
+    margin-left: 10px;
+    padding-left: 20px;
+    line-height: 36px;
+    height: 50px;
+}
+
+.nolist_ser{
+	float: right;
+	width:860px;
+	text-align: center;
+	margin-top: 90px;
+	margin-bottom: 240px;
+	display: none;
+}
+
+.nolist_ser span{
+	font-size: 14px;
+	color: #111111;
+}
+
+
+
+
+
+
+
+
+
+

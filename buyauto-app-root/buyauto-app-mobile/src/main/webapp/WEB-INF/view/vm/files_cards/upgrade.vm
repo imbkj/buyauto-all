@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!--meta-->
+	    #parse("/frame/meta.vm")
+	<!--meta-->
+	<title>立即升级</title>
+	<link rel="stylesheet" href="$request.getContextPath()/res/css/idcards.css">
+</head>
+<body>
+	 <div class="wrap">
+	 	 <!--<div class="topnav">
+	 	 	  <a href="javascript:window.history.go(-1);"></a>
+	 	 	  <p>立即升级</p>
+	 	 </div>-->
+
+	 	 <div class="content conter">
+	 	    <div class="tips">需完成提交下列三项资料后，方可升级成功</div>
+	 	 		<ul>
+	 	 			<li>
+	 	 			   <a href="$request.getContextPath()/h/l/msg/idcards?token=$token&msgId=$msgId">
+	 	 				<label>身份证信息</label>
+		 	 		 	 <div class="rt">
+		 	 		 	 	<p>
+		 	 		 	 	#if(!$!{user.cardID})
+		 	 		 	 	     未填写
+		 	 		 	 	#else
+		 	 		 	 	  $!{user.cardID}
+		 	 		 	 	#end
+		 	 		 	 	<em>></em>
+		 	 		 	 	</p> 
+		 	 		 	 </div>
+		 	 		   </a>
+	 	 			</li>
+	 	 			<li>
+	 	 			   <a href="$request.getContextPath()/h/l/msg/debitCards?token=$token&msgId=$msgId">
+	 	 				<label>借记卡信息</label>
+		 	 		 	 <div class="rt">
+		 	 		        <p>
+		 	 		        #if(!$!{user.debitCard})
+		 	 		 	 	     未填写
+		 	 		 	 	#else
+		 	 		 	 	  $!{user.debitCard}
+		 	 		 	 	#end
+		 	 		 	 	<em>></em></p> 
+		 	 		 	 </div>
+		 	 		   </a>
+	 	 			</li>
+	 	 			<li>
+	 	 			   <a href="$request.getContextPath()/h/l/msg/creditCards?token=$token&msgId=$msgId">
+	 	 				<label>信用卡信息</label>
+		 	 		 	 <div class="rt">
+		 	 		        <p>
+ 							#if(!$!{user.creditCard})
+		 	 		 	 	     未填写
+		 	 		 	 	#else
+		 	 		 	 	  $!{user.creditCard}
+		 	 		 	 	#end
+		 	 		 	 	<em>></em></p> 
+		 	 		 	 </div>
+		 	 		   </a>
+	 	 			</li>
+	 	 		</ul>
+	 	 		<div class="buttons button">
+	 	 			 <input type="button" value="提交" id="submit_button" />
+	 	 			 <input type="hidden" id="msgId" value="$msgId" />
+				     <input type="hidden" id="token" value="$token" />
+	 	 		</div>	 	
+	 	 </div>
+	 	 <div class="pop">
+            <div class="popMain">
+                <div class="popTop"></div>
+                <div class="popMiddle">
+                    <p></p>
+                    <div class="popBottom">
+                       <span class="confirm">确定</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+	 </div>
+	<script type="text/javascript" src="$request.getContextPath()/res/appjs/upgrade.js"></script>
+</body>
+</html>

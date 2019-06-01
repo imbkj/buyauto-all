@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <title>麦卡进口车-提车地址管理</title>
+    #parse("/frame/public.vm")
+
+	
+</head>
+
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+
+        <!-- 导航菜单部分 -->
+        #parse("/frame/public_nav_panel.vm")
+
+        <!-- top navigation -->
+        #parse("frame/public_top_nav_panel.vm")
+        <!-- /top navigation -->
+
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="clearfix"></div>
+
+            <div class="page-title">
+                <div class="title_left">
+                #if($configureType == 1)
+                   <h3>可选配置管理</h3>
+                #else
+                   <h3>提车地址管理</h3>
+                #end
+                 
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+
+                        <div class="x_title">
+                            <h2>筛选条件</h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>
+                                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+
+                            <form class="form-horizontal form-label-left" id="mem_search" action="#" novalidate>
+                                <div class="row">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12"
+                                               for="first-name">创建时间：</label>
+
+                                        <div class="col-md-5 col-sm-6 col-xs-12">
+                                            <input id="crstartTime" name="strStartDate" value="" type="hidden">
+                                            <input id="crendTime" name="strEndDate" value="" type="hidden">
+
+                                            <div id="reportrange1" class="form-control">
+                                                <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+                                                <span>&nbsp;&nbsp;请选择时间范围&nbsp;</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="item form-group">
+                                    
+                                    	#if($configureType == 1)
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12"
+                                               for="first-name">配置信息：</label>
+										#else
+										<label class="control-label col-md-2 col-sm-2 col-xs-12"
+                                               for="first-name">提车地址：</label>
+										#end	
+                                        <div class="col-md-5 col-sm-6 col-xs-12">
+                                            <input type="text" name="scvalue" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name"></label>
+
+                                    <div class="col-md-5 col-sm-6 col-xs-12">
+                                        <button type="button" class="btn btn-success" id="transfer_frmSearch"><i
+                                                class="fa fa-search"></i>&nbsp;&nbsp;查 询
+                                        </button>
+										#if($configureType == 1)
+										#else
+                                        <button type="button" id="btn_create_product" class="btn btn-warning"><i
+                                                class="fa fa-plus"></i>&nbsp;新 增
+                                        </button>
+                                        #end
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel min_height_700">
+                                <div class="x_title">
+                                	#if($configureType == 1)
+                                    <h2>可选配置列表</h2>
+                                    #else
+                                    <h2>提车地址列表</h2>
+                                    #end
+                                    <ul class="nav navbar-right panel_toolbox">
+                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                        </li>
+
+
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+                                    <table id="transfer_datatable"
+                                       class="table table-hover table-striped  table-bordered   dt-responsive nowrap" style="width:100%;">
+                                        <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            #if($configureType == 1)
+                                            <th>配置信息</th>
+                                            #else
+                                            <th>地址</th>
+                                            #end
+                                            <th>备注</th>
+                                            <th>状态</th>
+                                            <th>创建时间</th>
+                                            #if($configureType == 1)
+                                            #else
+                                            <th>操作</th>
+                                            #end
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section>
+            <div id="editwin" class="modal fade uas-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog "  style="width:900px;">
+                    <div class="modal-content" style="col-md-12 col-sm-12 col-xs-12">
+
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                            </button>
+                        	#if($configureType == 1)
+                            <h4 class="modal-title" id="myUASModalLabel">可选配置新增</h4>
+                            #else
+                            <h4 class="modal-title" id="myUASModalLabel">提车地址新增</h4>
+                            #end
+                            
+                        </div>
+                        <div class="modal-body">
+
+                            <form id="form_user_role" action="#" class="form-horizontal form-label-left" method="POST"
+                                  novalidate target="_blank">
+
+                                <div class="row">
+                                    <div class="item form-group">
+                                    #if($configureType == 1)
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12"
+                                               for="first-name">可选配置</label>
+                                    #else
+                                    	<label class="control-label col-md-2 col-sm-2 col-xs-12"
+                                               for="first-name">提车地址</label>
+                                    #end           
+
+                                        <div class="col-md-5 col-sm-6 col-xs-12">
+                                            <input type="text" id="scvalue" name="scvalue" required="required"
+                                                   class="form-control"/>
+                                            <input type="hidden" id="id" name="id" value=""/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-2 col-sm-2 col-xs-12"
+                                               for="first-name">备注</label>
+
+                                        <div class="col-md-5 col-sm-6 col-xs-12">
+                                            <input type="text" id="scremark" name="scremark"
+                                                   class="form-control"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </form>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="button" id="btn_submit" class="btn btn-primary">提交</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        #parse("/frame/footer.vm")
+        <!-- /footer content -->
+    </div>
+</div>
+
+#parse("/frame/footer_resouce.vm")
+
+<script type="text/javascript">
+
+
+</script>
+#if($configureType == 1)
+<script type="text/javascript" src="$request.getContextPath()/res/appjs/receive_car_optionalconfig.js"></script>
+#else
+<script type="text/javascript" src="$request.getContextPath()/res/appjs/receive_car_address.js"></script>
+#end
+<script type="text/javascript" src="$request.getContextPath()/res/appjs/receive_car_address_validate.js"></script>
+<script type="text/javascript" src="$request.getContextPath()/res/js/common/jquery.time.plugin.js"></script>
+<script>
+    $(function () {
+        var tp = new timePlugins("crstartTime", "crendTime", "reportrange1");
+        tp.init();
+    })
+</script>
+
+</body>
+</html>

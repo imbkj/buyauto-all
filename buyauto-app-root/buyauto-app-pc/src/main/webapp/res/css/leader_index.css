@@ -1,0 +1,165 @@
+  .top_banner{
+	width: 1100px;
+	height: 78px;
+	margin: 0 auto;
+}
+
+.order_box{
+	width: 1100px;
+	margin: 40px auto 210px;
+	overflow: hidden;
+	clear: both;
+}
+
+.order_rt{
+	float: right;
+	width: 860px;
+}
+
+.order_rt ul .rt_f01{
+	padding: 0 20px;
+	float: left;
+	width: 240px;
+	height: 180px;
+	border-radius: 5px;
+	background: #ed853d;
+}
+
+.order_rt ul .rt_f01 img,.order_rt ul .rt_f02 img{
+	width: 45px;
+	height: 42px;
+	float: left;
+	margin-top: 40px;
+	margin-left: 23px;
+}
+
+.order_rt ul .rt_f03 img{
+	width: 46px;
+	height: 46px;
+	float: left;
+	margin-top: 40px;
+	margin-left: 20px;
+}
+
+.order_rt ul .rt_f04 img{
+	width: 65px;
+	height: 23px;
+	float: left;
+	margin-top:53px;
+	margin-left: 20px;
+}
+
+.order_rt ul .rt_f05 img{
+	width: 36px;
+	height: 36px;
+	float: left;
+	margin-top:43px;
+	margin-left: 20px;
+}
+
+.order_rt ul .rt_f02{
+	padding: 0 20px;
+	float: left;
+	width: 240px;
+	height: 180px;
+	border-radius: 5px;
+	background: #62c18e;
+	margin-left: 10px;
+}
+
+.order_rt ul .rt_f03{
+	padding: 0 20px;
+	float: left;
+	width: 240px;
+	height: 180px;
+	border-radius: 5px;
+	background: #3dc6ef;
+	margin-left: 10px;
+}
+
+.order_rt ul .rt_f04{
+	padding: 0 20px;
+	float: left;
+	width: 240px;
+	height: 180px;
+	border-radius: 5px;
+	background: #ed8b96;
+	margin-top: 10px;
+}
+
+.order_rt ul .rt_f05{
+	padding: 0 20px;
+	float: left;
+	width: 240px;
+	height: 180px;
+	border-radius: 5px;
+	background: #f3af3d;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+.order_rt ul li span:first-child{
+	float: left;
+	width: 100%;
+	height: 47px;
+	line-height: 47px;
+	border-bottom: 1px solid #e6e6e6;
+	color: #fbeae1;
+	font-size: 14px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.index_num{
+	color: #ffffff;
+	font-size: 28px;
+	float: left;
+	width: 172px;
+	height: 129px;
+	text-align: center;
+	line-height: 129px;
+}
+
+.order_rt ul li .index_amount{
+	color: #ffffff;
+	font-size: 28px;
+	float: left;
+	width: 172px;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	margin-top: 46px;
+}
+
+.order_rt ul li .deposit_title,.order_rt ul li .retainage_title{
+	float: left;
+	width: 15%;
+	font-size: 14px;
+	color: #ffffff;
+	text-align: center;
+	margin-top: 10px;
+}
+
+.order_rt ul li .index_deposit,.order_rt ul li .index_retainage{
+	float: left;
+	width: 35%;
+	font-size: 14px;
+	color: #ffffff;
+	text-align: center;
+	margin-top: 10px;
+}
+
+.order_rt ul .pre span:last-child{
+	color: #ffffff;
+	font-size: 28px;
+	float: left;
+	width: 150px;
+	height: 129px;
+	text-align: center;
+	line-height: 129px;
+}
+
+.order_lt .icon1 a{
+	background: #f39800 url('../images/order-icon01.png') no-repeat 20px center;
+	color: #ffffff;
+}

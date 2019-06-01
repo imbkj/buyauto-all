@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <title>麦卡进口车-首页</title>
+    #parse("/frame/public.vm")
+    <style>
+        span.required {
+            margin: 0 5px;
+            color: #f00;
+        }
+    </style>
+</head>
+
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+
+        <!-- 导航菜单部分 -->
+        #parse("/frame/public_nav_panel.vm")
+
+        <!-- top navigation -->
+        #parse("frame/public_top_nav_panel.vm")
+        <!-- /top navigation -->
+
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <div class="clearfix"></div>
+	          <div class="row">
+	              <div class="row">
+	                  <div class="col-md-12 col-sm-12 col-xs-12">
+	                      <div class="x_panel fixed_height_370">
+	                       	<img width="100%" src="$request.getContextPath()/res/images/image_index.jpg"></img>
+	                        </div>
+	                  </div>
+	              </div>
+	          </div>
+          </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        #parse("/frame/footer.vm")
+        <!-- /footer content -->
+    </div>
+</div>
+
+
+#parse("/frame/footer_resouce.vm")
+
+</body>
+</html>

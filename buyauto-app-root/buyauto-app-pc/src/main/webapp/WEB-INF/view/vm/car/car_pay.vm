@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--meta-->
+	    #parse("/frame/meta.vm")
+	<!--meta-->
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/style.css" />
+	<title>麦卡进口车-订单支付</title>
+</head>
+<body>
+	<div class="car_box">
+		<!--header-->
+	    #parse("/frame/header.vm")
+	    <!--header-->
+		<div class="car_size car_indent_deta">
+			<div class="cl logistics_img">
+				<ul class="cl">
+					<li class="fl open">
+						<img src="$request.getContextPath()/res/images/flow_2.png" alt="" />
+						<p>选择车型</p>
+					</li>
+					<li class="fl spot">
+						<img src="$request.getContextPath()/res/images/dots.png" alt="" />
+					</li>
+					<li class="fl">
+						<img src="$request.getContextPath()/res/images/flow_3.png" alt="" />
+						<p>物流运输</p>
+					</li>
+					<li class="fl spot">
+						<img src="$request.getContextPath()/res/images/dot_c.png" alt="" />
+					</li>
+					<li class="fl">
+						<img src="$request.getContextPath()/res/images/flow_5.png" alt="" />
+						<p>等待交车</p>
+					</li>
+				</ul>
+			</div>
+			<div class="cl car_flow car_pay">
+				<div class="flow_hint fl" style="display:none;">
+					<!-- 待付款（万元） -->
+					#set($paymentMoney = $!order.amount - $!order.deposit)
+					
+					#if($!order.status==110)
+						<h5>
+							待系统确认
+						</h5>
+						<p>您的订单已提交，</p>
+						<p>请耐心等待系统确认</p>
+					#elseif($!order.status==100)
+						<h5>
+							订单确认中
+						</h5>
+						<p>您的订单已提交成功，</p>
+						<p>系统确认需要3~5分钟，</p>
+						<p>请耐心等待！</p>
+				    #elseif($!order.status==401)
+						<h5>
+							库存确认未通过
+						</h5>
+						<p>库存不足</p>
+					#elseif($!order.status==101)
+						<h5>等待支付定金</h5>
+						<!-- <span>$order.creatTime</span> -->
+						<!-- 根据定金支付比例计算 -->
+						<p>￥ $VCToolbar.formatBigDecimalThousand("$!order.deposit",true)元</p>
+						<input type="hidden" id="orderCreateTime" value="$order.creatTime"/>
+						<input type="hidden" id="paynowdate" value="$nowDate"/>
+						<div class="count" id="count"></div>
+					#elseif($!order.status==102)
+						<h5>
+							定金待审核
+						</h5>
+						<p>定金已付，</p>
+						<p>请耐心等待平台运营审核</p>
+					#elseif($!order.status==402)
+						<h5>
+							定金审核未通过
+						</h5>
+						<p>请联系财务，及时处理</p>
+					#elseif($!order.status==103)
+						<h5>
+							待发货
+						</h5>
+						<p>定金审核通过，</p>
+						<p>请耐心等待供应商发货</p>
+					#elseif($!order.status==104)
+						<h5>
+							待支付尾款
+						</h5>
+						<p>供应商已发货，</p>
+						<p>请尽快联系财务支付尾款</p>
+						<div>待付尾款<span>￥$VCToolbar.formatBigDecimalThousand("$paymentMoney",true)</span></div>
+					#elseif($!order.status==105)
+						<h5>
+							尾款待审核
+						</h5>
+						<p>尾款已付，</p>
+						<p>请耐心等待平台运营审核</p>
+					#elseif($!order.status==403)
+						 <h5>
+							尾款审核未通过
+						</h5>
+						<p>请联系财务，及时处理</p>
+					#elseif($!order.status==106)
+						<h5>
+							三证待上传
+						</h5>
+						<p>尾款已付，</p>
+						<p>请耐心等待供应商上传</p>
+						<p>车辆三证信息</p>
+					#elseif($!order.status==107)
+						<h5>
+							等待收车
+						</h5>
+						<p>车辆已发出</p>
+					#elseif($!order.status==200)
+						<h5>
+							订单已完成
+						</h5>
+						<p>车辆已交付</p>
+					#elseif($!order.status==404)
+						<h5>
+							订单已取消
+						</h5>
+						<p>取消订单已成功</p>
+					#elseif($!order.status==405)
+						<h5>
+							订单已关闭
+						</h5>
+						<p>
+							#if($!order.payStatus == 0)
+								未支付
+							#elseif($!order.payStatus == 10)
+								定金已支付
+							#elseif($!order.payStatus == 20)
+								定金已退
+							#elseif($!order.payStatus == 11)
+								尾款已支付
+							#elseif($!order.payStatus == 12)
+								尾款已退
+							#else
+								定金支付超时
+							#end
+						</p>
+					#elseif($!order.status==108)
+						<h5>
+							取消待审核
+						</h5>
+						<p>取消订单审核中</p>
+					#end
+				</div>
+				<div class="fr logistics_ift" style="width:1100px;">
+					#if($!order.status == 101)
+						<h5>订单已经生成，请尽快完成定金支付，定金需网上支付！</h5>
+					#elseif($!order.status == 110)
+						<h5>您的订单已提交，请耐心等待系统确认</h5>
+					#elseif($!order.status==100)
+						<h5>您的订单已提交成功，系统确认需要3~5分钟，请耐心等待！</h5>
+					#elseif($!order.status==401)
+						<h5>库存不足</h5>
+					#elseif($!order.status==102)
+						<h5>定金已付请耐心等待平台运营审核</h5>
+					#elseif($!order.status==402)
+						<h5>定金审核未通过，请联系财务，及时处理</h5>
+					#elseif($!order.status==103)
+						<h5>定金审核通过，请耐心等待供应商发货</h5>
+					#elseif($!order.status==104)
+						<h5>供应商已发货，请尽快联系财务支付尾款</h5>
+					#elseif($!order.status==105)
+						<h5>尾款已付，请耐心等待平台运营审核</h5>
+					#elseif($!order.status==106)
+						<h5>尾款已付，请耐心等待供应商上传车辆三证信息</h5>
+					#elseif($!order.status==403)
+						<h5>尾款审核未通过，请联系财务，及时处理</h5>
+					#elseif($!order.status==107)
+						<h5>车辆已发出</h5>
+					#elseif($!order.status==108)
+						<h5>取消订单审核中</h5>
+					#elseif($!order.status==200)
+						<h5>车辆已交付</h5>
+					#elseif($!order.status==404)
+						<h5>取消订单已成功</h5>
+					#elseif($!order.status==405)
+						<h5>订单已关闭</h5>
+					#end
+					<p class="car_code"> 订单号：<span>$!order.id</span></p>
+					<p>对公银行账号：<span>$order.accountNumber</span></p>
+					<div class="cl car_owner">
+						<img class="fl" src="$uploadPath$coverImage" alt="" width="170" height="119"/>
+						<div class="fl car_minute">
+							<div class="car_param">
+								<ul class="cl">
+									<li class="cl">
+										<span class="fl">产品：</span>
+										<p class="fl" style="width:475px;margin-left:20px;">$!order.product.title</p>
+									</li>
+									<li class="cl">
+										<span class="fl">提车人：</span>
+										<p class="fl" style="width:475px;margin-left:20px;"><span>$!order.customer</span><span>$!order.customerTel</span></p>
+									</li>
+									<li class="cl">
+										<span class="fl">提车地点：</span>
+										<p class="fl" style="width:475px;margin-left:20px;">$!order.takeLocation</p>
+									</li>
+									<li class="cl">
+										<span class="fl">期待交付时间：</span>
+										<p class="fl" style="width:475px;margin-left:20px;">$!order.deliverTime</p>
+									</li>
+									<li class="cl">
+										<span class="fl">留言：</span>
+										<p class="fl" style="width:475px;margin-left:20px;">
+											#if(!$order.message || "" == $order.message)
+												无
+											#else
+												$order.message
+											#end
+										</p>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="cl car_back">
+						<a class="fl" href="$request.getContextPath()/">返回首页</a>
+						<a class="fl indent_file" href="$request.getContextPath()/h/l/orders/orderDetial/$order.id">查看订单</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--base-->
+	    #parse("/frame/base.vm")
+	    <!--base-->
+	</div>
+	<script src="$request.getContextPath()/res/appjs/car_pay.js"></script>
+</body>
+</html>

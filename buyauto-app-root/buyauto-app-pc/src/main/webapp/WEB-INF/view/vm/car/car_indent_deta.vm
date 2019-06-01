@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--meta-->
+	    #parse("/frame/meta.vm")
+	<!--meta-->
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/style.css" />
+     <link rel="stylesheet" href="$request.getContextPath()/res/css/orderInfo.css" />
+	<title>麦卡进口车-订单详情</title>
+</head>
+<body>
+	<div class="car_box">
+		<!--header-->
+	    #parse("/frame/header.vm")
+	    <!--header-->
+		<div class="car_size car_indent_deta">
+			<div class="title">
+				<a href="$request.getContextPath()/h/l/user/leaderIndex">&nbsp;首页</a>&nbsp;><a href="#">&nbsp;个人中心</a>
+			</div>
+			#parse("/frame/per_nav.vm")
+			<div class="per_content cl car_flow">
+				<div class="order_title">
+				 	<span>订单详情</span>
+				</div>
+				<div class="order_time">
+					<ul>
+						<li>
+							<span>$!date.format("yyyy-MM-dd HH:mm:ss",$!order.createDate)</span>
+						</li>
+						<li>
+							<span>订单号：$!order.id</span>
+						</li>
+						<li>
+							<span>对公银行账号：$order.accountNumber</span>
+						</li>
+					</ul>
+				</div>
+				<div class="logistics">
+					<h5 style="font-size:16px;">物流信息</h5>
+					<div class="real_time">
+						<p>物流跟踪：</p>
+						<input type="hidden" id="logisticsInfoValue" value='$!order.logisticsInfo'/>
+						<ul id="logisticsInfoUl">
+						
+						</ul>
+					</div>
+				</div>
+				<div class="car_papers">
+					<h5 style="font-size:16px;">车辆三证信息</h5>
+					<ul>
+						<input type="hidden" id="carThreCars" value="$!carThree"/>
+						#foreach ($carThreeCard in $!carThree)
+						<li>
+							<a class="cl card_information" href="$uploadPath$carThreeCard.filePath" download="$uploadPath$carThreeCard.filePath">
+								<span class="fl check" >$carThreeCard.filePath</span><span class="fl">(点击下载)</span>
+							</a>
+						</li>
+						#end
+					</ul>
+				</div>
+				<div class="car_mes">
+					<h5 style="font-size:16px;">提车信息</h5>
+					<ul>
+						<li class="cl">
+							<span class="fl">提车人：</span>
+							<p class="fl">$!order.customer<br>$!order.customerTel</p>
+						</li>
+						<li class="cl">
+							<span class="fl">提车方式：</span>
+							<p class="fl">
+								#if($!order.takeWay == 0)
+									客户自提
+								#elseif($!order.takeWay == 1)
+									配送
+								#end
+							</p>
+						</li>
+						<li class="cl">
+							<span class="fl">提车地点：</span>
+							<p class="fl">$!order.takeLocation</p>
+						</li>
+						<li class="cl">
+							<span class="fl">期待交付日期：</span>
+							<p class="fl">$!order.deliverTime</p>
+						</li>
+						<li class="cl">
+							<span class="fl">留言：</span>
+							<p class="fl">
+								#if(!$order.message || "" == $order.message)
+									无
+								#else
+									$order.message
+								#end
+							<p>
+						</li>
+					</ul>
+				</div>
+				<div class="cl car_owner">
+						<img class="fl" src="$uploadPath$order.productImage.filePath" alt="" width="170" height="119"/>
+						<div class="cl fl car_minute">
+							<h5 class="cardate_name">$!order.product.title</h5>
+							<div class="car_param">
+								<h5>参数配置</h5>
+								<ul class="cl">
+									<li class="cl">
+										<span class="fl">型号</span>
+										<p class="fl">$!order.product.carModel</p>
+									</li>
+									<li class="cl">
+										<span class="fl">发动机</span>
+										<p class="fl">$!order.product.engine</p>
+									</li>
+									<li class="cl">
+										<span class="fl">颜色</span>
+										<p class="fl">车身&nbsp;$!order.product.outColor&nbsp;&nbsp;&nbsp;内饰&nbsp;$!order.product.inColor</p>
+									</li>
+									<li class="cl">
+										<span class="fl">变速箱</span>
+										<p class="fl">$!order.product.gearbox</p>
+									</li>
+								</ul>
+							</div>
+							<div class="car_elect">
+								<h5>必选配置</h5>
+								<input type="hidden" name="financeType" id="financeType" value='$financeType'/>
+								 <input type="hidden" name="mustConfigurePrice" id="mustConfigurePrice" value='$order.product.mustConfigurePrice'/>
+								#if(!$order.ConfigurePrice || $order.ConfigurePrice == "")
+									<input type="hidden" name="ConfigurePrice" id="ConfigurePrice" value='0'/>
+								#else
+									<input type="hidden" name="ConfigurePrice" id="ConfigurePrice" value='$!order.ConfigurePrice'/>
+								#end
+								<ul class="cl">
+									<li class="fl">$!order.product.mustConfigure</li>
+								</ul>
+							</div>
+							<div class="car_add">
+								<h5>可选配置</h5>
+								<input type="hidden" id="carOptionalConfigure" value='$!order.configure'/>
+								<ul class="cl" id="carOptionalConfigUl">
+									#if(!$order.configure || $order.configure == "")
+										<li class="fl">无可选配置</li>
+									#else
+									#end
+								</ul>
+							</div>
+							#if($financeType == 1)
+							<div class="cl car_price">
+								<span class="fl">麦卡价</span>
+								<p class="fl" style="color:#ff9900;">￥$VCToolbar.formatBigDecimalThousand("$!order.carPrice",true)</p>
+							</div>
+							<div class="cl car_price">
+								<span class="fl">必选配置(含保险金)</span>
+								<p class="fl" style="color:#ff9900;">￥$VCToolbar.formatBigDecimalThousand("$!order.product.mustConfigurePrice",true)</p>
+							</div>
+							<div class="cl car_price">
+								<span class="fl">可选配置</span>
+								<p class="fl" style="color:#ff9900;">
+								#if(!$order.ConfigurePrice || $order.ConfigurePrice == "")
+									￥0
+								#else
+									￥$VCToolbar.formatBigDecimalThousand("$!order.ConfigurePrice",true)
+								#end
+								</p>
+							</div>
+							<div class="cl car_price car_total">
+								<span class="fl">合计</span>
+								<p class="fl" style="color:#ff9900;">￥$VCToolbar.formatBigDecimalThousand("$!order.amount",true)</p>
+							</div>
+							#end
+							<!--<div style="width:60%;float:right;height:1px;background:#e6e6e6;"></div>-->
+							#if($financeType == 2)
+								#if($carFinance.outRange)
+							<div class="cl car_price">
+								<span class="fl">月供</span>
+								<p class="fl">￥ $VCToolbar.formatBigDecimalThousand("$carFinance.MonPay",false)</p>
+							</div>
+							<div class="cl car_price">
+								<span class="fl">期限</span>
+								<p class="fl">$carFinance.term年</p>
+							</div>
+							<div class="cl car_price">
+								<span class="fl">其他(必选配置+可选配置+保险)</span>
+								<p class="fl" name="otherPay">￥10000</p>
+							</div>
+							<div class="cl car_price">
+								<span class="fl">保证金</span>
+								<p class="fl">￥ $VCToolbar.formatBigDecimalThousand("$carFinance.bzjPay",false)</p>
+							</div>
+							<div class="cl car_price">
+								<span class="fl">手续费</span>
+								<p class="fl">￥$VCToolbar.formatBigDecimalThousand("$carFinance.sxfPay",false)</p>
+							</div>
+								#else
+							<div class="cl car_price">
+								<span class="fl">首月应付</span>
+								<p class="fl">￥ $VCToolbar.formatBigDecimalThousand("$carFinance.firstMonPay",false)</p>
+							</div>
+							<div class="cl car_price">
+								<span class="fl">月供</span>
+								<p class="fl">￥ $VCToolbar.formatBigDecimalThousand("$carFinance.MonPay",false)</p>
+							</div>
+							<div class="cl car_price">
+								<span class="fl">期限</span>
+								<p class="fl">$carFinance.term年</p>
+							</div>
+							<div class="cl car_price">
+								<span class="fl">其他(必选配置+可选配置+保险)</span>
+								<p class="fl" name="otherPay">￥10000</p>
+							</div>
+								#end
+							#end
+							<div class="cl car_price">
+								<span class="fl want">需要支付定金</span>
+								<p class="fl" name="downpayment">￥$VCToolbar.formatBigDecimalThousand("$!order.deposit",true)</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--base-->
+	    #parse("/frame/base.vm")
+	    <!--base-->
+	</div>
+	<div class="shade"></div>
+<script type="text/javascript" src="$request.getContextPath()/res/js/plug/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="$request.getContextPath()/res/appjs/car_indent_deta.js"></script>
+ <script type="text/javascript" src="$request.getContextPath()/res/js/plug/jQuery.formatMoney.min.js"></script>
+</body>
+</html>

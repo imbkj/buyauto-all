@@ -1,0 +1,329 @@
+   <!DOCTYPE html>
+<html>
+<head>
+    <title>麦卡进口车 - 车型配置</title>
+    <!--meta-->
+	    #parse("/frame/meta.vm")
+	<!--meta-->
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/car_config.css" />
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/style.css">
+</head>
+<body>
+    <div class="main">
+        <!--header-->
+        #parse("/frame/header.vm")
+
+        <div class="Title">
+            <a href="$request.getContextPath()/">&nbsp;首页</a>&nbsp;><a href="$request.getContextPath()/h/n/products/garageScr">&nbsp;车库</a>&nbsp;><a href="#">&nbsp;$sysConfigBrand.scValue</a>&nbsp;><a href="#">&nbsp;$productsPojo.title</a>
+        </div>
+
+        <div class="car_config">
+            <form id="register_form"  action="$request.getContextPath()/h/l/products/confirmOrder" method="post">
+                <div class="car_config_lt">
+                    <ul>
+                        <li class="car_Box">
+                            <div class="car">
+                                <div class="car_img">
+                                     <img src="$uploadPath$productsPojo.imgfilePath" />
+                                </div>
+                                <div class="car_info">
+                                    <span class="car_info_title">$productsPojo.title</span>
+                                    <div class="info">
+                                        <div class="info_top">
+                                            <span>麦卡价：</span>
+                                            <span>￥ $VCToolbar.formatBigDecimalThousand("$productsPojo.carPrice",true)</span>
+                                            #if($productsPojo.chinaPrice)
+                                            <span>国内指导价<a>￥ $VCToolbar.formatBigDecimalThousand("$productsPojo.chinaPrice",true)</a></span>
+                                            #end
+                                        </div>
+                                        <div class="info_bottom">
+                                            <span><a>$productsPojo.country</a></span>
+                                            #if($productsPojo.position == 0)
+                                            	<span><a>现货</a></span>
+                                            #elseif($productsPojo.position == 1)
+                                            	<span><a>预定</a></span>
+                                            #else
+                                            	<span><a>在途</a></span>
+                                            #end
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="config">
+                            <span>参数配置</span>
+                        </li>
+                        <li class="tip">
+                            <span>型号</span>
+                            <span class="model">$productsPojo.carModel</span>
+                        </li>
+                        <li class="tip">
+                            <span>颜色</span>
+                            <span class="color">车身&nbsp;$productsPojo.outColor&nbsp;内饰&nbsp;$productsPojo.inColor</span>
+                        </li>
+                        <li class="tip">
+                            <span>发动机</span>
+                            <span class="motor">$productsPojo.engine</span>
+                        </li>
+                        <li class="tip">
+                            <span>变速箱</span>
+                            <span class="motor">$productsPojo.gearbox</span>
+                        </li>
+                        <li class="config_must">
+                            <span class="config_must_title">
+                                <a>|</a><a class="config_must01">必选配置</a>(该配置是国家法规要求必选改装的配置)
+                                <input type="hidden" name="productsId" id="productsId" value='$productsPojo.productsId'>
+                                <input type="hidden" name="carPrice" id="carPrice" value='$productsPojo.carPrice'>
+                                <input type="hidden" name="mustConfigurePrice" id="mustConfigurePrice" value='$productsPojo.mustConfigurePrice'>
+                                <input type="hidden" name="deposit" id="deposit" value='$productsPojo.deposit'>
+                            </span>
+                            <div class="config_info">
+                        	  $productsPojo.mustConfigure
+                            </div>
+                            <div class="config_must_price">
+                                <span>必选配置<a>￥ $VCToolbar.formatBigDecimalThousand("$productsPojo.mustConfigurePrice",true)</a></span>
+                            </div>
+                        </li>
+                        <li class="config_loan">
+                        	<span class="config_loan_title">
+                                <a>|</a><a>保险配置</a>
+                            </span>
+                         
+                            <ul>
+                               #if($insurance.InsuranceOneName)
+                            	<li id ="insurance1">
+                            		<div>
+                            			<span>$insurance.InsuranceOneName</span>
+                            		</div>
+                            		<div>
+                            			<span name="insurance_price">￥  $VCToolbar.formatBigDecimalThousand("$insurance.InsuranceOneValue",true)</span>
+                            		</div>
+                            	</li>
+                            	  #end
+                            	
+                            	   #if($insurance.InsuranceTwoName)
+                            	<li id ="insurance2">
+                            		<div>
+                            			<span>$insurance.InsuranceTwoName</span>
+                            		</div>
+                            		<div>
+                            			<span name="insurance_price">￥  $VCToolbar.formatBigDecimalThousand("$insurance.InsuranceTwoValue",true)</span>
+                            		</div>
+                            	</li>
+                            	#end
+                            </ul>
+                          
+                            
+                         
+                            
+                            
+                            
+                        </li>
+                        <li class="config_sel">
+                            <span class="config_sel_title">
+                                <a>|</a><a>可选配置</a>
+                            </span>
+                            <ul>
+                            	#if($productsPojo.optionalConfigure =="[]")
+                            	 	<div style ="heigth: 45px; line-height:45px; font-size:12px; color:#666; padding:0 0 0 13px; ">无可选配置</div>	
+                            	 	<input type="hidden" name="optional" id="optional" value='[]'>
+                            	#else
+                            	 	<input type="hidden" name="optional" id="optional" value='$productsPojo.optionalConfigure'>
+                            	#end
+                            	<div id="optional_hidden">
+                            	</div>
+                               
+                            </ul>
+                            <div class="config_sel_price">
+                             	<!-- <span>可选配置<a>￥6000.99元</a>车辆的设计方案是免费的</span> -->
+                                <span>可选配置<a name="optional_amount">0元</a>车辆的设计方案是免费的</span>
+                            </div>
+                        </li>
+                        <li class="config_type">
+                        	<span class="config_type_title">
+                                <a>|</a><a>配送方式</a>
+                            </span>
+                            <ul>
+                            	<li id="0">
+                            		<span>客户自提</span>
+                            	</li>
+                            	<li id="1">
+                            		<span>商家配送</span>
+                            	</li>
+                            </ul>
+                        </li>
+                        <li class="address address01">
+                            <span class="address_title">
+                                <a>|</a><a>提车地点</a>
+                            </span>
+                            <select id="address" name="address" class="config_address" style="width: 549px;">
+                                <option value="">请选择提车地点</option>
+                                #foreach($address in $sysConfigAddress)
+                                 <option id='$address.id'>$address.scValue</option>
+                                #end
+                            </select>
+                        </li>
+                        
+                        <li class="address address02">
+                            <span class="address_title">
+                                <a>|</a><a>配送地点</a>
+                            </span>
+                            <input type="text" id="distribution_address" name="address02" class="config_address"  maxLength="40" placeholder="请输入配送地址" />
+                        </li>
+                     
+                            <li class="time time01"  name="time" >
+                                <span class="time_title">
+                                    <a>|</a><a>提车时间</a>
+                                </span>
+                               <div id="demo" class="datepicker-content">
+                                  <input type="text" id="singleDateRange" readonly="readonly" class="padding-content config_time" />
+                                  <div id="calendar" class="calendar" ></div>
+                                </div>                               
+                            </li>
+
+
+
+                            
+                            <li class="time time02"  name="time" >
+		                      	<span class="time_title">
+		                            <a>|</a><a>期望交付时间</a>
+		                        </span>
+		                        <select id="distribution_time" name="time" class="config_time02 config_time" >
+                                	<!-- <option value="">请选择提车时间</option> -->
+	                                <option >三个月内</option>
+	                                <option >六个月内</option>
+	                                <option >九个月内</option>
+	                            </select>
+							</li>
+                        
+                        <li id="cue">
+                        	<span>
+                                *以上时间为您选择的期望平台交付车辆的时间，不构成麦卡交付车辆时间的保证和
+                                承诺，平台交付车辆的时间为您按照《汽车购买协议》约定接收您所购买车辆之日。
+                            </span>
+                        </li>
+                        <li class="name">
+                            <span class="time_title">
+                                <a>|</a><a>提车人姓名</a>
+                            </span>
+                            <input type="text" id="name" class="config_name" name="name" maxLength="20" placeholder="该姓名将用于提车信息时验证(最大长度不能超过20)" />
+                        </li>
+                        <li class="mobile">
+                            <span class="mobile_title">
+                                <a>|</a><a>联系电话</a>
+                            </span>
+                            <input type="number" id="mobile" name="mobile" class="config_mobile" placeholder="请输入您的手机号" oninput="if(value.length>11)value=value.slice(0,11)" />
+                        </li>
+                    </ul>
+                </div>
+            
+    
+                <div class="car_config_rt">
+                    <div class="rt_top">
+                		<div class="price_title">
+                			<div class="Price getback" name="1">
+                				<span class='getline'>合计价格</span>
+                			</div>
+                            <div class="Loan" name="2">
+                				<span>贷款方案</span>
+                			</div>
+                        </div>
+                        <ul class="price_ul">
+                            <li class="price_mic">                              
+                                <span>￥ $VCToolbar.formatBigDecimalThousand("$productsPojo.carPrice",true)</span>
+                                 <span>麦卡价</span>
+                            </li>
+                            <li class="price_must">
+                                <span id="price_must">￥ $VCToolbar.formatBigDecimalThousand("$productsPojo.mustConfigurePrice",true)</span>
+                                <span>必选配置(含保险金)</span>
+                            </li>
+                            <li class="price_sel">
+                                <span name="optional_amount" id="optional_amount">￥ 0</span>
+                                <span>可选配置</span>
+                            </li>
+                            <li class="price_all">            
+                                <span><a  name="price_calculation">￥ $VCToolbar.formatBigDecimalThousand("0",true)</a></span>
+                                <span>合计</span>
+                            </li>
+                            <li class="earnest">
+                                <span>需要支付定金<a name ="deposit">￥ 0</a></span>
+                            </li>
+                        </ul>
+                        <ul class="loan_ul"  style="display:none;">
+                            <li id="li_firstMonPay" class="price_mic">
+                                <span id="firstMonPay">8400/月</span>
+                                <span>首月应付</span>
+                            </li>
+                            <li class="price_mic" style="margin-top:10px;">
+                                <span id="MonPay">8400/月</span>
+                                <span>月供</span>
+                            </li>
+                            <li class="Chioce">
+                                <span class="getColor_f">1年</span>&nbsp;&nbsp;|&nbsp;&nbsp;<span>2年</span>&nbsp;&nbsp;|&nbsp;&nbsp;<span>3年</span>
+                            </li>
+                            <li style="color:#bfbfbf;margin-top:5px;">
+                                <span>期限</span>
+                            </li>
+                            <li class="price_sel">
+                                <span id="otherPrice">10000</span>
+								<span>其它(保险+必选配置+可选配置)</span>
+                            </li>
+                            <li class="price_sel" id="li_bzj">
+                                <span id="bzj">100000</span>
+                                <span>保证金</span>
+                            </li>
+                            <li class="price_sel" id="li_sxf">
+                                <span id="sxf">100000</span>
+                                <span>手续费</span>
+                            </li>
+							<li class="earnest">
+                                <span>需要支付定金<a name ="deposit">￥ 0</a></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="rt_bottom">
+                        <input type="submit" value="立即订购" id="register_submit" />
+                    </div>
+                </div>
+                <div id="hide_commit">
+                	<input type="hidden" id="sysConfigId" name="sysConfigId" value = ""/>
+                	<input type="hidden" id="optionalConfigure" name="optionalConfigure" value = ""/>
+                	<input type="hidden" id="deliveryMode" name="deliveryMode" value = ""/>
+                	<input type="hidden" id="extractionTime" name="extractionTime" value = ""/>
+                	<input type="hidden" id="extractionAddress" name="extractionAddress" value = ""/>
+                	<input type="hidden" id="insuranceType" name="insuranceType" value = ""/>
+					<input type="hidden" id="financeType" name="financeType" value = ""/>
+					<input type="hidden" id="term" name="term" value = ""/>
+        		</div>
+            </form>
+           
+
+        </div>
+        
+        <div class="boom"></div>
+        <div class="Errors" id="InsuranceErrors">
+			<h4>提示</h4>
+			<span>请选择保险类型</span>
+			<div class="delBtn">确认</div>
+		</div>
+		<div class="Errors" id="DistributionErrors">
+			<h4>提示</h4>
+			<span>请选择配送方式</span>
+			<div class="delBtn">确认</div>
+		</div>
+		
+        <!--footer-->
+        #parse("/frame/base.vm")
+    </div>
+	 <script type="text/javascript">
+	   var financePrice="$productsPojo.carPrice";
+	   var mustPrice="$productsPojo.mustConfigurePrice";
+     </script>
+	 <script type="text/javascript" src="$request.getContextPath()/res/js/plug/jQuery.formatMoney.min.js"></script>
+    <script type="text/javascript" src="$request.getContextPath()/res/js/plug/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="$request.getContextPath()/res/js/plug/jquery.validate.form.js"></script>
+ 	<script type="text/javascript" src="$request.getContextPath()/res/appjs/car_config.js"></script>
+ 	<script type="text/javascript" src="$request.getContextPath()/res/js/moment/data.js"></script>
+ 	 
+</body> 
+</html>

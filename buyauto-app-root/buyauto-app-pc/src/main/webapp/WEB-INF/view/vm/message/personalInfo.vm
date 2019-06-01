@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--meta-->
+	    #parse("/frame/meta.vm")
+	<!--meta-->
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/style.css" />
+    <link rel="stylesheet" href="$request.getContextPath()/res/css/personalInfo.css" />
+    <link rel="stylesheet" href="$request.getContextPath()/res/js/fileinput/css/fileinput.css" />
+    <link rel="stylesheet" href="$request.getContextPath()/res/js/fileinput/css/bootstrap.css" />
+	<title>麦卡进口车 - 接受邀请</title>
+</head>
+<body>
+	 <div class="main">
+	 	<!--header-->
+		#parse("/frame/header.vm")
+		<div class="title">
+			<a href="$request.getContextPath()/h/l/user/leaderIndex">&nbsp;首页</a>&nbsp;><a href="#">&nbsp;个人中心</a>
+		</div>
+		<div class="content_box">
+			#parse("/frame/per_nav.vm")
+			<div class="per_content">
+				<div class="message_title">
+				 	<span>消息中心</span>
+				 </div>
+				 <div class="message_input">
+				 	<span>提交信息</span>
+				 </div>
+				 <div class="message_info">
+				 <form id="register_form"  method="post" >
+				 <ul>
+					<input type="hidden" id="msgId" value="$!msgId"/>
+						<li>
+							<span class="lt">
+								姓名:
+							</span>
+							<input class="lr" type="text" id="name" name="name" placeholder="请输入姓名"   value="$!tUsers.name"/>
+							
+						</li>
+						<li>
+							<span class="lt">
+								身份证号:
+							</span>
+							<input class="lr" type="text" id="cardID" name="cardID" placeholder="请输入身份证号" value="$!tUsers.cardID" />
+							
+						</li>
+						<li>
+							<span class="lt">
+								身份证附件:
+							</span>
+							<input class="fc" type="file"  id='cardFile'  multiple="false"  />
+						</li>
+						<li>
+							<span class="lt">
+								借记卡行:
+							</span>
+							<input class="lr" type="text" id="debitCardBank" name="debitCardBank" placeholder="请输入借记卡行"  value="$!tUsers.debitCardBank"/>
+							
+						</li>	
+						<li>
+							<span class="lt">
+								借记卡号:
+							</span>
+							<input class="lr" type="text" id="debitCard" name="debitCard" placeholder="请输入借记卡号"  value="$!tUsers.debitCard"/>
+							
+						</li>
+						<li>
+							<span class="lt">
+								借记卡附件:
+							</span>
+                            <input class="fc" type="file"  id='debitCardFile'  multiple="false"  />
+						</li>
+						<li>
+							<span class="lt">
+								信用卡行:
+							</span>
+							<input class="lr" type="text" id="creditCardBank" name="creditCardBank" placeholder="请输入信用卡行" value="$!tUsers.creditCardBank"/>
+							
+						</li>	
+						<li>
+							<span class="lt">
+								信用卡号:
+							</span>
+							<input class="lr" type="text" id="creditCard" name="creditCard" placeholder="请输入信用卡号" value="$!tUsers.creditCard"/>
+							
+						</li>
+						<li>
+							<span class="lt">
+								借记卡附件:
+							</span>
+                            <input class="fc" type="file"  id='creditCardFile'  multiple="false"  />
+						</li>						
+							<li>
+								<input type="button" id="btn_levelUp" class="btn_levelUp" value="提交" onclick="javascript:submitForm();"/>
+							</li>
+		 		</ul>
+		 		</form>
+		 		</div>
+			</div>
+		</div>
+		
+		
+	 	 
+		  <!-- 提示 -->
+		<div class="boom"></div>
+		<div class="Errors">
+			<h4>提示</h4>
+			<span> </span>
+			<div class="delBtn">确认</div>
+		</div>
+		<!-- end -->
+		 <!--footer-->
+		#parse("/frame/base.vm")
+	 </div>
+	 
+	 <script type="text/javascript" src="$request.getContextPath()/res/js/fileinput/fileinput.js"></script>
+	<script type="text/javascript" src="$request.getContextPath()/res/js/fileinput/fileinput_locale_zh.js"></script>
+		<script type="text/javascript" src="$request.getContextPath()/res/js/common/jquery.fileinputUpload.common.js"></script>
+		<script type="text/javascript" src="$request.getContextPath()/res/appjs/personalInfo.js"></script>
+		<script type="text/javascript" src="$request.getContextPath()/res/js/plug/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="$request.getContextPath()/res/js/plug/jquery.validate.form.js"></script>
+</body>	 	 
+</html>
